@@ -12,16 +12,17 @@
 
 const PRODUCTS = [
 
-  // ─── KORAH ──────────────────────────────────────────────
+  // ─── KORAH K Series ─────────────────────────────────────
   {
-    id: "korah-k19-pro",
+    id: "korah-k16s",
     brand: "KORAH",
-    name: "KORAH K19 PRO",
-    tagline: "Power Amplifier chuyên nghiệp — thông số kỹ thuật đang cập nhật",
+    series: "K Series",
+    name: "KORAH K16S",
+    tagline: "Power Amplifier Class D — thông số kỹ thuật đang cập nhật",
     status: "active",
     visible: true,
-    image: "",
-    tech: ["sic", "pfc", "classD"],
+    image: "assets/products/korah-k16s.jpg",
+    tech: ["classD", "pfc"],
     specs: {
       "Công suất": "Đang cập nhật",
       "Số kênh": "Đang cập nhật",
@@ -38,14 +39,115 @@ const PRODUCTS = [
   },
 
   {
-    id: "korah-k29-pro",
+    id: "korah-k16pro",
     brand: "KORAH",
-    name: "KORAH K29 PRO",
-    tagline: "Power Amplifier chuyên nghiệp — thông số kỹ thuật đang cập nhật",
+    series: "K Series",
+    name: "KORAH K16PRO",
+    tagline: "Power Amplifier Class D — thông số kỹ thuật đang cập nhật",
     status: "active",
     visible: true,
-    image: "",
-    tech: ["sic", "pfc", "classD"],
+    image: "assets/products/korah-k16pro.jpg",
+    tech: ["classD", "pfc"],
+    specs: {
+      "Công suất": "Đang cập nhật",
+      "Số kênh": "Đang cập nhật",
+      "Dải tần số": "Đang cập nhật",
+      "THD+N": "Đang cập nhật",
+      "Điện áp vào": "Đang cập nhật",
+      "Kích thước": "Đang cập nhật",
+      "Trọng lượng": "Đang cập nhật"
+    },
+    description: "Thông tin chi tiết sẽ được cập nhật sau. Vui lòng liên hệ AMMY để biết thêm thông tin.",
+    features: [],
+    manuals: [],
+    applications: []
+  },
+
+  {
+    id: "korah-k19s",
+    brand: "KORAH",
+    series: "K Series",
+    name: "KORAH K19S",
+    tagline: "Power Amplifier Class D — thông số kỹ thuật đang cập nhật",
+    status: "active",
+    visible: true,
+    image: "assets/products/korah-k19s.jpg",
+    tech: ["classD", "pfc"],
+    specs: {
+      "Công suất": "Đang cập nhật",
+      "Số kênh": "Đang cập nhật",
+      "Dải tần số": "Đang cập nhật",
+      "THD+N": "Đang cập nhật",
+      "Điện áp vào": "Đang cập nhật",
+      "Kích thước": "Đang cập nhật",
+      "Trọng lượng": "Đang cập nhật"
+    },
+    description: "Thông tin chi tiết sẽ được cập nhật sau. Vui lòng liên hệ AMMY để biết thêm thông tin.",
+    features: [],
+    manuals: [],
+    applications: []
+  },
+
+  {
+    id: "korah-k19pro",
+    brand: "KORAH",
+    series: "K Series",
+    name: "KORAH K19PRO",
+    tagline: "Power Amplifier Class D với Silicon Carbide SiC — thông số kỹ thuật đang cập nhật",
+    status: "active",
+    visible: true,
+    image: "assets/products/korah-k19pro.jpg",
+    tech: ["classD", "pfc", "sic"],
+    specs: {
+      "Công suất": "Đang cập nhật",
+      "Số kênh": "Đang cập nhật",
+      "Dải tần số": "Đang cập nhật",
+      "THD+N": "Đang cập nhật",
+      "Điện áp vào": "Đang cập nhật",
+      "Kích thước": "Đang cập nhật",
+      "Trọng lượng": "Đang cập nhật"
+    },
+    description: "Thông tin chi tiết sẽ được cập nhật sau. Vui lòng liên hệ AMMY để biết thêm thông tin.",
+    features: [],
+    manuals: [],
+    applications: []
+  },
+
+  {
+    id: "korah-k20s",
+    brand: "KORAH",
+    series: "K Series",
+    name: "KORAH K20S",
+    tagline: "Power Amplifier Class D với Silicon Carbide SiC — thông số kỹ thuật đang cập nhật",
+    status: "active",
+    visible: true,
+    image: "assets/products/korah-k20s.jpg",
+    tech: ["classD", "pfc", "sic"],
+    specs: {
+      "Công suất": "Đang cập nhật",
+      "Số kênh": "Đang cập nhật",
+      "Dải tần số": "Đang cập nhật",
+      "THD+N": "Đang cập nhật",
+      "Điện áp vào": "Đang cập nhật",
+      "Kích thước": "Đang cập nhật",
+      "Trọng lượng": "Đang cập nhật"
+    },
+    description: "Thông tin chi tiết sẽ được cập nhật sau. Vui lòng liên hệ AMMY để biết thêm thông tin.",
+    features: [],
+    manuals: [],
+    applications: []
+  },
+
+  {
+    id: "korah-k20plus",
+    brand: "KORAH",
+    series: "K Series",
+    name: "KORAH K20PLUS",
+    tagline: "Power Amplifier Class D — thông số kỹ thuật đang cập nhật",
+    status: "active",
+    visible: true,
+    image: "assets/products/korah-k20plus.jpg",
+    tech: ["classD", "pfc"],
     specs: {
       "Công suất": "Đang cập nhật",
       "Số kênh": "Đang cập nhật",

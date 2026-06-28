@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết sản phẩm — AMMY / KORAH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a class="nav__logo" href="index.html"><span class="nav__logo-text">AMMY <span>/</span> KORAH</span></a>
+        <ul class="nav__links">
+          <li class="nav__item"><a class="nav__link" href="about.html">Giới thiệu</a></li>
+          <li class="nav__item">
+            <a class="nav__link" href="technology.html">Công nghệ ▾</a>
+            <ul class="nav__dropdown">
+              <li><a class="nav__dropdown-link" href="technology.html#korah-platform">Nền tảng KORAH</a></li>
+              <li><a class="nav__dropdown-link" href="technology.html#sic">Silicon Carbide SiC</a></li>
+              <li><a class="nav__dropdown-link" href="technology.html#pfc">PFC Power Supply</a></li>
+              <li><a class="nav__dropdown-link" href="technology.html#classd">Class D High Efficiency</a></li>
+            </ul>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link active" href="products.html">Sản phẩm ▾</a>
+            <ul class="nav__dropdown">
+              <li><a class="nav__dropdown-link" href="products.html?brand=KORAH">KORAH</a></li>
+              <li><a class="nav__dropdown-link" href="products.html?brand=ROY">ROY</a></li>
+              <li><a class="nav__dropdown-link" href="products.html?brand=USAMMY">USAMMY</a></li>
+              <li><a class="nav__dropdown-link" href="products.html?brand=discontinued">Ngưng sản xuất</a></li>
+            </ul>
+          </li>
+          <li class="nav__item"><a class="nav__link" href="support.html">Hỗ trợ</a></li>
+          <li class="nav__item"><a class="nav__link" href="contact.html">Liên hệ</a></li>
+        </ul>
+        <a class="btn btn--gold btn--sm nav__cta" href="contact.html">Liên hệ ngay</a>
+        <button class="nav__hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+  <nav class="nav__mobile">
+    <a class="nav__mobile-link" href="about.html">Giới thiệu</a>
+    <a class="nav__mobile-link" href="technology.html">Công nghệ</a>
+    <a class="nav__mobile-link" href="products.html">Sản phẩm</a>
+    <a class="nav__mobile-link" href="support.html">Hỗ trợ kỹ thuật</a>
+    <a class="nav__mobile-link" href="contact.html">Liên hệ</a>
+  </nav>
+
+  <!-- Product Detail Main — rendered by JS -->
+  <div class="container">
+    <section class="product-detail">
+      <div id="product-detail-main">
+        <div class="loading" style="padding:80px 0;text-align:center;color:var(--gray-1)">Đang tải thông tin sản phẩm…</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Related / CTA -->
+  <section class="section--sm" style="background:var(--black-2);border-top:1px solid var(--black-4)">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
+      <div>
+        <div style="font-size:0.875rem;color:var(--gray-1);margin-bottom:4px">Cần tư vấn thêm?</div>
+        <div style="font-family:var(--font-head);font-weight:700;color:var(--white)">Đội ngũ kỹ thuật AMMY luôn sẵn sàng hỗ trợ</div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn--gold" href="contact.html">Liên hệ tư vấn</a>
+        <a class="btn btn--ghost" href="products.html">Xem tất cả sản phẩm</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">AMMY <span>/</span> KORAH</div>
+          <p class="footer__tagline">Sản xuất, phát triển và phân phối thiết bị âm thanh chuyên nghiệp.</p>
+          <span class="footer__iso">ISO 9001 Certified</span>
+        </div>
+        <div><div class="footer__col-title">Sản phẩm</div><ul class="footer__links"><li><a class="footer__link" href="products.html?brand=KORAH">KORAH</a></li><li><a class="footer__link" href="products.html?brand=ROY">ROY</a></li><li><a class="footer__link" href="products.html?brand=USAMMY">USAMMY</a></li></ul></div>
+        <div><div class="footer__col-title">Thông tin</div><ul class="footer__links"><li><a class="footer__link" href="about.html">Giới thiệu</a></li><li><a class="footer__link" href="technology.html">Công nghệ</a></li></ul></div>
+        <div><div class="footer__col-title">Hỗ trợ</div><ul class="footer__links"><li><a class="footer__link" href="support.html">Hỗ trợ kỹ thuật</a></li><li><a class="footer__link" href="after-sales.html">Bảo hành</a></li><li><a class="footer__link" href="contact.html">Liên hệ</a></li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">© 2025 AMMY. Tất cả quyền được bảo lưu.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./data/categories.js"></script>
+  <script src="./data/products.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

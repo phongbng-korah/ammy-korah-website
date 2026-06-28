@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sản phẩm — AMMY / KORAH · ROY · USAMMY</title>
+  <meta name="description" content="Danh sách sản phẩm AMMY: KORAH power amplifier, ROY, USAMMY và sản phẩm đã ngưng sản xuất.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a class="nav__logo" href="index.html"><span class="nav__logo-text">AMMY <span>/</span> KORAH</span></a>
+        <ul class="nav__links">
+          <li class="nav__item"><a class="nav__link" href="about.html">Giới thiệu</a></li>
+          <li class="nav__item">
+            <a class="nav__link" href="technology.html">Công nghệ ▾</a>
+            <ul class="nav__dropdown">
+              <li><a class="nav__dropdown-link" href="technology.html#korah-platform">Nền tảng KORAH</a></li>
+              <li><a class="nav__dropdown-link" href="technology.html#sic">Silicon Carbide SiC</a></li>
+              <li><a class="nav__dropdown-link" href="technology.html#pfc">PFC Power Supply</a></li>
+              <li><a class="nav__dropdown-link" href="technology.html#classd">Class D High Efficiency</a></li>
+            </ul>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link active" href="products.html">Sản phẩm ▾</a>
+            <ul class="nav__dropdown">
+              <li><a class="nav__dropdown-link" href="products.html?brand=KORAH">KORAH</a></li>
+              <li><a class="nav__dropdown-link" href="products.html?brand=ROY">ROY</a></li>
+              <li><a class="nav__dropdown-link" href="products.html?brand=USAMMY">USAMMY</a></li>
+              <li><a class="nav__dropdown-link" href="products.html?brand=discontinued">Ngưng sản xuất</a></li>
+            </ul>
+          </li>
+          <li class="nav__item"><a class="nav__link" href="support.html">Hỗ trợ</a></li>
+          <li class="nav__item"><a class="nav__link" href="contact.html">Liên hệ</a></li>
+        </ul>
+        <a class="btn btn--gold btn--sm nav__cta" href="contact.html">Liên hệ ngay</a>
+        <button class="nav__hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+  <nav class="nav__mobile">
+    <a class="nav__mobile-link" href="about.html">Giới thiệu</a>
+    <a class="nav__mobile-link" href="technology.html">Công nghệ</a>
+    <a class="nav__mobile-link" href="products.html">Sản phẩm</a>
+    <a class="nav__mobile-link" href="support.html">Hỗ trợ kỹ thuật</a>
+    <a class="nav__mobile-link" href="contact.html">Liên hệ</a>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero__label">Danh mục sản phẩm</div>
+      <h1 class="page-hero__title">Sản phẩm AMMY</h1>
+      <p class="page-hero__desc">
+        Ba thương hiệu, một cam kết chất lượng. Khám phá dòng sản phẩm KORAH, ROY và USAMMY —
+        thiết bị âm thanh chuyên nghiệp đạt tiêu chuẩn ISO 9001.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider--gold container"></div>
+
+  <section class="section">
+    <div class="container">
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">Tất cả</button>
+        <button class="filter-btn" data-filter="KORAH">KORAH</button>
+        <button class="filter-btn" data-filter="ROY">ROY</button>
+        <button class="filter-btn" data-filter="USAMMY">USAMMY</button>
+        <button class="filter-btn" data-filter="discontinued">Ngưng sản xuất</button>
+      </div>
+
+      <!-- Product Grid -->
+      <div id="product-grid" class="grid grid--auto">
+        <div class="loading">Đang tải sản phẩm…</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info Note -->
+  <section class="section--sm">
+    <div class="container">
+      <div class="info-block" style="max-width:640px">
+        <strong style="color:var(--ivory)">Lưu ý:</strong> Danh sách sản phẩm và thông số kỹ thuật đang được cập nhật.
+        Để biết thêm thông tin chi tiết hoặc giá cả, vui lòng <a href="contact.html" style="color:var(--gold)">liên hệ AMMY</a>.
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">AMMY <span>/</span> KORAH</div>
+          <p class="footer__tagline">Sản xuất, phát triển và phân phối thiết bị âm thanh chuyên nghiệp.</p>
+          <span class="footer__iso">ISO 9001 Certified</span>
+        </div>
+        <div><div class="footer__col-title">Sản phẩm</div><ul class="footer__links"><li><a class="footer__link" href="products.html?brand=KORAH">KORAH</a></li><li><a class="footer__link" href="products.html?brand=ROY">ROY</a></li><li><a class="footer__link" href="products.html?brand=USAMMY">USAMMY</a></li><li><a class="footer__link" href="products.html?brand=discontinued">Ngưng sản xuất</a></li></ul></div>
+        <div><div class="footer__col-title">Thông tin</div><ul class="footer__links"><li><a class="footer__link" href="about.html">Giới thiệu</a></li><li><a class="footer__link" href="technology.html">Công nghệ</a></li></ul></div>
+        <div><div class="footer__col-title">Hỗ trợ</div><ul class="footer__links"><li><a class="footer__link" href="support.html">Hỗ trợ kỹ thuật</a></li><li><a class="footer__link" href="after-sales.html">Bảo hành</a></li><li><a class="footer__link" href="contact.html">Liên hệ</a></li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">© 2025 AMMY. Tất cả quyền được bảo lưu.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./data/categories.js"></script>
+  <script src="./data/products.js"></script>
+  <script src="./js/main.js"></script>
+  <script>
+    // Apply brand filter from URL query param
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const brand = params.get('brand');
+      if (brand) {
+        const btn = document.querySelector(`.filter-btn[data-filter="${brand}"]`);
+        if (btn) btn.click();
+      }
+    });
+  </script>
+</body>
+</html>

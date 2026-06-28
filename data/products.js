@@ -143,11 +143,11 @@ const PRODUCTS = [
     brand: "KORAH",
     series: "K Series",
     name: "KORAH K20PLUS",
-    tagline: "Power Amplifier Class D — thông số kỹ thuật đang cập nhật",
+    tagline: "Power Amplifier Class D với Silicon Carbide SiC — thông số kỹ thuật đang cập nhật",
     status: "active",
     visible: true,
     image: "assets/products/korah-k20plus.jpg",
-    tech: ["classD", "pfc"],
+    tech: ["classD", "sic", "pfc"],
     specs: {
       "Công suất": "Đang cập nhật",
       "Số kênh": "Đang cập nhật",

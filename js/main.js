@@ -116,16 +116,10 @@ function productCardHTML(p) {
     return `<span class="tech-chip">${label}</span>`;
   }).join('');
 
+  const imgPlaceholder = `<div class="card__image-placeholder"><span>Ảnh sản phẩm đang cập nhật</span></div>`;
   const imgContent = p.image
-    ? `<img src="${p.image}" alt="${p.name}" loading="lazy">`
-    : `<div class="card__image-placeholder">
-         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-           <rect x="3" y="3" width="18" height="18" rx="2"/>
-           <circle cx="8.5" cy="8.5" r="1.5"/>
-           <polyline points="21 15 16 10 5 21"/>
-         </svg>
-         <span>Ảnh đang cập nhật</span>
-       </div>`;
+    ? `<img src="${p.image}" alt="" loading="lazy" onerror="this.parentNode.innerHTML='${imgPlaceholder.replace(/'/g, "\\'")}">`
+    : imgPlaceholder;
 
   return `
   <a class="card product-card" href="product-detail.html?id=${p.id}">
@@ -193,16 +187,10 @@ function initProductDetail() {
       }).join('')
     : '<p class="text-muted" style="font-size:0.875rem">Tài liệu kỹ thuật sẽ được cập nhật sau.</p>';
 
+  const detailImgPlaceholder = `<div class="card__image-placeholder"><span>Ảnh sản phẩm đang cập nhật</span></div>`;
   const imgContent = product.image
-    ? `<img src="${product.image}" alt="${product.name}">`
-    : `<div class="card__image-placeholder" style="flex-direction:column;gap:16px;color:#555">
-         <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-           <rect x="3" y="3" width="18" height="18" rx="2"/>
-           <circle cx="8.5" cy="8.5" r="1.5"/>
-           <polyline points="21 15 16 10 5 21"/>
-         </svg>
-         <span style="font-size:0.875rem;letter-spacing:0.05em">Ảnh đang cập nhật</span>
-       </div>`;
+    ? `<img src="${product.image}" alt="" onerror="this.parentNode.innerHTML='${detailImgPlaceholder.replace(/'/g, "\\'")}">`
+    : detailImgPlaceholder;
 
   mainEl.innerHTML = `
     <a class="product-detail__back" href="products.html">

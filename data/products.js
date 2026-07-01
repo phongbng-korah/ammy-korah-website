@@ -167,6 +167,7 @@ const PRODUCTS = [
   {
     id: "roy-placeholder-01",
     brand: "ROY",
+    series: "Đang cập nhật",
     name: "ROY — Model đang cập nhật",
     tagline: "Dòng sản phẩm ROY — thông tin sẽ được cập nhật sau",
     status: "active",
@@ -186,6 +187,7 @@ const PRODUCTS = [
   {
     id: "usammy-placeholder-01",
     brand: "USAMMY",
+    series: "Đang cập nhật",
     name: "USAMMY — Model đang cập nhật",
     tagline: "Dòng sản phẩm USAMMY — thông tin sẽ được cập nhật sau",
     status: "active",
@@ -205,6 +207,7 @@ const PRODUCTS = [
   {
     id: "discontinued-sample-01",
     brand: "KORAH",
+    series: "Đang cập nhật",
     name: "Model đã ngưng sản xuất — mẫu",
     tagline: "Sản phẩm này đã ngưng sản xuất. Tài liệu kỹ thuật vẫn được lưu trữ để hỗ trợ.",
     status: "discontinued",

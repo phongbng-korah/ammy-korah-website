@@ -2,6 +2,19 @@
    AMMY / KORAH — main.js
    ============================================================ */
 
+// ── Image placeholder helper ────────────────────────────────
+// Called via onerror on <img> tags when a product image file
+// is missing. Replaces the broken img with a clean placeholder.
+function showImgPlaceholder(img) {
+  var wrap = img.parentNode;
+  var ph = document.createElement('div');
+  ph.className = 'card__image-placeholder';
+  var label = document.createElement('span');
+  label.textContent = 'Ảnh sản phẩm đang cập nhật';
+  ph.appendChild(label);
+  wrap.replaceChild(ph, img);
+}
+
 // ── Navigation ─────────────────────────────────────────────
 (function initNav() {
   const hamburger = document.querySelector('.nav__hamburger');
@@ -116,10 +129,10 @@ function productCardHTML(p) {
     return `<span class="tech-chip">${label}</span>`;
   }).join('');
 
-  const imgPlaceholder = `<div class="card__image-placeholder"><span>Ảnh sản phẩm đang cập nhật</span></div>`;
+  const imgPlaceholderDiv = `<div class="card__image-placeholder"><span>Ảnh sản phẩm đang cập nhật</span></div>`;
   const imgContent = p.image
-    ? `<img src="${p.image}" alt="" loading="lazy" onerror="this.parentNode.innerHTML='${imgPlaceholder.replace(/'/g, "\\'")}">`
-    : imgPlaceholder;
+    ? `<img src="${p.image}" alt="" loading="lazy" onerror="showImgPlaceholder(this)">`
+    : imgPlaceholderDiv;
 
   return `
   <a class="card product-card" href="product-detail.html?id=${p.id}">
@@ -187,10 +200,10 @@ function initProductDetail() {
       }).join('')
     : '<p class="text-muted" style="font-size:0.875rem">Tài liệu kỹ thuật sẽ được cập nhật sau.</p>';
 
-  const detailImgPlaceholder = `<div class="card__image-placeholder"><span>Ảnh sản phẩm đang cập nhật</span></div>`;
+  const detailPlaceholderDiv = `<div class="card__image-placeholder"><span>Ảnh sản phẩm đang cập nhật</span></div>`;
   const imgContent = product.image
-    ? `<img src="${product.image}" alt="" onerror="this.parentNode.innerHTML='${detailImgPlaceholder.replace(/'/g, "\\'")}">`
-    : detailImgPlaceholder;
+    ? `<img src="${product.image}" alt="" onerror="showImgPlaceholder(this)">`
+    : detailPlaceholderDiv;
 
   mainEl.innerHTML = `
     <a class="product-detail__back" href="products.html">

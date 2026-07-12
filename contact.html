@@ -2,11 +2,20 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
+  <meta name="color-scheme" content="dark">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liên hệ — AMMY / KORAH</title>
+  <meta name="description" content="Liên hệ AMMY: 131C Lâm Văn Bền, Q.7, TP.HCM — Hotline 0932 779 386 — info@ammy.com.vn">
+  <meta property="og:title" content="Liên hệ — AMMY / KORAH">
+  <meta property="og:description" content="Liên hệ AMMY: 131C Lâm Văn Bền, Q.7, TP.HCM — Hotline 0932 779 386 — info@ammy.com.vn">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+  <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -14,12 +23,22 @@
   <header class="site-header">
     <div class="container">
       <nav class="nav">
-        <a class="nav__logo" href="index.html"><span class="nav__logo-text">AMMY <span>/</span> KORAH</span></a>
+        <a class="nav__logo" href="index.html"><img class="nav__logo-img nav__logo-img--ammy" src="assets/logo/ammy-full.png" alt="AMMY"><span class="nav__logo-text-ammy">AMMY</span></a>
         <ul class="nav__links">
           <li class="nav__item"><a class="nav__link" href="about.html">Giới thiệu</a></li>
           <li class="nav__item"><a class="nav__link" href="technology.html">Công nghệ</a></li>
           <li class="nav__item"><a class="nav__link" href="products.html">Sản phẩm</a></li>
-          <li class="nav__item"><a class="nav__link" href="support.html">Hỗ trợ</a></li>
+          <li class="nav__item">
+            <a class="nav__link" href="support.html">Hỗ trợ ▾</a>
+            <ul class="nav__dropdown">
+              <li><a class="nav__dropdown-link" href="operation.html">Hướng dẫn sử dụng</a></li>
+              <li><a class="nav__dropdown-link" href="after-sales.html">Bảo hành &amp; Hậu mãi</a></li>
+              <li><a class="nav__dropdown-link" href="support.html">Hỗ trợ kỹ thuật</a></li>
+              <li><a class="nav__dropdown-link" href="dealers.html">Hệ thống đại lý</a></li>
+              <li><a class="nav__dropdown-link" href="download.html">Tải tài liệu</a></li>
+            </ul>
+          </li>
+          <li class="nav__item"><a class="nav__link" href="events.html">Sự kiện</a></li>
           <li class="nav__item"><a class="nav__link active" href="contact.html">Liên hệ</a></li>
         </ul>
         <a class="btn btn--gold btn--sm nav__cta" href="contact.html">Liên hệ ngay</a>
@@ -32,6 +51,7 @@
     <a class="nav__mobile-link" href="technology.html">Công nghệ</a>
     <a class="nav__mobile-link" href="products.html">Sản phẩm</a>
     <a class="nav__mobile-link" href="support.html">Hỗ trợ kỹ thuật</a>
+    <a class="nav__mobile-link" href="events.html">Sự kiện</a>
     <a class="nav__mobile-link active" href="contact.html">Liên hệ</a>
   </nav>
 
@@ -62,7 +82,7 @@
               </div>
               <div>
                 <div style="font-family:var(--font-head);font-weight:700;color:var(--white);margin-bottom:4px">Địa chỉ</div>
-                <div style="color:var(--gray-1);font-size:0.9375rem;line-height:1.7">Đang cập nhật — liên hệ để biết thêm thông tin</div>
+                <div style="color:var(--gray-1);font-size:0.9375rem;line-height:1.7"><strong style="color:var(--ivory-dim)">Văn phòng:</strong> 131C Lâm Văn Bền, P. Tân Thuận Tây, Q.7, TP. Hồ Chí Minh<br><strong style="color:var(--ivory-dim)">Xưởng sản xuất:</strong> 300/34/64 Nguyễn Văn Linh, P. Bình Thuận, Q.7, TP. Hồ Chí Minh</div>
               </div>
             </div>
 
@@ -72,7 +92,7 @@
               </div>
               <div>
                 <div style="font-family:var(--font-head);font-weight:700;color:var(--white);margin-bottom:4px">Điện thoại</div>
-                <div style="color:var(--gray-1);font-size:0.9375rem">Đang cập nhật</div>
+                <div style="color:var(--gray-1);font-size:0.9375rem;line-height:1.7">Văn phòng: <a href="tel:0903851252" style="color:var(--gold)">0903 851 252</a><br>Kinh doanh: <a href="tel:0932779386" style="color:var(--gold)">0932 779 386</a></div>
               </div>
             </div>
 
@@ -82,7 +102,7 @@
               </div>
               <div>
                 <div style="font-family:var(--font-head);font-weight:700;color:var(--white);margin-bottom:4px">Email</div>
-                <div style="color:var(--gray-1);font-size:0.9375rem">Đang cập nhật</div>
+                <div style="color:var(--gray-1);font-size:0.9375rem"><a href="mailto:info@ammy.com.vn" style="color:var(--gold)">info@ammy.com.vn</a><br><span style="font-size:0.8125rem">MST: 0304493237</span></div>
               </div>
             </div>
 
@@ -92,7 +112,7 @@
               </div>
               <div>
                 <div style="font-family:var(--font-head);font-weight:700;color:var(--white);margin-bottom:4px">Giờ làm việc</div>
-                <div style="color:var(--gray-1);font-size:0.9375rem">Đang cập nhật</div>
+                <div style="color:var(--gray-1);font-size:0.9375rem">Thứ 2 – Thứ 7: 8:00 – 17:00<br>Chủ nhật và ngoài giờ: vui lòng gọi hotline</div>
               </div>
             </div>
 
@@ -155,7 +175,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer__grid">
-        <div><div class="footer__brand-name">AMMY <span>/</span> KORAH</div><p class="footer__tagline">Thiết bị âm thanh chuyên nghiệp.</p><span class="footer__iso">ISO 9001 Certified</span></div>
+        <div><div class="footer__brand-name">AMMY <span>/</span> KORAH</div><p class="footer__tagline">Thiết bị âm thanh chuyên nghiệp.</p><span class="footer__iso">ISO 9001:2008 Certified</span></div>
         <div><div class="footer__col-title">Sản phẩm</div><ul class="footer__links"><li><a class="footer__link" href="products.html?brand=KORAH">KORAH</a></li><li><a class="footer__link" href="products.html?brand=ROY">ROY</a></li><li><a class="footer__link" href="products.html?brand=USAMMY">USAMMY</a></li></ul></div>
         <div><div class="footer__col-title">Thông tin</div><ul class="footer__links"><li><a class="footer__link" href="about.html">Giới thiệu</a></li><li><a class="footer__link" href="technology.html">Công nghệ</a></li></ul></div>
         <div><div class="footer__col-title">Hỗ trợ</div><ul class="footer__links"><li><a class="footer__link" href="operation.html">Hướng dẫn vận hành</a></li><li><a class="footer__link" href="after-sales.html">Hậu mãi & Bảo hành</a></li><li><a class="footer__link" href="support.html">Hỗ trợ kỹ thuật</a></li></ul></div>

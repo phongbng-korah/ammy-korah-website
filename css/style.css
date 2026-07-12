@@ -7,6 +7,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
+  color-scheme: dark;
   --black:      #0D0D0D;
   --black-2:    #141414;
   --black-3:    #1E1E1E;
@@ -23,8 +24,8 @@
   --gray-1:     #888888;
   --gray-2:     #555555;
 
-  --font-head:  'Montserrat', sans-serif;
-  --font-body:  'Inter', sans-serif;
+  --font-head: 'Montserrat', -apple-system, sans-serif;
+  --font-body: 'Montserrat', -apple-system, sans-serif;
 
   --radius-sm:  4px;
   --radius-md:  8px;
@@ -505,30 +506,32 @@ h4 { font-size: 1.25rem; }
 .card:hover .card__image img { transform: scale(1.04); }
 
 .card__image-placeholder {
-  position: absolute;
-  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  border: 1px solid rgba(200,169,110,0.15);
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(200,169,110,0.18);
+  box-sizing: border-box;
 }
 
 .card__image-placeholder::before {
   content: '';
   display: block;
-  width: 24px;
+  width: 28px;
   height: 1px;
-  background: rgba(200,169,110,0.4);
+  background: rgba(200,169,110,0.35);
+  margin-bottom: 4px;
 }
 
 .card__image-placeholder span {
-  font-size: 0.625rem;
-  letter-spacing: 0.14em;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  color: var(--gray-2);
   text-transform: uppercase;
-  color: var(--gray-1);
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .card__body { padding: 24px; }
@@ -1237,4 +1240,757 @@ h4 { font-size: 1.25rem; }
   position: absolute; width: 1px; height: 1px;
   padding: 0; margin: -1px; overflow: hidden;
   clip: rect(0,0,0,0); border: 0;
+}
+
+/* ============================================================
+   V2 — Hero Carousel (kiểu Lab Gruppen, ảnh KORAH)
+   Thay ảnh thật tại: assets/banners/hero-*.jpg (1920x900)
+   ============================================================ */
+.hero-carousel {
+  position: relative;
+  min-height: calc(100vh - var(--header-h));
+  max-height: 820px;
+  overflow: hidden;
+  background: var(--black-2);
+}
+
+.hc__slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center right;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease, visibility 0.8s;
+}
+.hc__slide.active { opacity: 1; visibility: visible; position: relative; }
+
+.hc__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    rgba(13,13,13,0.92) 0%,
+    rgba(13,13,13,0.72) 45%,
+    rgba(13,13,13,0.25) 100%);
+}
+
+.hc__content {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+  padding: 96px 0;
+}
+
+.hc__title {
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin: 16px 0;
+  color: var(--white);
+}
+.hc__title .line-gold { color: var(--gold); }
+
+.hc__desc {
+  color: var(--ivory-dim);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 32px;
+  max-width: 540px;
+}
+
+.hc__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--black-4);
+  background: rgba(13,13,13,0.6);
+  color: var(--ivory);
+  font-size: 1.6rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+}
+.hc__arrow:hover { border-color: var(--gold); color: var(--gold); }
+.hc__arrow--prev { left: 20px; }
+.hc__arrow--next { right: 20px; }
+
+.hc__dots {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  gap: 10px;
+}
+.hc__dot {
+  width: 32px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--black-4);
+  transition: background var(--transition);
+}
+.hc__dot.active { background: var(--gold); }
+
+/* ── Segment cards: giải pháp theo nhu cầu ── */
+.segment-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 24px;
+}
+
+.segment-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--black-2);
+  border: 1px solid var(--black-4);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--transition), transform var(--transition);
+}
+.segment-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+.segment-card--roy:hover { border-color: var(--teal-light); }
+
+.segment-card__media {
+  position: relative;
+  min-height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+.segment-card__scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, var(--black-2) 100%);
+}
+
+.segment-card__body { padding: 32px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+
+.segment-card__eyebrow {
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-1);
+}
+
+.segment-card__brand {
+  font-family: var(--font-head);
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.segment-card__desc { color: var(--ivory-dim); line-height: 1.75; }
+
+.segment-card__list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
+.segment-card__list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--ivory-dim);
+  font-size: 0.9rem;
+}
+.segment-card__list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 9px;
+  width: 8px; height: 2px;
+  background: var(--gold);
+}
+.segment-card--roy .segment-card__list li::before { background: var(--teal-light); }
+
+.segment-card .btn { align-self: flex-start; margin-top: auto; }
+
+@media (max-width: 900px) {
+  .segment-grid { grid-template-columns: 1fr; }
+  .hc__arrow { display: none; }
+  .hero-carousel { min-height: 78vh; }
+  .hc__content { padding: 64px 0 88px; }
+  .hc__slide { background-position: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hc__slide { transition: none; }
+}
+
+/* ── V2.1 — Slogan chạy theo slide + badge ISO ── */
+.hc__slogan {
+  font-family: var(--font-head);
+  font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-left: 18px;
+  border-left: 3px solid var(--gold);
+  opacity: 0;
+  transform: translateY(12px);
+}
+.hc__slide.active .hc__slogan {
+  animation: sloganIn 0.7s ease 0.25s forwards;
+}
+@keyframes sloganIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hc__badge {
+  position: absolute;
+  bottom: 26px;
+  left: 24px;
+  z-index: 5;
+  font-family: var(--font-head);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+  background: rgba(13,13,13,0.65);
+  border: 1px solid var(--black-4);
+  border-radius: 100px;
+  padding: 8px 18px;
+  backdrop-filter: blur(8px);
+}
+
+@media (max-width: 768px) {
+  .hc__badge {
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: calc(100% - 32px);
+    text-align: center;
+    bottom: 52px;
+    font-size: 0.62rem;
+  }
+  .hc__dots { bottom: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hc__slogan { opacity: 1; transform: none; animation: none; }
+}
+
+/* ── V2.2 — Logo thương hiệu ── */
+.nav__logo-img { height: 34px; width: auto; }
+.segment-card__logos {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 6px 0;
+}
+@media (max-width: 480px) {
+  .nav__logo-img { height: 28px; }
+}
+
+/* ── V2.3 — Slogan banner: tiêu đề nổi bật nhất ── */
+.slogan-banner {
+  padding: 88px 0 72px;
+  background: linear-gradient(180deg, var(--black) 0%, #121110 100%);
+  border-bottom: 1px solid var(--black-4);
+  text-align: center;
+  position: relative;
+}
+.slogan-banner__mark {
+  font-family: var(--font-head);
+  font-size: 5rem;
+  line-height: 0.4;
+  color: var(--gold);
+  opacity: 0.55;
+  margin-bottom: 8px;
+}
+.slogan-banner__text {
+  font-family: var(--font-head);
+  font-size: clamp(1.5rem, 4.2vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--white);
+  max-width: 1050px;
+  margin: 0 auto;
+}
+.slogan-banner__sep {
+  display: inline-block;
+  margin: 0 22px;
+  color: var(--gold);
+}
+.slogan-banner__by {
+  margin-top: 24px;
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gray-1);
+}
+@media (max-width: 768px) {
+  .slogan-banner { padding: 60px 0 48px; }
+  .slogan-banner__sep { display: block; margin: 10px auto; }
+}
+
+/* ── V2.4 — Hero kiểu Lab: ảnh sản phẩm nổi + quầng sáng sân khấu ── */
+.hero-carousel { max-height: none; min-height: calc(100vh - var(--header-h)); }
+
+.hc__inner {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hc__glow {
+  position: absolute;
+  top: 50%; right: 8%;
+  width: 46vw; height: 46vw;
+  max-width: 700px; max-height: 700px;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(200,169,110,0.16) 0%, rgba(200,169,110,0.05) 40%, transparent 70%);
+  pointer-events: none;
+}
+
+.hc__product {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hc__product img {
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  filter: drop-shadow(0 30px 50px rgba(0,0,0,0.6));
+  opacity: 0;
+  transform: translateY(24px) scale(0.97);
+}
+.hc__slide.active .hc__product img {
+  animation: prodIn 0.9s ease 0.35s forwards;
+}
+@keyframes prodIn {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.nav__logo-img--ammy {
+  height: 52px;
+  width: auto;
+  background: radial-gradient(circle at 50% 42%, #ffffff 0%, #eef2f6 70%, transparent 100%);
+  border-radius: 8px;
+  padding: 3px 5px;
+}
+.nav__logo-text-ammy {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.14em;
+  color: var(--white);
+  margin-left: 10px;
+}
+
+@media (max-width: 900px) {
+  .hc__inner { grid-template-columns: 1fr; gap: 20px; }
+  .hc__product { order: -1; padding-top: 24px; }
+  .hc__product img { max-width: 78vw; }
+  .hc__content { padding: 0 0 96px; }
+  .hc__glow { top: 26%; right: -10%; width: 90vw; height: 90vw; }
+  .hero-carousel { min-height: 100vh; }
+  .nav__logo-img--ammy { height: 42px; }
+  .nav__logo-text-ammy { font-size: 1.05rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hc__product img { opacity: 1; transform: none; animation: none; }
+}
+
+/* ── V2.6 — Giá, gallery, nút liên hệ nổi, footer contact ── */
+.product-detail__price {
+  font-size: 1.05rem;
+  color: var(--ivory-dim);
+  margin: 4px 0 12px;
+}
+.product-detail__price strong { color: var(--gold); font-size: 1.2rem; }
+.product-detail__warranty {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 0.75rem;
+  font-family: var(--font-head);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--teal-light);
+  border: 1px solid var(--teal-light);
+  border-radius: 100px;
+  padding: 3px 12px;
+  vertical-align: middle;
+}
+
+.pd-gallery {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.pd-gallery__thumb {
+  width: 88px;
+  height: 66px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--black-4);
+  background: var(--black-2);
+  cursor: pointer;
+  transition: border-color var(--transition), transform var(--transition);
+}
+.pd-gallery__thumb:hover { transform: translateY(-2px); }
+.pd-gallery__thumb:hover, .pd-gallery__thumb.active { border-color: var(--gold); }
+
+.float-contact {
+  position: fixed;
+  right: 16px;
+  bottom: 20px;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.float-contact__btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  transition: transform var(--transition);
+}
+.float-contact__btn:hover { transform: scale(1.08); }
+.float-contact__btn--zalo { background: #0068FF; }
+.float-contact__zalo-text {
+  color: #fff;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
+.float-contact__btn--call {
+  background: var(--gold);
+  color: var(--black);
+  animation: callPulse 2.2s ease infinite;
+}
+@keyframes callPulse {
+  0%, 100% { box-shadow: 0 6px 18px rgba(0,0,0,0.45), 0 0 0 0 rgba(200,169,110,0.5); }
+  50% { box-shadow: 0 6px 18px rgba(0,0,0,0.45), 0 0 0 12px rgba(200,169,110,0); }
+}
+
+.footer-contact-line {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--black-4);
+  color: var(--gray-1);
+  font-size: 0.8125rem;
+  line-height: 1.9;
+}
+.footer-contact-line a { color: var(--gold); }
+
+@media (prefers-reduced-motion: reduce) {
+  .float-contact__btn--call { animation: none; }
+}
+
+/* ── V2.7 — OEM strip ── */
+.oem-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--black-2);
+  border: 1px dashed var(--gold);
+  border-radius: var(--radius-lg);
+  padding: 22px 28px;
+  transition: background var(--transition);
+}
+.oem-strip:hover { background: var(--black-3); }
+.oem-strip__title {
+  font-family: var(--font-head);
+  font-weight: 800;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.oem-strip__desc { color: var(--ivory-dim); font-size: 0.9rem; line-height: 1.6; }
+@media (max-width: 640px) { .oem-strip { flex-direction: column; align-items: flex-start; } }
+
+
+/* ── V2.8 — Chống lỗi nền sáng & thống nhất hiển thị ── */
+html { background: #0D0D0D; }
+body { background: #0D0D0D !important; }
+.section { background-color: var(--black); }
+.page-hero { background-color: var(--black); }
+.site-footer { background-color: var(--black-2); }
+main, .pv-page { background-color: var(--black); }
+
+/* Tăng độ tương phản nội dung */
+.section-intro, .tech-card__desc { color: #CFC8BC; }
+p { line-height: 1.85; }
+
+/* ── V2.9 — Lưới sản phẩm 2 cột mobile + ảnh tách nền ── */
+/* Ảnh sản phẩm PNG trong suốt: nền gradient nhẹ + đệm */
+.card__image {
+  background: radial-gradient(circle at 50% 40%, #1E1C19 0%, var(--black-3) 75%);
+  padding: 14px;
+}
+.card__image img { object-fit: contain; width: 100%; height: 100%; }
+
+.product-detail__image-wrap {
+  background: radial-gradient(circle at 50% 40%, #1E1C19 0%, var(--black-2) 80%);
+}
+
+/* Mobile: 2 cột — nhiều sản phẩm hơn trên 1 màn hình */
+@media (max-width: 768px) {
+  #product-grid.grid--auto,
+  #product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px;
+  }
+  #product-grid .card__body { padding: 12px 12px 14px; }
+  #product-grid .product-card__name,
+  #product-grid .card__title { font-size: 0.9rem; }
+  #product-grid .product-card__tagline {
+    font-size: 0.72rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  #product-grid .tech-chip { font-size: 0.58rem; padding: 3px 8px; }
+  #product-grid .card__image { aspect-ratio: 4/3; padding: 10px; }
+  #product-grid .product-card__badges .badge { font-size: 0.58rem; padding: 3px 8px; }
+  #product-grid .card__footer, #product-grid .product-card__link { font-size: 0.72rem; padding: 10px 12px; }
+}
+
+/* ── V3.3 — Thẻ thương hiệu AMMY (trang Giới thiệu) ── */
+.brand-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+  padding: 8px;
+}
+.brand-card__logo-full {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  margin-bottom: 22px;
+}
+.brand-card__logo-full img {
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+}
+.brand-card__name {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  line-height: 1;
+}
+.brand-card__tag {
+  font-size: 0.8125rem;
+  color: var(--gray-1);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+.brand-card__iso { margin-top: 20px; }
+
+@media (max-width: 768px) {
+  .brand-card__logo { width: 140px; height: 140px; }
+  .brand-card__name { font-size: 2.1rem; }
+}
+
+/* ── V3.4 — Event cards ── */
+.event-card {
+  background: var(--black-2);
+  border: 1px solid var(--black-4);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--transition), transform var(--transition);
+}
+.event-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+.event-card__media {
+  aspect-ratio: 16/10;
+  background: radial-gradient(circle at 50% 40%, #1E1C19 0%, var(--black-3) 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-1);
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--black-4);
+}
+.event-card__body { padding: 24px; }
+.event-card__date {
+  font-family: var(--font-head);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.event-card__title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--white);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.event-card__desc { color: var(--ivory-dim); font-size: 0.9rem; line-height: 1.65; }
+
+/* ── V3.5 — Trang Download: doc cards ── */
+.doc-list { display: flex; flex-direction: column; gap: 14px; max-width: 860px; }
+.doc-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: var(--black-2);
+  border: 1px solid var(--black-4);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  transition: border-color var(--transition);
+}
+.doc-card:hover { border-color: var(--gold); }
+.doc-card__icon {
+  flex-shrink: 0;
+  width: 44px; height: 44px;
+  color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+}
+.doc-card__icon svg { width: 28px; height: 28px; }
+.doc-card__body { flex: 1; min-width: 0; }
+.doc-card__title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--white);
+  font-size: 1rem;
+  margin-bottom: 3px;
+}
+.doc-card__desc { color: var(--ivory-dim); font-size: 0.85rem; line-height: 1.5; }
+.doc-card__action { flex-shrink: 0; }
+.doc-card__soon {
+  font-family: var(--font-head);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray-1);
+  border: 1px solid var(--black-4);
+  border-radius: 100px;
+  padding: 6px 14px;
+}
+@media (max-width: 600px) {
+  .doc-card { flex-wrap: wrap; gap: 12px; }
+  .doc-card__icon { width: 36px; height: 36px; }
+  .doc-card__action { width: 100%; }
+  .doc-card__action .btn { width: 100%; text-align: center; }
+}
+
+/* ── V3.6 — Tech card link (bấm được) ── */
+a.tech-card { display: flex; flex-direction: column; cursor: pointer; }
+.tech-card__link {
+  margin-top: 14px;
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity var(--transition), transform var(--transition);
+}
+a.tech-card:hover .tech-card__link { opacity: 1; transform: translateX(0); }
+a.tech-card:hover .tech-card__icon { color: var(--gold); }
+@media (max-width: 768px) {
+  .tech-card__link { opacity: 1; transform: none; }
+}
+
+/* ── V3.9 — Lightbox phóng to ảnh ── */
+.pd-zoomable { cursor: zoom-in; }
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(8,8,8,0.94);
+  display: none;
+  flex-direction: column;
+  backdrop-filter: blur(4px);
+}
+.lightbox.open { display: flex; }
+.lightbox__stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  touch-action: none;
+}
+.lightbox__img {
+  max-width: 92vw;
+  max-height: 82vh;
+  cursor: grab;
+  transition: transform 0.08s ease-out;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.lightbox__close {
+  position: absolute;
+  top: 18px; right: 22px;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--black-4);
+  background: rgba(20,20,20,0.8);
+  color: var(--ivory);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 5;
+  transition: all var(--transition);
+}
+.lightbox__close:hover { border-color: var(--gold); color: var(--gold); }
+.lightbox__hint {
+  position: absolute;
+  top: 22px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.78rem;
+  color: var(--gray-1);
+  letter-spacing: 0.03em;
+  text-align: center;
+  max-width: 80vw;
+}
+.lightbox__controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  padding: 20px;
+}
+.lightbox__controls button {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--black-4);
+  background: rgba(20,20,20,0.85);
+  color: var(--ivory);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.lightbox__controls button:hover { border-color: var(--gold); color: var(--gold); }
+@media (max-width: 768px) {
+  .lightbox__hint { font-size: 0.68rem; top: 70px; }
+  .lightbox__img { max-width: 96vw; max-height: 72vh; }
 }

@@ -2,11 +2,20 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
+  <meta name="color-scheme" content="dark">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ứng dụng vận hành — AMMY / KORAH</title>
+  <title>Ứng dụng — AMMY / KORAH</title>
+  <meta name="description" content="Giải pháp âm thanh KORAH cho sân khấu, sự kiện, line array và hệ thống biểu diễn chuyên nghiệp.">
+  <meta property="og:title" content="Ứng dụng — AMMY / KORAH">
+  <meta property="og:description" content="Giải pháp âm thanh KORAH cho sân khấu, sự kiện, line array và hệ thống biểu diễn chuyên nghiệp.">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+  <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -14,12 +23,22 @@
   <header class="site-header">
     <div class="container">
       <nav class="nav">
-        <a class="nav__logo" href="index.html"><span class="nav__logo-text">AMMY <span>/</span> KORAH</span></a>
+        <a class="nav__logo" href="index.html"><img class="nav__logo-img nav__logo-img--ammy" src="assets/logo/ammy-full.png" alt="AMMY"><span class="nav__logo-text-ammy">AMMY</span></a>
         <ul class="nav__links">
           <li class="nav__item"><a class="nav__link" href="about.html">Giới thiệu</a></li>
           <li class="nav__item"><a class="nav__link" href="technology.html">Công nghệ</a></li>
           <li class="nav__item"><a class="nav__link" href="products.html">Sản phẩm</a></li>
-          <li class="nav__item"><a class="nav__link" href="support.html">Hỗ trợ</a></li>
+          <li class="nav__item">
+            <a class="nav__link" href="support.html">Hỗ trợ ▾</a>
+            <ul class="nav__dropdown">
+              <li><a class="nav__dropdown-link" href="operation.html">Hướng dẫn sử dụng</a></li>
+              <li><a class="nav__dropdown-link" href="after-sales.html">Bảo hành &amp; Hậu mãi</a></li>
+              <li><a class="nav__dropdown-link" href="support.html">Hỗ trợ kỹ thuật</a></li>
+              <li><a class="nav__dropdown-link" href="dealers.html">Hệ thống đại lý</a></li>
+              <li><a class="nav__dropdown-link" href="download.html">Tải tài liệu</a></li>
+            </ul>
+          </li>
+          <li class="nav__item"><a class="nav__link" href="events.html">Sự kiện</a></li>
           <li class="nav__item"><a class="nav__link" href="contact.html">Liên hệ</a></li>
         </ul>
         <a class="btn btn--gold btn--sm nav__cta" href="contact.html">Liên hệ ngay</a>
@@ -32,6 +51,7 @@
     <a class="nav__mobile-link" href="technology.html">Công nghệ</a>
     <a class="nav__mobile-link" href="products.html">Sản phẩm</a>
     <a class="nav__mobile-link" href="support.html">Hỗ trợ kỹ thuật</a>
+    <a class="nav__mobile-link" href="events.html">Sự kiện</a>
     <a class="nav__mobile-link" href="contact.html">Liên hệ</a>
   </nav>
 
@@ -142,7 +162,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer__grid">
-        <div><div class="footer__brand-name">AMMY <span>/</span> KORAH</div><p class="footer__tagline">Thiết bị âm thanh chuyên nghiệp.</p><span class="footer__iso">ISO 9001 Certified</span></div>
+        <div><div class="footer__brand-name">AMMY <span>/</span> KORAH</div><p class="footer__tagline">Thiết bị âm thanh chuyên nghiệp.</p><span class="footer__iso">ISO 9001:2008 Certified</span></div>
         <div><div class="footer__col-title">Sản phẩm</div><ul class="footer__links"><li><a class="footer__link" href="products.html?brand=KORAH">KORAH</a></li><li><a class="footer__link" href="products.html?brand=ROY">ROY</a></li><li><a class="footer__link" href="products.html?brand=USAMMY">USAMMY</a></li></ul></div>
         <div><div class="footer__col-title">Thông tin</div><ul class="footer__links"><li><a class="footer__link" href="about.html">Giới thiệu</a></li><li><a class="footer__link" href="technology.html">Công nghệ</a></li></ul></div>
         <div><div class="footer__col-title">Hỗ trợ</div><ul class="footer__links"><li><a class="footer__link" href="support.html">Hỗ trợ kỹ thuật</a></li><li><a class="footer__link" href="after-sales.html">Bảo hành</a></li><li><a class="footer__link" href="contact.html">Liên hệ</a></li></ul></div>

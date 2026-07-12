@@ -2,11 +2,20 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
+  <meta name="color-scheme" content="dark">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hướng dẫn vận hành — AMMY / KORAH</title>
+  <title>Hướng dẫn sử dụng — AMMY / KORAH</title>
+  <meta name="description" content="Hướng dẫn lắp đặt, kết nối, cấu hình DIP Switch và vận hành an toàn cục đẩy công suất KORAH K-Series.">
+  <meta property="og:title" content="Hướng dẫn sử dụng — AMMY / KORAH">
+  <meta property="og:description" content="Hướng dẫn lắp đặt, kết nối, cấu hình DIP Switch và vận hành an toàn cục đẩy công suất KORAH K-Series.">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+  <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -14,12 +23,22 @@
   <header class="site-header">
     <div class="container">
       <nav class="nav">
-        <a class="nav__logo" href="index.html"><span class="nav__logo-text">AMMY <span>/</span> KORAH</span></a>
+        <a class="nav__logo" href="index.html"><img class="nav__logo-img nav__logo-img--ammy" src="assets/logo/ammy-full.png" alt="AMMY"><span class="nav__logo-text-ammy">AMMY</span></a>
         <ul class="nav__links">
           <li class="nav__item"><a class="nav__link" href="about.html">Giới thiệu</a></li>
           <li class="nav__item"><a class="nav__link" href="technology.html">Công nghệ</a></li>
           <li class="nav__item"><a class="nav__link" href="products.html">Sản phẩm</a></li>
-          <li class="nav__item"><a class="nav__link active" href="support.html">Hỗ trợ</a></li>
+          <li class="nav__item">
+            <a class="nav__link active" href="support.html">Hỗ trợ ▾</a>
+            <ul class="nav__dropdown">
+              <li><a class="nav__dropdown-link" href="operation.html">Hướng dẫn sử dụng</a></li>
+              <li><a class="nav__dropdown-link" href="after-sales.html">Bảo hành &amp; Hậu mãi</a></li>
+              <li><a class="nav__dropdown-link" href="support.html">Hỗ trợ kỹ thuật</a></li>
+              <li><a class="nav__dropdown-link" href="dealers.html">Hệ thống đại lý</a></li>
+              <li><a class="nav__dropdown-link" href="download.html">Tải tài liệu</a></li>
+            </ul>
+          </li>
+          <li class="nav__item"><a class="nav__link" href="events.html">Sự kiện</a></li>
           <li class="nav__item"><a class="nav__link" href="contact.html">Liên hệ</a></li>
         </ul>
         <a class="btn btn--gold btn--sm nav__cta" href="contact.html">Liên hệ ngay</a>
@@ -32,6 +51,7 @@
     <a class="nav__mobile-link" href="technology.html">Công nghệ</a>
     <a class="nav__mobile-link" href="products.html">Sản phẩm</a>
     <a class="nav__mobile-link" href="support.html">Hỗ trợ kỹ thuật</a>
+    <a class="nav__mobile-link" href="events.html">Sự kiện</a>
     <a class="nav__mobile-link" href="contact.html">Liên hệ</a>
   </nav>
 
@@ -43,89 +63,63 @@
     </div>
   </section>
 
-  <div class="divider--gold container"></div>
+    <div class="divider--gold container"></div>
 
   <section class="section">
     <div class="container">
-      <div style="max-width:800px">
-        <span class="section-label">Hướng dẫn chung</span>
-        <h2 class="section-title">Nguyên tắc vận hành cơ bản</h2>
+      <span class="section-label">Vận hành an toàn</span>
+      <h2 class="section-title">Hướng dẫn sử dụng cục đẩy KORAH</h2>
+      <p class="section-intro">Áp dụng chung cho toàn bộ dòng K-Series (K16S, K16PRO, K19S, K19PRO, K20S, K20PLUS) — các model dùng chung kết cấu kết nối, chỉ khác số kênh và thông số công suất.</p>
 
-        <div class="accordion mt-32">
-          <div class="accordion__item">
-            <button class="accordion__header">
-              Lắp đặt và kết nối thiết bị
-              <svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="accordion__body">
-              <div class="accordion__content">
-                Tài liệu hướng dẫn lắp đặt và kết nối chi tiết sẽ được cập nhật sau theo từng model sản phẩm cụ thể.
-                Vui lòng liên hệ AMMY để được hỗ trợ trực tiếp.
-              </div>
-            </div>
-          </div>
+      <div class="accordion mt-48" style="max-width:860px">
 
-          <div class="accordion__item">
-            <button class="accordion__header">
-              Khởi động và tắt máy đúng quy trình
-              <svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="accordion__body">
-              <div class="accordion__content">
-                Tài liệu hướng dẫn quy trình khởi động và tắt máy sẽ được cập nhật sau.
-                Liên hệ để biết thêm thông tin.
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion__item">
-            <button class="accordion__header">
-              Điều chỉnh gain và mức tín hiệu
-              <svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="accordion__body">
-              <div class="accordion__content">
-                Tài liệu kỹ thuật sẽ được cập nhật sau. Liên hệ đội ngũ hỗ trợ kỹ thuật AMMY để được hướng dẫn cụ thể.
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion__item">
-            <button class="accordion__header">
-              Hệ thống bảo vệ và cảnh báo
-              <svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="accordion__body">
-              <div class="accordion__content">
-                Tài liệu mô tả các tình huống bảo vệ và cách xử lý sẽ được cập nhật sau theo từng model.
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion__item">
-            <button class="accordion__header">
-              Bảo trì định kỳ
-              <svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="accordion__body">
-              <div class="accordion__content">
-                Hướng dẫn bảo trì định kỳ và lịch kiểm tra thiết bị sẽ được cập nhật sau.
-                Liên hệ AMMY để biết thêm thông tin về chương trình bảo trì.
-              </div>
-            </div>
+        <div class="accordion__item">
+          <button class="accordion__header">1. Trước khi lắp đặt<svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="accordion__body">
+            <p>Kiểm tra điện áp nguồn AC phù hợp với máy (220V/50–60Hz; các model có PFC như K19S, K19PRO hoạt động ổn định ở dải rộng hơn — xem datasheet từng model). Đảm bảo rack có khoảng hở phía trước và sau để luồng gió tản nhiệt lưu thông (nguyên lý front-to-back). Không lắp máy nơi ẩm thấp, gần nguồn nhiệt hoặc nhiều bụi — bụi bám quạt làm giảm hiệu quả tản nhiệt.</p>
           </div>
         </div>
 
-        <div class="info-block mt-48">
-          <strong style="color:var(--ivory)">Tài liệu kỹ thuật theo model:</strong>
-          Hướng dẫn vận hành chi tiết theo từng model sản phẩm có thể tải xuống từ trang chi tiết sản phẩm,
-          hoặc liên hệ AMMY để nhận tài liệu kỹ thuật.
+        <div class="accordion__item">
+          <button class="accordion__header">2. Kết nối tín hiệu vào (XLR)<svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="accordion__body">
+            <p>Cổng vào gồm Female XLR và Male XLR cho mỗi kênh. Chuẩn chân: 1 = Ground, 2 = Hot (+), 3 = Cold (−). Cổng LINK dùng nối vòng tín hiệu sang máy tiếp theo khi chạy nhiều cục đẩy chung một nguồn (daisy-chain). Độ nhạy đầu vào chọn 0.77V hoặc 1.0V qua DIP Switch.</p>
+          </div>
         </div>
 
-        <div style="margin-top:32px">
-          <a class="btn btn--gold" href="products.html">Xem danh sách sản phẩm</a>
-          <a class="btn btn--ghost" href="contact.html" style="margin-left:12px">Liên hệ hỗ trợ kỹ thuật</a>
+        <div class="accordion__item">
+          <button class="accordion__header">3. Kết nối loa ra (Speakon)<svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="accordion__body">
+            <p>Giắc Speakon có khóa LOCK — cắm vào và xoay theo chiều mũi tên đến khi nghe tiếng "click". Chuẩn chân: 1+ = dương, 1− = âm (chân 2+/2− không sử dụng). Mỗi kênh có cổng riêng cùng cổng BRIDGE cho chế độ cầu. <strong style="color:var(--gold)">Tuyệt đối không đấu loa vào cổng CH khi đang bật chế độ Bridge cho kênh đó</strong> — dễ gây hỏng tầng công suất.</p>
+          </div>
         </div>
+
+        <div class="accordion__item">
+          <button class="accordion__header">4. Khởi động đúng trình tự<svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="accordion__body">
+            <p>Bước 1: kết nối đầy đủ tín hiệu vào và loa ra trước khi cấp nguồn AC. Bước 2: vặn núm Gain mỗi kênh về MIN. Bước 3: bật POWER — đèn ON sáng xanh. Bước 4: tăng dần Gain từng kênh, theo dõi đèn báo: Signal (vàng) = có tín hiệu, bình thường; Clip/Limit (đỏ) = vượt ngưỡng, cần giảm Gain; S.C (đỏ) = chạm tải/chạm loa, kiểm tra dây ngay; High Power (xanh) = đang chạy công suất cao; D.T (đỏ) = máy tự giảm công suất do quá nhiệt, cần kiểm tra luồng gió.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <button class="accordion__header">5. Lưu ý an toàn quan trọng<svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="accordion__body">
+            <p>Luôn tắt Power trước khi cắm/rút dây tín hiệu hoặc dây loa — tránh tiếng nổ lớn gây hỏng loa. Luôn tắt nguồn trước khi thay đổi DIP Switch. Không để máy chạy ở mức Clip/Limit kéo dài. Không che khe tản nhiệt phía sau khi lắp rack. Máy không lên nguồn dù đã cắm điện: kiểm tra cầu chì (FUSE) mặt sau trước khi liên hệ bảo hành. Vận chuyển giữ máy nằm ngang, tránh va đập mạnh.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DIP Switch ── -->
+  <section class="section" style="background:var(--black-2)">
+    <div class="container">
+      <span class="section-label">Cấu hình DIP Switch</span>
+      <h2 class="section-title">Bảng thiết lập DIP Switch</h2>
+      <p class="section-intro">Mỗi cặp kênh có một dãy 8 DIP Switch (model 4 kênh có 2 dãy S1, S2). Quy tắc vàng: chỉ bật 1 trong 3 chế độ Bridge (6) / Parallel (7) / Stereo (8) — luôn tắt nguồn trước khi thay đổi.</p>
+      <div class="mt-32" style="text-align:center">
+        <img src="assets/products/dip-switch-guide.jpg" alt="Bảng hướng dẫn DIP Switch KORAH đầy đủ 8 switch" style="max-width:100%;border-radius:var(--radius-lg);border:1px solid var(--black-4)">
       </div>
     </div>
   </section>
@@ -133,7 +127,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer__grid">
-        <div><div class="footer__brand-name">AMMY <span>/</span> KORAH</div><p class="footer__tagline">Thiết bị âm thanh chuyên nghiệp.</p><span class="footer__iso">ISO 9001 Certified</span></div>
+        <div><div class="footer__brand-name">AMMY <span>/</span> KORAH</div><p class="footer__tagline">Thiết bị âm thanh chuyên nghiệp.</p><span class="footer__iso">ISO 9001:2008 Certified</span></div>
         <div><div class="footer__col-title">Sản phẩm</div><ul class="footer__links"><li><a class="footer__link" href="products.html?brand=KORAH">KORAH</a></li><li><a class="footer__link" href="products.html?brand=ROY">ROY</a></li><li><a class="footer__link" href="products.html?brand=USAMMY">USAMMY</a></li></ul></div>
         <div><div class="footer__col-title">Thông tin</div><ul class="footer__links"><li><a class="footer__link" href="about.html">Giới thiệu</a></li><li><a class="footer__link" href="technology.html">Công nghệ</a></li></ul></div>
         <div><div class="footer__col-title">Hỗ trợ</div><ul class="footer__links"><li><a class="footer__link" href="operation.html">Hướng dẫn vận hành</a></li><li><a class="footer__link" href="support.html">Hỗ trợ kỹ thuật</a></li><li><a class="footer__link" href="contact.html">Liên hệ</a></li></ul></div>

@@ -2,12 +2,20 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
+  <meta name="color-scheme" content="dark">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Giới thiệu AMMY — Thiết bị âm thanh chuyên nghiệp</title>
-  <meta name="description" content="AMMY là công ty sản xuất, phát triển, phân phối và hỗ trợ thiết bị âm thanh chuyên nghiệp, đạt chứng nhận ISO 9001.">
+  <title>Về chúng tôi — Công ty Điện tử AMMY</title>
+  <meta name="description" content="AMMY thành lập 2006 — nghiên cứu, sản xuất, phân phối thiết bị âm thanh chuyên nghiệp với ba thương hiệu KORAH, ROY, USAMMY.">
+  <meta property="og:title" content="Về chúng tôi — Công ty Điện tử AMMY">
+  <meta property="og:description" content="AMMY thành lập 2006 — nghiên cứu, sản xuất, phân phối thiết bị âm thanh chuyên nghiệp với ba thương hiệu KORAH, ROY, USAMMY.">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+  <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -15,7 +23,7 @@
   <header class="site-header">
     <div class="container">
       <nav class="nav">
-        <a class="nav__logo" href="index.html"><span class="nav__logo-text">AMMY <span>/</span> KORAH</span></a>
+        <a class="nav__logo" href="index.html"><img class="nav__logo-img nav__logo-img--ammy" src="assets/logo/ammy-full.png" alt="AMMY"><span class="nav__logo-text-ammy">AMMY</span></a>
         <ul class="nav__links">
           <li class="nav__item"><a class="nav__link active" href="about.html">Giới thiệu</a></li>
           <li class="nav__item">
@@ -33,10 +41,21 @@
               <li><a class="nav__dropdown-link" href="products.html?brand=KORAH">KORAH</a></li>
               <li><a class="nav__dropdown-link" href="products.html?brand=ROY">ROY</a></li>
               <li><a class="nav__dropdown-link" href="products.html?brand=USAMMY">USAMMY</a></li>
+              <li><a class="nav__dropdown-link" href="products.html?brand=OEM">OEM</a></li>
               <li><a class="nav__dropdown-link" href="products.html?brand=discontinued">Ngưng sản xuất</a></li>
             </ul>
           </li>
-          <li class="nav__item"><a class="nav__link" href="support.html">Hỗ trợ</a></li>
+          <li class="nav__item">
+            <a class="nav__link" href="support.html">Hỗ trợ ▾</a>
+            <ul class="nav__dropdown">
+              <li><a class="nav__dropdown-link" href="operation.html">Hướng dẫn sử dụng</a></li>
+              <li><a class="nav__dropdown-link" href="after-sales.html">Bảo hành &amp; Hậu mãi</a></li>
+              <li><a class="nav__dropdown-link" href="support.html">Hỗ trợ kỹ thuật</a></li>
+              <li><a class="nav__dropdown-link" href="dealers.html">Hệ thống đại lý</a></li>
+              <li><a class="nav__dropdown-link" href="download.html">Tải tài liệu</a></li>
+            </ul>
+          </li>
+          <li class="nav__item"><a class="nav__link" href="events.html">Sự kiện</a></li>
           <li class="nav__item"><a class="nav__link" href="contact.html">Liên hệ</a></li>
         </ul>
         <a class="btn btn--gold btn--sm nav__cta" href="contact.html">Liên hệ ngay</a>
@@ -51,6 +70,7 @@
     <a class="nav__mobile-link" href="products.html">Sản phẩm</a>
     <a class="nav__mobile-link" href="support.html">Hỗ trợ kỹ thuật</a>
     <a class="nav__mobile-link" href="after-sales.html">Hậu mãi & Bảo hành</a>
+    <a class="nav__mobile-link" href="events.html">Sự kiện</a>
     <a class="nav__mobile-link" href="contact.html">Liên hệ</a>
   </nav>
 
@@ -58,11 +78,23 @@
   <section class="page-hero">
     <div class="container">
       <div class="page-hero__label">Về chúng tôi</div>
-      <h1 class="page-hero__title">Giới thiệu AMMY</h1>
+      <h1 class="page-hero__title">Công ty Điện tử AMMY</h1>
       <p class="page-hero__desc">
-        AMMY là công ty Việt Nam chuyên nghiên cứu, sản xuất, phát triển và phân phối
-        thiết bị âm thanh chuyên nghiệp. Hệ thống quản lý chất lượng đạt chứng nhận ISO 9001.
+        Thành lập năm 2006, AMMY là công ty Việt Nam chuyên nghiên cứu, sản xuất, phát triển
+        và phân phối thiết bị âm thanh chuyên nghiệp với ba thương hiệu KORAH, ROY và USAMMY.
+        Hệ thống quản lý chất lượng đạt chứng nhận ISO 9001:2008.
       </p>
+    </div>
+  </section>
+
+  <!-- ── Phương châm hoạt động ── -->
+  <section class="slogan-banner">
+    <div class="container">
+      <p class="slogan-banner__mark">“</p>
+      <h2 class="slogan-banner__text">
+        Gắn trách nhiệm Công ty<br>lên từng sản phẩm<span class="slogan-banner__sep">—</span>Luôn đặt mình vào<br>vị trí khách hàng
+      </h2>
+      <div class="slogan-banner__by">Phương châm hoạt động của AMMY từ 2006</div>
     </div>
   </section>
 
@@ -73,12 +105,12 @@
     <div class="container">
       <div class="highlight-row">
         <div class="highlight-row__visual">
-          <div style="text-align:center">
-            <div style="font-size:4rem;font-family:var(--font-head);font-weight:800;color:var(--gold);letter-spacing:0.05em;line-height:1">AMMY</div>
-            <div style="font-size:0.875rem;color:var(--gray-1);margin-top:8px;letter-spacing:0.1em;text-transform:uppercase">Pro Audio Vietnam</div>
-            <div style="margin-top:24px">
-              <span class="footer__iso">ISO 9001 Certified</span>
+          <div class="brand-card">
+            <div class="brand-card__logo-full">
+              <img src="assets/logo/ammy-full.png" alt="Logo AMMY — ISO 9001:2008">
             </div>
+            <div class="brand-card__name">AMMY</div>
+            <div class="brand-card__tag">Pro Audio Vietnam</div>
           </div>
         </div>
         <div class="highlight-row__content">
@@ -100,6 +132,76 @@
     </div>
   </section>
 
+  <!-- Năng lực tự chủ -->
+  <section class="section" id="tu-chu" style="background:var(--black-2);border-top:1px solid var(--black-4)">
+    <div class="container">
+      <span class="section-label">Năng lực cốt lõi</span>
+      <h2 class="section-title">Tự chủ công nghệ — Làm chủ chất lượng</h2>
+      <p class="section-intro">Điều tạo nên khác biệt của AMMY không chỉ là sản phẩm, mà là năng lực làm chủ toàn bộ quá trình tạo ra sản phẩm đó.</p>
+
+      <div class="grid grid--2 mt-48">
+        <div class="tech-card">
+          <div class="tech-card__title" style="color:var(--gold)">Nghiên cứu & phát triển tại Việt Nam</div>
+          <div class="tech-card__desc">
+            Toàn bộ sản phẩm KORAH được chính đội ngũ kỹ sư AMMY nghiên cứu và phát triển — từ thiết kế mạch,
+            chọn linh kiện đến tinh chỉnh âm thanh. AMMY không nhập khẩu nguyên chiếc rồi dán nhãn, mà làm chủ
+            thiết kế từ gốc.
+          </div>
+          <div class="tech-card__accent"></div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-card__title" style="color:var(--gold)">Sản xuất & lắp ráp trong nước</div>
+          <div class="tech-card__desc">
+            Sản phẩm được sản xuất và lắp ráp tại nhà máy của AMMY ở TP. Hồ Chí Minh, trên dây chuyền đạt chuẩn
+            ISO 9001:2008 — kiểm soát chất lượng ở từng công đoạn thay vì phụ thuộc vào bên thứ ba.
+          </div>
+          <div class="tech-card__accent"></div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-card__title" style="color:var(--gold)">Tự chủ công nghệ, không lệ thuộc</div>
+          <div class="tech-card__desc">
+            Việc làm chủ thiết kế và sản xuất giúp AMMY chủ động cải tiến sản phẩm, không lệ thuộc vào nhà cung cấp
+            nước ngoài — nền tảng để phát triển bền vững và lâu dài.
+          </div>
+          <div class="tech-card__accent"></div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-card__title" style="color:var(--gold)">Bảo đảm hậu mãi trọn vòng đời</div>
+          <div class="tech-card__desc">
+            Tự chủ công nghệ đồng nghĩa AMMY luôn sẵn linh kiện và hiểu rõ từng chi tiết sản phẩm — bảo đảm công tác
+            bảo hành, bảo trì và sửa chữa xuyên suốt vòng đời sản phẩm, kể cả nhiều năm sau khi mua.
+          </div>
+          <div class="tech-card__accent"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ba thương hiệu -->
+  <section class="section">
+    <div class="container">
+      <span class="section-label">Hệ thống thương hiệu</span>
+      <h2 class="section-title">Ba thương hiệu — Ba phân khúc</h2>
+      <div class="grid grid--3 mt-48">
+        <div class="tech-card">
+          <div class="tech-card__title" style="color:var(--gold)">KORAH</div>
+          <div class="tech-card__desc">Dòng power amplifier cốt lõi cho <strong style="color:var(--ivory-dim)">sân khấu và sự kiện biểu diễn</strong> — ứng dụng công nghệ SiC, PFC, Class D cho line array và hệ thống công suất lớn.</div>
+          <div class="tech-card__accent"></div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-card__title" style="color:var(--teal-light)">ROY</div>
+          <div class="tech-card__desc">Dòng amplifier cho <strong style="color:var(--ivory-dim)">karaoke và phòng họp hội nghị</strong> — tối ưu cho giọng hát và độ rõ lời nói trong không gian vừa.</div>
+          <div class="tech-card__accent"></div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-card__title" style="color:var(--teal-light)">USAMMY</div>
+          <div class="tech-card__desc">Dòng amplifier <strong style="color:var(--ivory-dim)">cùng phân khúc karaoke & hội nghị</strong> với ROY — mở rộng lựa chọn cho khách hàng ở phân khúc này.</div>
+          <div class="tech-card__accent"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Core Values -->
   <section class="section" style="background:var(--black-2);border-top:1px solid var(--black-4);border-bottom:1px solid var(--black-4)">
     <div class="container">
@@ -115,7 +217,7 @@
           </div>
           <div class="tech-card__title">Chất lượng ISO 9001</div>
           <div class="tech-card__desc">
-            Hệ thống quản lý chất lượng đạt chứng nhận ISO 9001. Mỗi sản phẩm đều qua quy trình
+            Hệ thống quản lý chất lượng đạt chứng nhận ISO 9001:2008. Mỗi sản phẩm đều qua quy trình
             kiểm tra nghiêm ngặt trước khi đến tay khách hàng.
           </div>
           <div class="tech-card__accent"></div>
@@ -180,8 +282,8 @@
       <div class="footer__grid">
         <div>
           <div class="footer__brand-name">AMMY <span>/</span> KORAH</div>
-          <p class="footer__tagline">Sản xuất, phát triển và phân phối thiết bị âm thanh chuyên nghiệp. Hệ thống quản lý chất lượng đạt chứng nhận ISO 9001.</p>
-          <span class="footer__iso">ISO 9001 Certified</span>
+          <p class="footer__tagline">Sản xuất, phát triển và phân phối thiết bị âm thanh chuyên nghiệp. Hệ thống quản lý chất lượng đạt chứng nhận ISO 9001:2008.</p>
+          <span class="footer__iso">ISO 9001:2008 Certified</span>
         </div>
         <div>
           <div class="footer__col-title">Sản phẩm</div>

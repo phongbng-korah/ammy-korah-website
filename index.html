@@ -2,13 +2,39 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
+  <meta name="color-scheme" content="dark">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AMMY / KORAH — Thiết bị âm thanh chuyên nghiệp</title>
-  <meta name="description" content="AMMY sản xuất, phát triển và phân phối thiết bị âm thanh chuyên nghiệp. KORAH là thương hiệu power amplifier trọng tâm, đạt chứng nhận ISO 9001.">
+  <title>AMMY / KORAH — Cục đẩy công suất chuyên nghiệp Việt Nam</title>
+  <meta name="description" content="KORAH power amplifier — công nghệ Silicon Carbide SiC, PFC, Class D cho sân khấu và sự kiện biểu diễn. Sản xuất bởi AMMY, đạt chuẩn ISO 9001:2008.">
+  <meta property="og:title" content="AMMY / KORAH — Cục đẩy công suất chuyên nghiệp Việt Nam">
+  <meta property="og:description" content="KORAH power amplifier — công nghệ Silicon Carbide SiC, PFC, Class D cho sân khấu và sự kiện biểu diễn. Sản xuất bởi AMMY, đạt chuẩn ISO 9001:2008.">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+  <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Công ty Điện tử AMMY",
+    "url": "https://korah.com.vn",
+    "logo": "https://korah.com.vn/assets/logo/ammy.png",
+    "foundingDate": "2006",
+    "slogan": "Gắn trách nhiệm Công ty lên từng sản phẩm — Luôn đặt mình vào vị trí khách hàng",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "131C Lâm Văn Bền, P. Tân Thuận Tây, Quận 7",
+      "addressLocality": "TP. Hồ Chí Minh",
+      "addressCountry": "VN"
+    },
+    "contactPoint": { "@type": "ContactPoint", "telephone": "+84-932-779-386", "contactType": "sales", "email": "info@ammy.com.vn" }
+  }
+  </script>
 </head>
 <body>
 
@@ -17,7 +43,7 @@
     <div class="container">
       <nav class="nav">
         <a class="nav__logo" href="index.html">
-          <span class="nav__logo-text">AMMY <span>/</span> KORAH</span>
+          <img class="nav__logo-img nav__logo-img--ammy" src="assets/logo/ammy-full.png" alt="AMMY"><span class="nav__logo-text-ammy">AMMY</span>
         </a>
 
         <ul class="nav__links">
@@ -37,10 +63,21 @@
               <li><a class="nav__dropdown-link" href="products.html?brand=KORAH">KORAH</a></li>
               <li><a class="nav__dropdown-link" href="products.html?brand=ROY">ROY</a></li>
               <li><a class="nav__dropdown-link" href="products.html?brand=USAMMY">USAMMY</a></li>
+              <li><a class="nav__dropdown-link" href="products.html?brand=OEM">OEM</a></li>
               <li><a class="nav__dropdown-link" href="products.html?brand=discontinued">Ngưng sản xuất</a></li>
             </ul>
           </li>
-          <li class="nav__item"><a class="nav__link" href="support.html">Hỗ trợ</a></li>
+          <li class="nav__item">
+            <a class="nav__link" href="support.html">Hỗ trợ ▾</a>
+            <ul class="nav__dropdown">
+              <li><a class="nav__dropdown-link" href="operation.html">Hướng dẫn sử dụng</a></li>
+              <li><a class="nav__dropdown-link" href="after-sales.html">Bảo hành &amp; Hậu mãi</a></li>
+              <li><a class="nav__dropdown-link" href="support.html">Hỗ trợ kỹ thuật</a></li>
+              <li><a class="nav__dropdown-link" href="dealers.html">Hệ thống đại lý</a></li>
+              <li><a class="nav__dropdown-link" href="download.html">Tải tài liệu</a></li>
+            </ul>
+          </li>
+          <li class="nav__item"><a class="nav__link" href="events.html">Sự kiện</a></li>
           <li class="nav__item"><a class="nav__link" href="contact.html">Liên hệ</a></li>
         </ul>
 
@@ -75,43 +112,87 @@
     </div>
     <a class="nav__mobile-link" href="support.html">Hỗ trợ kỹ thuật</a>
     <a class="nav__mobile-link" href="after-sales.html">Hậu mãi & Bảo hành</a>
+    <a class="nav__mobile-link" href="events.html">Sự kiện</a>
     <a class="nav__mobile-link" href="contact.html">Liên hệ</a>
   </nav>
 
-  <!-- ── Hero ── -->
-  <section class="hero">
-    <div class="hero__bg"></div>
-    <div class="hero__grid-overlay"></div>
-    <div class="container">
-      <div class="hero__content">
-        <div class="hero__brand-tag">ISO 9001 Certified · Made in Vietnam</div>
-        <h1 class="hero__title">
-          <span class="line-gold">AMMY / KORAH</span>
-          Âm thanh chuyên nghiệp<br>
-          <span class="line-teal">đẳng cấp thế giới</span>
-        </h1>
-        <p class="hero__desc">
-          AMMY nghiên cứu, sản xuất và phân phối thiết bị âm thanh chuyên nghiệp.
-          KORAH power amplifier ứng dụng công nghệ Silicon Carbide SiC, PFC và Class D
-          mang lại hiệu suất vượt trội, độ tin cậy cao.
-        </p>
-        <div class="hero__actions">
-          <a class="btn btn--gold btn--lg" href="products.html">Khám phá sản phẩm</a>
-          <a class="btn btn--outline btn--lg" href="technology.html">Tìm hiểu công nghệ</a>
+  <!-- ── Hero Carousel (ảnh banner: assets/banners/hero-*.jpg — 1920x900) ── -->
+  <section class="hero-carousel" aria-label="Sản phẩm nổi bật KORAH">
+
+    <div class="hc__slide active" style="background-image:url('assets/banners/hero-k20plus.jpg')">
+      <div class="hc__overlay"></div>
+      <div class="hc__glow"></div>
+      <div class="container">
+        <div class="hc__inner">
+          <div class="hc__content">
+            <div class="hc__slogan">Kiến tạo chuẩn mực âm thanh Việt Nam</div>
+            <h1 class="hc__title">KORAH <span class="line-gold">K20PLUS</span></h1>
+            <p class="hc__desc">Power amplifier đầu bảng của KORAH — công nghệ Silicon Carbide SiC, nguồn PFC, Class D hiệu suất cao cho hệ thống line array và sự kiện lớn.</p>
+            <div class="hero__actions">
+            <a class="btn btn--gold btn--lg" href="product-detail.html?id=korah-k20plus">Xem K20PLUS</a>
+            <a class="btn btn--outline btn--lg" href="products.html?brand=KORAH">Tất cả KORAH</a>
+            </div>
+          </div>
+          <div class="hc__product">
+            <img src="assets/products/prod-k20plus.png" alt="KORAH K20PLUS">
+          </div>
         </div>
       </div>
     </div>
-    <div class="hero__scroll">
-      <span>Cuộn xuống</span>
-      <div class="hero__scroll-arrow"></div>
+
+    <div class="hc__slide" style="background-image:url('assets/banners/hero-k19pro.jpg')">
+      <div class="hc__overlay"></div>
+      <div class="hc__glow"></div>
+      <div class="container">
+        <div class="hc__inner">
+          <div class="hc__content">
+            <div class="hc__slogan">Gắn trách nhiệm Công ty lên từng sản phẩm</div>
+            <h2 class="hc__title">KORAH <span class="line-gold">K19PRO</span></h2>
+            <p class="hc__desc">Nâng cấp toàn diện với PFC Autovolt thiết kế nội bộ — ổn định trước mọi điều kiện lưới điện, tin cậy cho đơn vị cho thuê âm thanh chuyên nghiệp.</p>
+            <div class="hero__actions">
+            <a class="btn btn--gold btn--lg" href="product-detail.html?id=korah-k19pro">Xem K19PRO</a>
+            <a class="btn btn--outline btn--lg" href="technology.html#pfc">Công nghệ PFC</a>
+            </div>
+          </div>
+          <div class="hc__product">
+            <img src="assets/products/prod-k19pro.png" alt="KORAH K19PRO">
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div class="hc__slide" style="background-image:url('assets/banners/hero-k16pro.jpg')">
+      <div class="hc__overlay"></div>
+      <div class="hc__glow"></div>
+      <div class="container">
+        <div class="hc__inner">
+          <div class="hc__content">
+            <div class="hc__slogan">Giải pháp âm thanh chuyên nghiệp</div>
+            <h2 class="hc__title">KORAH <span class="line-gold">K16PRO</span></h2>
+            <p class="hc__desc">Cân bằng giữa công suất và đầu tư — lựa chọn tin cậy cho sân khấu vừa và hệ thống biểu diễn lưu động.</p>
+            <div class="hero__actions">
+            <a class="btn btn--gold btn--lg" href="product-detail.html?id=korah-k16pro">Xem K16PRO</a>
+            <a class="btn btn--outline btn--lg" href="products.html?brand=KORAH">Tất cả KORAH</a>
+            </div>
+          </div>
+          <div class="hc__product">
+            <img src="assets/products/prod-k16pro.png" alt="KORAH K16PRO">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="hc__arrow hc__arrow--prev" aria-label="Banner trước">‹</button>
+    <button class="hc__arrow hc__arrow--next" aria-label="Banner sau">›</button>
+    <div class="hc__badge">KORAH · Sân khấu &amp; Sự kiện biểu diễn · Đạt chuẩn ISO 9001:2008</div>
+    <div class="hc__dots" role="tablist"></div>
   </section>
 
   <!-- ── Brand Strip ── -->
   <div class="brand-strip">
     <div class="container">
       <div class="brand-strip__inner">
-        <span class="brand-strip__item">ISO 9001 Certified</span>
+        <span class="brand-strip__item">ISO 9001:2008 Certified</span>
         <span class="brand-strip__item">Silicon Carbide SiC</span>
         <span class="brand-strip__item">PFC Power Supply</span>
         <span class="brand-strip__item">Class D High Efficiency</span>
@@ -120,50 +201,66 @@
     </div>
   </div>
 
-  <!-- ── Brands Section ── -->
+  <!-- ── Giải pháp theo nhu cầu ── -->
   <section class="section">
     <div class="container">
-      <span class="section-label">Thương hiệu của chúng tôi</span>
-      <h2 class="section-title">Ba dòng sản phẩm,<br>một cam kết chất lượng</h2>
-      <p class="section-intro">AMMY phát triển ba thương hiệu chuyên biệt phục vụ từng phân khúc ứng dụng âm thanh chuyên nghiệp.</p>
+      <span class="section-label">Giải pháp theo nhu cầu</span>
+      <h2 class="section-title">Bạn cần âm thanh<br>cho không gian nào?</h2>
+      <p class="section-intro">AMMY phân bổ từng thương hiệu cho từng nhu cầu sử dụng — chọn đúng dòng sản phẩm ngay từ đầu.</p>
 
-      <div class="grid grid--3 mt-48">
-        <!-- KORAH -->
-        <div class="card">
-          <div class="card__body" style="padding:40px 32px">
-            <div style="font-size:2rem;font-family:var(--font-head);font-weight:800;color:var(--gold);margin-bottom:16px;letter-spacing:0.05em">KORAH</div>
-            <p style="color:var(--ivory-dim);line-height:1.7;margin-bottom:24px">
-              Dòng power amplifier trọng tâm của AMMY. Ứng dụng công nghệ SiC, PFC và Class D,
-              KORAH mang lại công suất cao, hiệu suất vượt trội và độ bền trong môi trường biểu diễn chuyên nghiệp.
-            </p>
-            <a class="btn btn--outline btn--sm" href="products.html?brand=KORAH">Xem sản phẩm KORAH</a>
+      <div class="segment-grid mt-48">
+        <!-- KORAH: sân khấu & sự kiện -->
+        <a class="segment-card segment-card--korah" href="products.html?brand=KORAH">
+          <div class="segment-card__media" style="background-image:url('assets/banners/hero-k20plus.jpg')">
+            <div class="segment-card__scrim"></div>
           </div>
-        </div>
-
-        <!-- ROY -->
-        <div class="card">
-          <div class="card__body" style="padding:40px 32px">
-            <div style="font-size:2rem;font-family:var(--font-head);font-weight:800;color:var(--teal-light);margin-bottom:16px;letter-spacing:0.05em">ROY</div>
-            <p style="color:var(--ivory-dim);line-height:1.7;margin-bottom:24px">
-              Dòng sản phẩm ROY — thông tin đang được cập nhật.
-              Liên hệ AMMY để biết thêm thông tin về dòng sản phẩm này.
+          <div class="segment-card__body">
+            <div class="segment-card__eyebrow">Sân khấu &amp; Sự kiện biểu diễn</div>
+            <div class="segment-card__brand" style="color:var(--gold)">KORAH</div>
+            <p class="segment-card__desc">
+              Dòng power amplifier cốt lõi của AMMY — nền móng định vị sản phẩm.
+              Công nghệ SiC, PFC và Class D cho line array, sân khấu lưu động và sự kiện quy mô lớn.
             </p>
-            <a class="btn btn--ghost btn--sm" href="products.html?brand=ROY">Xem sản phẩm ROY</a>
+            <ul class="segment-card__list">
+              <li>Hệ thống line array &amp; subwoofer công suất lớn</li>
+              <li>Đơn vị cho thuê âm thanh sự kiện</li>
+              <li>Sân khấu biểu diễn chuyên nghiệp</li>
+            </ul>
+            <span class="btn btn--gold btn--sm">Khám phá KORAH</span>
           </div>
-        </div>
+        </a>
 
-        <!-- USAMMY -->
-        <div class="card">
-          <div class="card__body" style="padding:40px 32px">
-            <div style="font-size:2rem;font-family:var(--font-head);font-weight:800;color:var(--ivory-dim);margin-bottom:16px;letter-spacing:0.05em">USAMMY</div>
-            <p style="color:var(--ivory-dim);line-height:1.7;margin-bottom:24px">
-              Dòng sản phẩm USAMMY — thông tin đang được cập nhật.
-              Liên hệ AMMY để biết thêm thông tin về dòng sản phẩm này.
+        <!-- ROY / USAMMY: karaoke & hội nghị -->
+        <div class="segment-card segment-card--roy">
+          <div class="segment-card__body">
+            <div class="segment-card__eyebrow">Karaoke &amp; Phòng họp hội nghị</div>
+            <div class="segment-card__logos">
+              <img src="assets/logo/roy.png" alt="ROY" style="height:30px;width:auto">
+              <img src="assets/logo/usammy.png" alt="USAMMY" style="height:26px;width:auto">
+            </div>
+            <p class="segment-card__desc">
+              Hai dòng sản phẩm chuyên biệt cho phòng karaoke chuyên nghiệp,
+              phòng họp và hội trường — tối ưu cho giọng hát và độ rõ lời nói.
             </p>
-            <a class="btn btn--ghost btn--sm" href="products.html?brand=USAMMY">Xem sản phẩm USAMMY</a>
+            <ul class="segment-card__list">
+              <li>Phòng karaoke kinh doanh &amp; gia đình cao cấp</li>
+              <li>Phòng họp, hội nghị, hội trường</li>
+            </ul>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <a class="btn btn--teal btn--sm" href="products.html?brand=ROY">Xem ROY</a>
+              <a class="btn btn--ghost btn--sm" href="products.html?brand=USAMMY">Xem USAMMY</a>
+            </div>
           </div>
         </div>
       </div>
+
+      <a class="oem-strip mt-32" href="product-detail.html?id=oem-service">
+        <div>
+          <div class="oem-strip__title">Dịch vụ OEM / ODM</div>
+          <div class="oem-strip__desc">Gia công thiết bị âm thanh theo thương hiệu riêng của đối tác — nhà máy đạt ISO 9001:2008</div>
+        </div>
+        <span class="btn btn--ghost btn--sm">Tìm hiểu →</span>
+      </a>
     </div>
   </section>
 
@@ -174,55 +271,59 @@
     <div class="container">
       <span class="section-label">Công nghệ nổi bật</span>
       <h2 class="section-title">Nền tảng kỹ thuật<br>của KORAH</h2>
-      <p class="section-intro">Mỗi sản phẩm KORAH được xây dựng trên nền tảng công nghệ tiên tiến, kiểm định nghiêm ngặt theo tiêu chuẩn ISO 9001.</p>
+      <p class="section-intro">Mỗi sản phẩm KORAH được xây dựng trên nền tảng công nghệ tiên tiến, kiểm định nghiêm ngặt theo tiêu chuẩn ISO 9001:2008.</p>
 
       <div class="grid grid--4 mt-48">
-        <div class="tech-card">
+        <a class="tech-card" href="technology.html#sic" style="text-decoration:none">
           <div class="tech-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              <rect x="4" y="4" width="16" height="16" rx="2"/>
+              <rect x="9" y="9" width="6" height="6"/>
+              <path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/>
             </svg>
           </div>
           <div class="tech-card__title">Silicon Carbide SiC</div>
           <div class="tech-card__desc">Vật liệu bán dẫn thế hệ mới, chịu nhiệt cao, tổn thất thấp, nâng cao hiệu suất đáng kể.</div>
+          <div class="tech-card__link">Tìm hiểu →</div>
           <div class="tech-card__accent"></div>
-        </div>
+        </a>
 
-        <div class="tech-card">
+        <a class="tech-card" href="technology.html#pfc" style="text-decoration:none">
           <div class="tech-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="12" r="3"/>
-              <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+              <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
             </svg>
           </div>
           <div class="tech-card__title">PFC Power Supply</div>
           <div class="tech-card__desc">Power Factor Correction — ổn định nguồn điện, giảm nhiễu hài và bảo vệ lưới điện.</div>
+          <div class="tech-card__link">Tìm hiểu →</div>
           <div class="tech-card__accent"></div>
-        </div>
+        </a>
 
-        <div class="tech-card">
+        <a class="tech-card" href="technology.html#classd" style="text-decoration:none">
           <div class="tech-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              <path d="M2 12h3v-4h4v8h4v-6h4v4h5"/>
             </svg>
           </div>
           <div class="tech-card__title">Class D High Efficiency</div>
           <div class="tech-card__desc">Hiệu suất lên đến 90%+, tỏa nhiệt thấp, máy nhẹ hơn — lý tưởng cho touring và cố định.</div>
+          <div class="tech-card__link">Tìm hiểu →</div>
           <div class="tech-card__accent"></div>
-        </div>
+        </a>
 
-        <div class="tech-card">
+        <a class="tech-card" href="about.html#tu-chu" style="text-decoration:none">
           <div class="tech-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="2" y="3" width="20" height="14" rx="2"/>
-              <line x1="8" y1="21" x2="16" y2="21"/>
-              <line x1="12" y1="17" x2="12" y2="21"/>
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
             </svg>
           </div>
-          <div class="tech-card__title">Nền tảng KORAH</div>
-          <div class="tech-card__desc">Tích hợp DSP, bảo vệ đa tầng và khả năng kết nối hiện đại cho hệ thống âm thanh phức tạp.</div>
+          <div class="tech-card__title">Cam kết KORAH</div>
+          <div class="tech-card__desc">Luôn cập nhật, tự chủ công nghệ, bảo đảm hậu mãi tốt nhất trên mọi sản phẩm.</div>
+          <div class="tech-card__link">Tìm hiểu →</div>
           <div class="tech-card__accent"></div>
-        </div>
+        </a>
       </div>
 
       <div class="mt-48 text-center">
@@ -275,9 +376,12 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <div class="footer__brand-name">AMMY <span>/</span> KORAH</div>
-          <p class="footer__tagline">Sản xuất, phát triển và phân phối thiết bị âm thanh chuyên nghiệp. Hệ thống quản lý chất lượng đạt chứng nhận ISO 9001.</p>
-          <span class="footer__iso">ISO 9001 Certified</span>
+          <img src="assets/logo/korah.png" alt="KORAH" style="height:44px;width:auto;margin-bottom:16px">
+          <p class="footer__tagline">Sản xuất, phát triển và phân phối thiết bị âm thanh chuyên nghiệp. Hệ thống quản lý chất lượng đạt chứng nhận ISO 9001:2008.</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:12px">
+            <img src="assets/logo/ammy-iso.png" alt="AMMY — ISO 9001:2008" style="height:64px;width:auto">
+            <span class="footer__iso">ISO 9001:2008 Certified</span>
+          </div>
         </div>
 
         <div>

@@ -2,19 +2,6 @@
    AMMY / KORAH — main.js
    ============================================================ */
 
-// ── Image placeholder helper ────────────────────────────────
-// Called via onerror on <img> tags when a product image file
-// is missing. Replaces the broken img with a clean placeholder.
-function showImgPlaceholder(img) {
-  var wrap = img.parentNode;
-  var ph = document.createElement('div');
-  ph.className = 'card__image-placeholder';
-  var label = document.createElement('span');
-  label.textContent = 'Ảnh sản phẩm đang cập nhật';
-  ph.appendChild(label);
-  wrap.replaceChild(ph, img);
-}
-
 // ── Navigation ─────────────────────────────────────────────
 (function initNav() {
   const hamburger = document.querySelector('.nav__hamburger');
@@ -129,10 +116,10 @@ function productCardHTML(p) {
     return `<span class="tech-chip">${label}</span>`;
   }).join('');
 
-  const imgPlaceholderDiv = `<div class="card__image-placeholder"><span>Ảnh sản phẩm đang cập nhật</span></div>`;
+  const imgPlaceholder = `<div class="card__image-placeholder"><span>Ảnh sản phẩm đang cập nhật</span></div>`;
   const imgContent = p.image
-    ? `<img src="${p.image}" alt="" loading="lazy" onerror="showImgPlaceholder(this)">`
-    : imgPlaceholderDiv;
+    ? `<img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'">`
+    : imgPlaceholder;
 
   return `
   <a class="card product-card" href="product-detail.html?id=${p.id}">
@@ -191,8 +178,9 @@ function initProductDetail() {
   }).join('');
 
   const manualsHTML = product.manuals && product.manuals.length
-    ? product.manuals.map(m => {
-        const name = m.split('/').pop();
+    ? product.manuals.map(mm => {
+        const m = typeof mm === 'string' ? mm : mm.file;
+        const name = typeof mm === 'string' ? mm.split('/').pop() : mm.title;
         return `<a class="btn btn--ghost btn--sm" href="${m}" target="_blank">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           ${name}
@@ -200,10 +188,16 @@ function initProductDetail() {
       }).join('')
     : '<p class="text-muted" style="font-size:0.875rem">Tài liệu kỹ thuật sẽ được cập nhật sau.</p>';
 
-  const detailPlaceholderDiv = `<div class="card__image-placeholder"><span>Ảnh sản phẩm đang cập nhật</span></div>`;
+  const detailImgPlaceholder = `<div class="card__image-placeholder"><span>Ảnh sản phẩm đang cập nhật</span></div>`;
+  const galleryImgs = [product.image, ...(product.gallery || [])].filter(Boolean);
   const imgContent = product.image
-    ? `<img src="${product.image}" alt="" onerror="showImgPlaceholder(this)">`
-    : detailPlaceholderDiv;
+    ? `<img id="pd-main-img" class="pd-zoomable" src="${product.image}" alt="${product.name}" loading="lazy" title="Nhấn để phóng to" onerror="this.style.display='none'">`
+    : detailImgPlaceholder;
+  const galleryHTML = galleryImgs.length > 1
+    ? `<div class="pd-gallery">${galleryImgs.map((g, i) =>
+        `<img src="${g}" alt="${product.name} ${i+1}" loading="lazy" class="pd-gallery__thumb${i===0?' active':''}" onclick="document.getElementById('pd-main-img').src='${g}';document.querySelectorAll('.pd-gallery__thumb').forEach(t=>t.classList.remove('active'));this.classList.add('active')">`
+      ).join('')}</div>`
+    : '';
 
   mainEl.innerHTML = `
     <a class="product-detail__back" href="products.html">
@@ -222,12 +216,16 @@ function initProductDetail() {
     </div>
 
     <div class="product-detail__layout">
-      <div class="product-detail__image-wrap">${imgContent}</div>
+      <div class="product-detail__media">
+        <div class="product-detail__image-wrap">${imgContent}</div>
+        ${galleryHTML}
+      </div>
 
       <div class="product-detail__info">
         <div class="product-detail__brand">${product.brand}</div>
         <h1 class="product-detail__name">${product.name}</h1>
         <p class="product-detail__tagline">${product.tagline}</p>
+        ${product.price ? `<div class="product-detail__price">Giá niêm yết: <strong>${product.price}</strong>${product.warranty ? ` <span class="product-detail__warranty">${product.warranty}</span>` : ''}</div>` : ''}
 
         <div class="product-detail__badges">
           <span class="badge badge--brand">${product.brand}</span>
@@ -249,6 +247,10 @@ function initProductDetail() {
 
         <div id="tab-desc" class="tab-pane">
           <p style="color:var(--ivory-dim);line-height:1.8">${product.description}</p>
+          ${product.features && product.features.length
+            ? `<div style="margin-top:20px"><div style="font-family:var(--font-head);font-weight:700;color:var(--gold);font-size:0.8125rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px">Điểm nổi bật</div>
+               <ul style="padding-left:20px;color:var(--ivory-dim)">${product.features.map(x => `<li style="margin-bottom:8px">${x}</li>`).join('')}</ul></div>`
+            : ''}
           ${product.applications && product.applications.length
             ? `<ul style="margin-top:16px;padding-left:20px;color:var(--ivory-dim)">
                 ${product.applications.map(a => `<li style="margin-bottom:8px">${a}</li>`).join('')}
@@ -291,3 +293,186 @@ document.addEventListener('DOMContentLoaded', () => {
   // Product detail page
   initProductDetail();
 });
+
+// ── Hero Carousel (V2) ──────────────────────────────────────
+(function initHeroCarousel() {
+  const carousel = document.querySelector('.hero-carousel');
+  if (!carousel) return;
+
+  const slides = carousel.querySelectorAll('.hc__slide');
+  const dotsWrap = carousel.querySelector('.hc__dots');
+  const prevBtn = carousel.querySelector('.hc__arrow--prev');
+  const nextBtn = carousel.querySelector('.hc__arrow--next');
+  if (slides.length < 2) return;
+
+  let current = 0;
+  let timer = null;
+  const AUTOPLAY_MS = 6000;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'hc__dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Banner ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i, true));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = dotsWrap.querySelectorAll('.hc__dot');
+
+  function goTo(index, manual) {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    if (manual) restart();
+  }
+
+  function next() { goTo(current + 1); }
+
+  function restart() {
+    if (reduceMotion) return;
+    clearInterval(timer);
+    timer = setInterval(next, AUTOPLAY_MS);
+  }
+
+  prevBtn && prevBtn.addEventListener('click', () => goTo(current - 1, true));
+  nextBtn && nextBtn.addEventListener('click', () => goTo(current + 1, true));
+
+  // Vuốt trên mobile
+  let touchX = null;
+  carousel.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+  carousel.addEventListener('touchend', e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) goTo(current + (dx < 0 ? 1 : -1), true);
+    touchX = null;
+  }, { passive: true });
+
+  restart();
+})();
+
+
+// ── Nút liên hệ nổi: Zalo + Gọi điện (V2.6) ────────────────
+(function initFloatingContact() {
+  const wrap = document.createElement('div');
+  wrap.className = 'float-contact';
+  wrap.innerHTML = `
+    <a class="float-contact__btn float-contact__btn--zalo" href="https://zalo.me/0932779386" target="_blank" rel="noopener" aria-label="Chat Zalo">
+      <span class="float-contact__zalo-text">Zalo</span>
+    </a>
+    <a class="float-contact__btn float-contact__btn--call" href="tel:0932779386" aria-label="Gọi điện 0932 779 386">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </a>`;
+  document.body.appendChild(wrap);
+})();
+
+// ── Thông tin liên hệ đồng bộ trong footer (V2.6) ──────────
+(function injectFooterContact() {
+  const footer = document.querySelector('.site-footer .container, footer .container');
+  if (!footer || footer.querySelector('.footer-contact-line')) return;
+  const div = document.createElement('div');
+  div.className = 'footer-contact-line';
+  div.innerHTML = `VP: 131C Lâm Văn Bền, P. Tân Thuận Tây, Q.7, TP.HCM · Xưởng: 300/34/64 Nguyễn Văn Linh, Q.7 · ĐT: <a href="tel:0903851252">0903 851 252</a> / <a href="tel:0932779386">0932 779 386</a> · <a href="mailto:info@ammy.com.vn">info@ammy.com.vn</a> · MST: 0304493237`;
+  footer.appendChild(div);
+})();
+
+// ── Lightbox phóng to + kéo di chuyển + zoom (V3.9) ──────────
+(function initLightbox() {
+  // Tạo lightbox 1 lần
+  const lb = document.createElement('div');
+  lb.className = 'lightbox';
+  lb.innerHTML = `
+    <button class="lightbox__close" aria-label="Đóng">×</button>
+    <div class="lightbox__hint">Cuộn để phóng to · Kéo để di chuyển · Nhấn đúp để đặt lại</div>
+    <div class="lightbox__stage">
+      <img class="lightbox__img" src="" alt="">
+    </div>
+    <div class="lightbox__controls">
+      <button data-act="out" aria-label="Thu nhỏ">−</button>
+      <button data-act="reset" aria-label="Đặt lại">↺</button>
+      <button data-act="in" aria-label="Phóng to">+</button>
+    </div>`;
+  document.body.appendChild(lb);
+
+  const img = lb.querySelector('.lightbox__img');
+  const stage = lb.querySelector('.lightbox__stage');
+  let scale = 1, tx = 0, ty = 0, dragging = false, sx = 0, sy = 0;
+
+  function apply() {
+    img.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+  }
+  function reset() { scale = 1; tx = 0; ty = 0; apply(); }
+
+  function open(src) {
+    img.src = src; reset();
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Mở khi click ảnh chính (delegation vì ảnh render động)
+  document.addEventListener('click', e => {
+    const z = e.target.closest('.pd-zoomable');
+    if (z && z.src) open(z.src);
+  });
+
+  lb.querySelector('.lightbox__close').addEventListener('click', close);
+  lb.addEventListener('click', e => { if (e.target === lb || e.target === stage) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+  // Zoom bằng cuộn
+  stage.addEventListener('wheel', e => {
+    e.preventDefault();
+    const delta = e.deltaY < 0 ? 1.15 : 1/1.15;
+    scale = Math.min(3, Math.max(1, scale * delta));
+    if (scale === 1) { tx = 0; ty = 0; }
+    apply();
+  }, { passive: false });
+
+  // Kéo di chuyển
+  stage.addEventListener('mousedown', e => {
+    if (scale <= 1) return;
+    dragging = true; sx = e.clientX - tx; sy = e.clientY - ty;
+    img.style.cursor = 'grabbing';
+  });
+  window.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    tx = e.clientX - sx; ty = e.clientY - sy; apply();
+  });
+  window.addEventListener('mouseup', () => { dragging = false; img.style.cursor = 'grab'; });
+
+  // Nhấn đúp đặt lại
+  img.addEventListener('dblclick', reset);
+
+  // Nút điều khiển
+  lb.querySelector('.lightbox__controls').addEventListener('click', e => {
+    const act = e.target.dataset.act;
+    if (act === "in") scale = Math.min(3, scale * 1.3);
+    else if (act === 'out') { scale = Math.max(1, scale / 1.3); if (scale === 1){tx=0;ty=0;} }
+    else if (act === 'reset') return reset();
+    apply();
+  });
+
+  // Cảm ứng: pinch zoom + kéo (mobile)
+  let pinchStart = 0, pinchScale = 1, touchTx = 0, touchTy = 0, tStartX = 0, tStartY = 0;
+  stage.addEventListener('touchstart', e => {
+    if (e.touches.length === 2) {
+      pinchStart = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+      pinchScale = scale;
+    } else if (e.touches.length === 1 && scale > 1) {
+      tStartX = e.touches[0].clientX - tx; tStartY = e.touches[0].clientY - ty;
+    }
+  }, { passive: true });
+  stage.addEventListener('touchmove', e => {
+    if (e.touches.length === 2) {
+      const d = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+      scale = Math.min(3, Math.max(1, pinchScale * d / pinchStart));
+      apply();
+    } else if (e.touches.length === 1 && scale > 1) {
+      tx = e.touches[0].clientX - tStartX; ty = e.touches[0].clientY - tStartY; apply();
+    }
+  }, { passive: true });
+})();

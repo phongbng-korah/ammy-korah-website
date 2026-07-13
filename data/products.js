@@ -49,6 +49,7 @@ const PRODUCTS = [
       "Nguồn PFC ổn định trước điện lưới không ổn định"
     ],
     manuals: [{ title: "Datasheet K16S — Bản ngang (PDF)", file: "assets/manuals/datasheet-k16s-16x9.pdf" }, { title: "Datasheet K16S — Bản dọc (PDF)", file: "assets/manuals/datasheet-k16s-9x16.pdf" }],
+    datasheetImages: { "16x9": "assets/datasheets/k16s-16x9.png", "9x16": "assets/datasheets/k16s-9x16.png" },
     applications: ["Sub bass phòng karaoke kinh doanh, bar không gian vừa", "Sự kiện lưu động quy mô nhỏ-vừa"]
   },
 
@@ -90,6 +91,7 @@ const PRODUCTS = [
       "Active PFC dải rộng 140V–270V — ổn định cả khi dùng máy phát điện"
     ],
     manuals: [{ title: "Datasheet K16PRO — Bản ngang (PDF)", file: "assets/manuals/datasheet-k16pro-16x9.pdf" }, { title: "Datasheet K16PRO — Bản dọc (PDF)", file: "assets/manuals/datasheet-k16pro-9x16.pdf" }, { title: "Cấu tạo bên trong K16PRO", file: "assets/products/cautao-k16pro.jpg" }],
+    datasheetImages: { "16x9": "assets/datasheets/k16pro-16x9.png", "9x16": "assets/datasheets/k16pro-9x16.png" },
     applications: ["Dàn line array sân khấu sự kiện, hội nghị vừa-lớn", "Hệ thống cố định hội trường, sân khấu biểu diễn", "Đơn vị touring & rental cần thiết bị 4 kênh gọn"]
   },
 
@@ -131,6 +133,7 @@ const PRODUCTS = [
       "Dải điện áp AC 140V–240V — vận hành ổn định nơi điện lưới yếu"
     ],
     manuals: [{ title: "Datasheet K19S — Bản ngang (PDF)", file: "assets/manuals/datasheet-k19s-16x9.pdf" }, { title: "Datasheet K19S — Bản dọc (PDF)", file: "assets/manuals/datasheet-k19s-9x16.pdf" }],
+    datasheetImages: { "16x9": "assets/datasheets/k19s-16x9.png", "9x16": "assets/datasheets/k19s-9x16.png" },
     applications: ["Sub bass công suất lớn cho karaoke kinh doanh, bar", "Hệ thống sự kiện cần công suất cao hơn K16S"]
   },
 
@@ -173,6 +176,7 @@ const PRODUCTS = [
       "5 quạt DC front-to-back — tản nhiệt mạnh cho sự kiện dài giờ"
     ],
     manuals: [{ title: "Datasheet K19PRO — Bản ngang (PDF)", file: "assets/manuals/datasheet-k19pro-16x9.pdf" }, { title: "Datasheet K19PRO — Bản dọc (PDF)", file: "assets/manuals/datasheet-k19pro-9x16.pdf" }, { title: "Cấu tạo bên trong K19PRO", file: "assets/products/cautao-k19pro.jpg" }],
+    datasheetImages: { "16x9": "assets/datasheets/k19pro-16x9.png", "9x16": "assets/datasheets/k19pro-9x16.png" },
     applications: ["Full-range / Line Array cho sự kiện nhiều giờ liên tục", "Sân khấu cố định công suất lớn cần độ bền cao"]
   },
 
@@ -214,6 +218,7 @@ const PRODUCTS = [
       "SiC + PFC — chạy công suất lớn liên tục nhiều giờ vẫn bền bỉ"
     ],
     manuals: [{ title: "Datasheet K20S — Bản ngang (PDF)", file: "assets/manuals/datasheet-k20s-16x9.pdf" }, { title: "Datasheet K20S — Bản dọc (PDF)", file: "assets/manuals/datasheet-k20s-9x16.pdf" }],
+    datasheetImages: { "16x9": "assets/datasheets/k20s-16x9.png", "9x16": "assets/datasheets/k20s-9x16.png" },
     applications: ["Sub bass hội chợ, lễ hội, sự kiện ngoài trời quy mô lớn", "Phối ghép cùng K16PRO/K19PRO trong hệ thống line array + sub"]
   },
 
@@ -254,6 +259,7 @@ const PRODUCTS = [
       "SiC + PFC cao cấp — cùng nhóm công nghệ với K19PRO, K20S"
     ],
     manuals: [{ title: "Datasheet K20PLUS — Bản ngang (PDF)", file: "assets/manuals/datasheet-k20plus-16x9.pdf" }, { title: "Datasheet K20PLUS — Bản dọc (PDF)", file: "assets/manuals/datasheet-k20plus-9x16.pdf" }],
+    datasheetImages: { "16x9": "assets/datasheets/k20plus-16x9.png", "9x16": "assets/datasheets/k20plus-9x16.png" },
     applications: ["Hệ thống all-in-one cho đơn vị touring vừa-lớn", "Sân khấu sự kiện cao cấp cần cả chi tiết và lực bass"]
   },
 

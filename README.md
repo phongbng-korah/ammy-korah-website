@@ -1,6 +1,13 @@
 # ammy-korah-website
 Website AMMY / KORAH Việt Nam - Power Amplifier chuyên nghiệp
 
+## Phiên bản: v4.3.1
+
+Thay đổi chính so với v4.3:
+- Xóa ảnh mặt sau 4 kênh (rear-panel.png) khỏi gallery các model 2 kênh (K16S, K19S, K20S) — trước đó dùng nhầm chung với model 4 kênh
+- Xóa 3 ảnh sản phẩm bị lỗi render (K19PRO góc 45°, K20S góc 45°, K20PLUS front)
+- Thay bằng 3 ảnh sản phẩm mới, đã tách nền (không dùng AI render lại, giữ nguyên pixel gốc)
+
 ## Phiên bản: v4.3
 
 Thay đổi chính so với v4.2:

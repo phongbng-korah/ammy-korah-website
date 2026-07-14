@@ -17,5 +17,6 @@ const TECH_TAGS = {
   sic:     "Silicon Carbide SiC",
   pfc:     "PFC Power Supply",
   classD:  "Class D High Efficiency",
+  classTD: "Class TD",
   dsp:     "DSP Processing"
 };

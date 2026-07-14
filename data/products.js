@@ -364,6 +364,90 @@ const PRODUCTS = [
 
   // ─── Ngưng sản xuất ─────────────────────────────────────
   {
+    id: "korah-k18plus",
+    brand: "KORAH",
+    series: "K Series",
+    name: "KORAH K18PLUS",
+    tagline: "Ampli 4 kênh 1500W x4 (8Ω Hi) — Class TD, đã ngưng sản xuất",
+    status: "discontinued",
+    visible: true,
+    price: "21.000.000đ",
+    warranty: "Bảo hành 2 năm + Bảo trì 3 năm",
+    image: "",
+    gallery: ["assets/products/k18plus-interior-1.jpg", "assets/products/k18plus-interior-2.jpg", "assets/products/k18plus-datasheet.jpg", "assets/products/k18-series-brochure.jpg"],
+    tech: ["classTD"],
+    specs: {
+      "Số kênh": "4 kênh",
+      "Bộ nguồn": "AC in 220V / 50Hz–60Hz",
+      "Công suất 8Ω Stereo RMS": "Hi 1500W x4 / Lo 1000W x4",
+      "Công suất 4Ω Stereo RMS": "Hi 2350W x4 / Lo 1800W x4",
+      "Bridge Mono 8Ω": "Hi 4700W x2 / Lo 3600W x2",
+      "Điện áp ra Peak": "156V (VPL 156V / 127V)",
+      "Dải tần số": "35Hz – 20kHz",
+      "Trở kháng vào": "20kΩ balanced / 10kΩ unbalanced",
+      "Cổng vào": "Female XLR & Male XLR",
+      "Cổng ra": "4 Speakon + 4 cặp binding post",
+      "Class": "TD",
+      "Tản nhiệt": "Front-to-back, 6 quạt DC",
+      "Kích thước": "483 x 98 x 475 mm",
+      "Trọng lượng": "13 kg (net) / 15 kg (gross)"
+    },
+    description: "Dòng power amplifier 4 kênh, ứng dụng công nghệ khuếch đại Class TD kết hợp bộ nguồn xung — nâng cao hiệu suất, đạt công suất lớn, đáp ứng dải tần rộng, thích hợp cho cả loa full và sub. Linh hoạt phối ghép: dùng cho 2 kênh sub đối tải hoặc loa full đối tải; hoặc 1 cặp sub đôi và 2 kênh còn lại cho loa full.",
+    features: [
+      "Hoạt động tuyến tính, hiệu suất cao — công suất lớn",
+      "Tái tạo chất âm chi tiết, chân thực ở mọi trạng thái công suất",
+      "Khởi động nhẹ nhàng, an toàn cho loa",
+      "Bảo vệ thông minh: chạm loa, clip, quá nhiệt, quá tải",
+      "Hoạt động ở dải điện áp rộng: AC 140V–240V",
+      "Đã ngưng sản xuất — thông tin lưu trữ để hỗ trợ khách hàng đang sử dụng"
+    ],
+    manuals: [],
+    applications: ["Hệ thống loa full kết hợp sub công suất lớn", "Sân khấu, sự kiện cần công suất 4 kênh linh hoạt"]
+  },
+
+  {
+    id: "korah-k18s",
+    brand: "KORAH",
+    series: "K Series",
+    name: "KORAH K18S",
+    tagline: "Ampli 2 kênh 1800W x2 (8Ω Hi) — Class TD, đã ngưng sản xuất",
+    status: "discontinued",
+    visible: true,
+    price: "19.000.000đ",
+    warranty: "Bảo hành 2 năm + Bảo trì 3 năm",
+    image: "",
+    gallery: ["assets/products/k18s-datasheet.jpg", "assets/products/k18-series-brochure.jpg"],
+    tech: ["classTD"],
+    specs: {
+      "Số kênh": "2 kênh",
+      "Bộ nguồn": "AC in 220V / 50Hz–60Hz",
+      "Công suất 8Ω Stereo RMS": "Hi 1800W x2 / Lo 1250W x2",
+      "Công suất 4Ω Stereo RMS": "Hi 3000W x2 / Lo 2350W x2",
+      "Bridge Mono 8Ω": "Hi 6000W / Lo 4700W",
+      "Điện áp ra Peak": "172V (VPL 172V / 142V)",
+      "Dải tần số": "35Hz – 20kHz",
+      "Trở kháng vào": "20kΩ balanced / 10kΩ unbalanced",
+      "Cổng vào": "Female XLR & Male XLR",
+      "Cổng ra": "2 Speakon + 2 cặp binding post",
+      "Class": "TD",
+      "Tản nhiệt": "Front-to-back, 5 quạt DC",
+      "Kích thước": "483 x 98 x 475 mm",
+      "Trọng lượng": "12 kg (net) / 14 kg (gross)"
+    },
+    description: "Phiên bản Class TD 2 kênh, đạt mức công suất lớn mà vẫn giữ các tính năng ưu việt của dòng K18. Khi kết hợp loa sub, K18S thể hiện chất âm trầm sâu, gọn gàng và mạnh mẽ.",
+    features: [
+      "Hoạt động tuyến tính, hiệu suất cao — công suất lớn",
+      "Tái tạo chất âm chi tiết, chân thực ở mọi trạng thái công suất",
+      "Khởi động nhẹ nhàng, an toàn cho loa",
+      "Bảo vệ thông minh: chạm loa, clip, quá nhiệt, quá tải",
+      "Hoạt động ở dải điện áp rộng: AC 140V–240V",
+      "Đã ngưng sản xuất — thông tin lưu trữ để hỗ trợ khách hàng đang sử dụng"
+    ],
+    manuals: [],
+    applications: ["Hệ thống loa sub công suất lớn", "Phối ghép loa full 2 kênh cho sân khấu vừa"]
+  },
+
+  {
     id: "discontinued-sample-01",
     brand: "KORAH",
     series: "Đang cập nhật",

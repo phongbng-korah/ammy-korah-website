@@ -148,7 +148,7 @@ const PRODUCTS = [
     price: "23.000.000đ",
     warranty: "Bảo hành 2 năm",
     image: "assets/products/k19pro-front.png",
-    gallery: ["assets/products/rear-panel.png", "assets/products/cautao-k19pro.jpg", "assets/products/stack-k19.jpg"],
+    gallery: ["assets/products/k19pro-angle.jpg", "assets/products/rear-panel.png", "assets/products/cautao-k19pro.jpg", "assets/products/stack-k19.jpg"],
     tech: ["classD", "sic", "pfc"],
     specs: {
       "Số kênh": "4 kênh",
@@ -191,7 +191,7 @@ const PRODUCTS = [
     price: "24.000.000đ",
     warranty: "Bảo hành 3 năm + Bảo trì 3 năm",
     image: "assets/products/k20s-front.png",
-    gallery: ["assets/products/stack-k20.jpg"],
+    gallery: ["assets/products/k20s-angle.jpg", "assets/products/stack-k20.jpg"],
     tech: ["classD", "sic", "pfc"],
     specs: {
       "Số kênh": "2 kênh",

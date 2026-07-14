@@ -1,6 +1,14 @@
 # ammy-korah-website
 Website AMMY / KORAH Việt Nam - Power Amplifier chuyên nghiệp
 
+## Phiên bản: v4.5
+
+Thay đổi chính so với v4.4:
+- Thêm K18PLUS và K18S (Class TD, đã ngưng sản xuất) vào danh mục Ngưng sản xuất
+- Thêm mục "Bảo hành 5 sao KORAH" trên trang after-sales.html: 3 ảnh + 1 video (chuyển từ HEVC sang H.264 MP4 để chạy mọi trình duyệt)
+- Thêm folder "Phiếu bảo hành": PDF phiếu gửi hàng bảo hành + ảnh render từ PDF
+- Thêm hotline bảo hành 0903 851 252
+
 ## Phiên bản: v4.4
 
 Thay đổi chính so với v4.3.3:

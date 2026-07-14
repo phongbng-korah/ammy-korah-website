@@ -1,6 +1,12 @@
 # ammy-korah-website
 Website AMMY / KORAH Việt Nam - Power Amplifier chuyên nghiệp
 
+## Phiên bản: v4.4
+
+Thay đổi chính so với v4.3.3:
+- Thêm thư mục ảnh sự kiện "KORAH và NPSE Hà Nam" trên trang Sự kiện (44 ảnh, assets/events/npse-ha-nam/)
+- Ảnh sự kiện đã tối ưu cho web (xoay đúng chiều, nén, xóa metadata), nhấn vào ảnh để phóng to bằng lightbox có sẵn
+
 ## Phiên bản: v4.3.3
 
 Thay đổi chính so với v4.3.2:

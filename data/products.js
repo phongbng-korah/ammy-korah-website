@@ -24,7 +24,7 @@ const PRODUCTS = [
     price: "16.000.000đ",
     warranty: "Bảo hành 2 năm + Bảo trì 3 năm",
     image: "assets/products/k16s-front.png",
-    gallery: ["assets/products/rear-panel.png", "assets/products/stack-k16.jpg"],
+    gallery: ["assets/products/stack-k16.jpg"],
     tech: ["classD", "pfc"],
     specs: {
       "Số kênh": "2 kênh",
@@ -106,7 +106,7 @@ const PRODUCTS = [
     price: "20.000.000đ",
     warranty: "Bảo hành 2 năm + Bảo trì 3 năm",
     image: "assets/products/k19s-front.png",
-    gallery: ["assets/products/rear-panel.png", "assets/products/stack-k19.jpg"],
+    gallery: ["assets/products/stack-k19.jpg"],
     tech: ["classD", "pfc"],
     specs: {
       "Số kênh": "2 kênh",
@@ -191,7 +191,7 @@ const PRODUCTS = [
     price: "24.000.000đ",
     warranty: "Bảo hành 3 năm + Bảo trì 3 năm",
     image: "assets/products/k20s-front.png",
-    gallery: ["assets/products/k20s-angle.png", "assets/products/rear-panel.png", "assets/products/stack-k20.jpg"],
+    gallery: ["assets/products/k20s-angle.png", "assets/products/stack-k20.jpg"],
     tech: ["classD", "sic", "pfc"],
     specs: {
       "Số kênh": "2 kênh",

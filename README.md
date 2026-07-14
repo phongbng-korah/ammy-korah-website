@@ -1,6 +1,11 @@
 # ammy-korah-website
 Website AMMY / KORAH Việt Nam - Power Amplifier chuyên nghiệp
 
+## Phiên bản: v4.3.3
+
+Thay đổi chính so với v4.3.2:
+- Tìm thấy ảnh góc 45° gốc (.jpg) của K19PRO và K20S sẵn có trong repo từ bản v4.2, chưa từng dùng, chất lượng tốt — đưa vào gallery thay cho ảnh bị lỗi
+
 ## Phiên bản: v4.3.2
 
 Thay đổi chính so với v4.3.1:

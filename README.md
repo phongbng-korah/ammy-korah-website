@@ -1,6 +1,11 @@
 # ammy-korah-website
 Website AMMY / KORAH Việt Nam - Power Amplifier chuyên nghiệp
 
+## Phiên bản: v4.5.1
+
+Thay đổi chính so với v4.5:
+- Xóa ảnh chụp màn hình đặt sai vị trí trong mục "Thời hạn bảo hành theo model" (after-sales.html)
+
 ## Phiên bản: v4.5
 
 Thay đổi chính so với v4.4:

@@ -1,6 +1,12 @@
 # ammy-korah-website
 Website AMMY / KORAH Việt Nam - Power Amplifier chuyên nghiệp
 
+## Phiên bản: v4.6
+
+Thay đổi chính so với v4.5.1:
+- Cập nhật tên pháp lý đầy đủ công ty trên toàn bộ 14 trang: "CÔNG TY TNHH SX & TM ĐIỆN TỬ AMMY (AMMY ELECTRONIC CO., LTD)"
+- Cập nhật footer, trang Giới thiệu, và dữ liệu SEO (JSON-LD schema.org)
+
 ## Phiên bản: v4.5.1
 
 Thay đổi chính so với v4.5:

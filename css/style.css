@@ -574,9 +574,13 @@ h4 { font-size: 1.25rem; }
   display: inline-flex;
   align-items: center;
 }
+.product-card__badges .badge--brand-logo img,
+.product-detail__badges .badge--brand-logo img,
 .badge--brand-logo img {
-  height: 14px;
-  width: auto;
+  height: 14px !important;
+  width: auto !important;
+  max-width: 90px;
+  object-fit: contain;
   display: block;
 }
 

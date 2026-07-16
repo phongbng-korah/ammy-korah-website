@@ -2,6 +2,27 @@
    AMMY / KORAH — main.js
    ============================================================ */
 
+// ── Brand logos (thay nhãn chữ bằng logo ảnh) ───────────────
+const BRAND_LOGOS = {
+  KORAH: 'assets/logo/korah.png',
+  ROY: 'assets/logo/roy.png',
+  USAMMY: 'assets/logo/usammy.png'
+};
+
+function brandBadgeHTML(brand) {
+  const logo = BRAND_LOGOS[brand];
+  return logo
+    ? `<span class="badge badge--brand badge--brand-logo"><img src="${logo}" alt="${brand}" loading="lazy"></span>`
+    : `<span class="badge badge--brand">${brand}</span>`;
+}
+
+function brandLabelHTML(brand) {
+  const logo = BRAND_LOGOS[brand];
+  return logo
+    ? `<div class="product-detail__brand product-detail__brand--logo"><img src="${logo}" alt="${brand}" loading="lazy"></div>`
+    : `<div class="product-detail__brand">${brand}</div>`;
+}
+
 // ── Navigation ─────────────────────────────────────────────
 (function initNav() {
   const hamburger = document.querySelector('.nav__hamburger');
@@ -126,7 +147,7 @@ function productCardHTML(p) {
     <div class="card__image">
       ${imgContent}
       <div class="product-card__badges">
-        <span class="badge badge--brand">${p.brand}</span>
+        ${brandBadgeHTML(p.brand)}
         <span class="badge ${statusLabel.cls}">${statusLabel.text}</span>
       </div>
     </div>
@@ -223,13 +244,13 @@ function initProductDetail() {
       </div>
 
       <div class="product-detail__info">
-        <div class="product-detail__brand">${product.brand}</div>
+        ${brandLabelHTML(product.brand)}
         <h1 class="product-detail__name">${product.name}</h1>
         <p class="product-detail__tagline">${product.tagline}</p>
         ${product.price ? `<div class="product-detail__price">Giá niêm yết: <strong>${product.price}</strong>${product.warranty ? ` <span class="product-detail__warranty">${product.warranty}</span>` : ''}</div>` : ''}
 
         <div class="product-detail__badges">
-          <span class="badge badge--brand">${product.brand}</span>
+          ${brandBadgeHTML(product.brand)}
           <span class="badge ${statusLabel.cls}">${statusLabel.text}</span>
           ${techChips ? `<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">${techChips}</div>` : ''}
         </div>

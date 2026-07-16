@@ -567,6 +567,18 @@ h4 { font-size: 1.25rem; }
   color: var(--gold);
   border: 1px solid rgba(200,169,110,0.3);
 }
+.badge--brand-logo {
+  background: none;
+  border: none;
+  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+}
+.badge--brand-logo img {
+  height: 14px;
+  width: auto;
+  display: block;
+}
 
 .badge--active {
   background: rgba(26,122,120,0.2);
@@ -992,6 +1004,14 @@ h4 { font-size: 1.25rem; }
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 8px;
+}
+.product-detail__brand--logo {
+  margin-bottom: 12px;
+}
+.product-detail__brand--logo img {
+  height: 30px;
+  width: auto;
+  display: block;
 }
 
 .product-detail__name {

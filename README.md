@@ -1,6 +1,13 @@
 # ammy-korah-website
 Website AMMY / KORAH Việt Nam - Power Amplifier chuyên nghiệp
 
+## Phiên bản: v4.8
+
+Thay đổi chính so với v4.7:
+- Trang Giới thiệu: tách slogan 2 dòng với hiệu ứng chữ vàng radiant; "Phương châm hoạt động của AMMY từ 2006" chuyển lên trên làm tiêu đề chính; thẻ logo đổi thành tên công ty 2 màu
+- Tăng cỡ chữ tiêu đề mục (section-label, page-hero__label) trên toàn site cho rõ hơn
+- Thay nhãn chữ thương hiệu bằng logo ảnh thật (KORAH, ROY, USAMMY) ở thẻ sản phẩm và trang chi tiết
+
 ## Phiên bản: v4.7
 
 Thay đổi chính so với v4.6:

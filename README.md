@@ -1,6 +1,11 @@
 # ammy-korah-website
 Website AMMY / KORAH Việt Nam - Power Amplifier chuyên nghiệp
 
+## Phiên bản: v4.8.1
+
+Thay đổi chính so với v4.8:
+- Sửa lỗi logo thương hiệu bị phóng to che ảnh/tiêu đề trên thẻ sản phẩm (danh sách sản phẩm)
+
 ## Phiên bản: v4.8
 
 Thay đổi chính so với v4.7:

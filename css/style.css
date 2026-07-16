@@ -91,9 +91,9 @@ h4 { font-size: 1.25rem; }
 .section-label {
   display: inline-block;
   font-family: var(--font-head);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 12px;
@@ -674,10 +674,10 @@ h4 { font-size: 1.25rem; }
 }
 
 .page-hero__label {
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-family: var(--font-head);
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 12px;
@@ -1496,6 +1496,15 @@ h4 { font-size: 1.25rem; }
   text-align: center;
   position: relative;
 }
+.slogan-banner__title {
+  font-family: var(--font-head);
+  font-size: clamp(1.5rem, 3.4vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
 .slogan-banner__mark {
   font-family: var(--font-head);
   font-size: 5rem;
@@ -1513,6 +1522,19 @@ h4 { font-size: 1.25rem; }
   max-width: 1050px;
   margin: 0 auto;
 }
+.slogan-banner__text--radiant {
+  background: linear-gradient(90deg, #E9C888 0%, #C8A96E 30%, #F5E0B0 50%, #C8A96E 70%, #E9C888 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--gold);
+  animation: radiantShine 6s linear infinite;
+}
+@keyframes radiantShine {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
 .slogan-banner__sep {
   display: inline-block;
   margin: 0 22px;
@@ -1526,6 +1548,9 @@ h4 { font-size: 1.25rem; }
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gray-1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .slogan-banner__text--radiant { animation: none; }
 }
 @media (max-width: 768px) {
   .slogan-banner { padding: 60px 0 48px; }

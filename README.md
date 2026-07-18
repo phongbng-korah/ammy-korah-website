@@ -1,6 +1,18 @@
 # ammy-korah-website
 Website AMMY / KORAH Việt Nam - Power Amplifier chuyên nghiệp
 
+## Phiên bản: v4.9
+
+Thay đổi chính so với v4.8.1 (Audit nâng cấp giao diện — không đổi layout/concept/màu/font/logo/ảnh sản phẩm):
+- Header: logo AMMY và tên công ty phóng to, dễ đọc hơn, khoảng cách logo-menu hợp lý hơn
+- Hero: hiệu ứng ánh sáng chuyển động rất chậm, thêm chiều sâu (vignette), không đổi ảnh/bố cục
+- Ảnh sản phẩm: thêm đổ bóng mềm + phản chiếu nhẹ, cảm giác "nổi" hơn (không render lại ảnh)
+- Nút bấm: bo góc mềm hơn, hover mượt hơn (0.2s), đổ bóng nhẹ theo màu
+- Khoảng trắng: tăng giãn cách giữa Header/Hero/Section/Footer cho thoáng hơn
+- Typography: tối ưu line-height, letter-spacing, khoảng cách tiêu đề/đoạn văn
+- Mobile/Responsive: tăng vùng chạm nút hamburger, chống tràn ngang, tối ưu nút nổi Zalo/gọi trên màn nhỏ
+- Accessibility: thêm focus outline cho bàn phím, tăng tương phản chữ xám, hỗ trợ mở menu dropdown bằng bàn phím
+
 ## Phiên bản: v4.8.1
 
 Thay đổi chính so với v4.8:

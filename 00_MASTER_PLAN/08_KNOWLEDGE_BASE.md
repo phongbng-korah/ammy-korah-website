@@ -86,6 +86,8 @@ Knowledge Base được tổ chức thành đúng mười nhóm thư viện đã
 
 Mỗi tài liệu trong Knowledge Base phải thuộc đúng một trong mười nhóm này, theo quy tắc phân loại tại mục 18 của tài liệu này.
 
+Một dữ liệu hoặc tài sản chỉ có một nơi sở hữu chính thức trong Knowledge Base. Các nhóm thư viện khác chỉ được sử dụng mã hoặc liên kết tham chiếu tới nơi sở hữu chính thức đó, không tạo bản sao độc lập gây sai lệch phiên bản. Khi dữ liệu hiển thị ở một nơi mâu thuẫn với tài liệu nguồn tại nơi sở hữu chính thức, phải dừng sử dụng và chuyển cho con người kiểm tra, theo quy trình xử lý dữ liệu mâu thuẫn tại mục 23.
+
 ---
 
 ## 7. Brand Guideline
@@ -104,9 +106,11 @@ Brand Guideline là nguồn tham chiếu bắt buộc cho website, marketing và
 
 ## 8. Product Database
 
-Nội dung là toàn bộ dữ liệu sản phẩm chuẩn đã được phê duyệt tại 04_PRODUCT_KNOWLEDGE.md, gồm danh mục sáu model, thông số kỹ thuật, giá niêm yết, chính sách bảo hành, hình ảnh và tài liệu liên quan, theo cấu trúc trường dữ liệu tại 04 mục 6.
+Product Database là nơi lưu dữ liệu sản phẩm có cấu trúc và đã được xác minh, gồm: tên model, nhóm sản phẩm, công nghệ, thông số kỹ thuật, giá niêm yết, chính sách bảo hành, trạng thái sản phẩm và các dữ liệu sản phẩm khác đã được phê duyệt tại 04_PRODUCT_KNOWLEDGE.md, theo cấu trúc trường dữ liệu tại 04 mục 6.
 
-Product Database là nguồn duy nhất cho thông số sản phẩm chính thức. CRM không lưu bản sao thông số sản phẩm mà chỉ tham chiếu tới Product Database khi ghi nhận giao dịch bán hàng, theo 07_CRM_ARCHITECTURE.md mục 16.
+Product Database không lưu bản gốc của hình ảnh hoặc tài liệu kỹ thuật hoàn chỉnh. Product Database chỉ lưu mã hoặc liên kết tham chiếu tới ảnh gốc tại Image Master Library và tài liệu kỹ thuật tại Technical Library tương ứng.
+
+Product Database là nguồn tham chiếu chính thức cho thông tin và thông số sản phẩm đã được xác minh. CRM không lưu bản sao thông số sản phẩm mà chỉ tham chiếu tới Product Database khi ghi nhận giao dịch bán hàng, theo 07_CRM_ARCHITECTURE.md mục 16.
 
 ---
 
@@ -123,6 +127,8 @@ Không được gán công nghệ cho model không được trang bị công ngh
 Nội dung gồm ảnh sản phẩm gốc (mặt trước, mặt sau, góc nghiêng, ảnh chi tiết, ảnh ứng dụng), logo chuẩn và icon công nghệ, theo nhóm Media tại 04_PRODUCT_KNOWLEDGE.md mục 6.6.
 
 Image Master Library là nguồn duy nhất cung cấp ảnh gốc cho website, marketing và catalog, theo Quy tắc lưu trữ hình ảnh gốc tại mục 25 và Quy tắc bảo vệ logo và hình ảnh sản phẩm tại mục 26 của tài liệu này.
+
+Image Master Library sở hữu và lưu trữ chính thức toàn bộ ảnh gốc sản phẩm, logo và tài sản hình ảnh thương hiệu, đồng thời quản lý phiên bản hình ảnh được phép sử dụng. Product Database và mọi hệ thống khác chỉ được tham chiếu tới ảnh tại Image Master Library, không lưu bản sao độc lập.
 
 ---
 
@@ -145,6 +151,8 @@ Video đầu vào và đầu ra khi xử lý bằng CapCut phải tuân thủ qu
 ## 13. Technical Library
 
 Nội dung gồm Datasheet, Manual, Technical Handbook, Warranty Guide, hướng dẫn DIP switch, hướng dẫn Bridge, Stereo và Parallel, theo nhóm Documentation tại 04_PRODUCT_KNOWLEDGE.md mục 6.7, DIP Switch Knowledge tại 04 mục 8, và nội dung Tài liệu tại 03_WEBSITE_ARCHITECTURE.md mục 5.6.
+
+Technical Library sở hữu và lưu trữ chính thức Datasheet, User Manual, System Design Guide và các tài liệu kỹ thuật hoàn chỉnh khác. Mọi hệ thống khác chỉ được tham chiếu tới tài liệu tại Technical Library, không lưu bản sao độc lập. Technical Library không thay thế Product Database trong việc cung cấp dữ liệu sản phẩm có cấu trúc.
 
 ---
 

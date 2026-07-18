@@ -1,6 +1,15 @@
 # ammy-korah-website
 Website AMMY / KORAH Việt Nam - Power Amplifier chuyên nghiệp
 
+## Phiên bản: v4.10
+
+Thay đổi chính so với v4.9 (Audit Nhóm C — SEO Technical + Performance):
+- Thêm canonical, Open Graph URL (absolute), Twitter Card cho cả 14 trang
+- Tạo robots.txt và sitemap.xml (13 trang + 12 sản phẩm đang hiển thị)
+- Sửa domain sai `korah.com.vn` → `ammy.com.vn` trong JSON-LD Organization và link footer trang chủ
+- Thêm JSON-LD Product (brand KORAH tách biệt với manufacturer AMMY) và BreadcrumbList động cho trang chi tiết sản phẩm
+- Gỡ font Inter không sử dụng khỏi Google Fonts để giảm request không cần thiết
+
 ## Phiên bản: v4.9
 
 Thay đổi chính so với v4.8.1 (Audit nâng cấp giao diện — không đổi layout/concept/màu/font/logo/ảnh sản phẩm):

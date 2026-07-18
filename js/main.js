@@ -286,7 +286,75 @@ function initProductDetail() {
       </div>
     </div>`;
 
+  updateProductSEO(product);
   initTabs();
+}
+
+function updateProductSEO(product) {
+  const BASE = 'https://ammy.com.vn';
+  const url = `${BASE}/product-detail.html?id=${product.id}`;
+
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) canonical.setAttribute('href', url);
+  const ogUrl = document.querySelector('meta[property="og:url"]');
+  if (ogUrl) ogUrl.setAttribute('content', url);
+
+  const desc = product.description || product.tagline || '';
+  const descMeta = document.querySelector('meta[name="description"]');
+  if (descMeta) descMeta.setAttribute('content', desc);
+  ['og:title', 'og:description', 'twitter:title', 'twitter:description'].forEach(prop => {
+    const el = document.querySelector(`meta[property="${prop}"], meta[name="${prop}"]`);
+    if (!el) return;
+    if (prop.endsWith('title')) el.setAttribute('content', `${product.name} — AMMY / KORAH`);
+    else el.setAttribute('content', desc);
+  });
+  if (product.image) {
+    const absImg = `${BASE}/${product.image}`;
+    const ogImg = document.querySelector('meta[property="og:image"]');
+    if (ogImg) ogImg.setAttribute('content', absImg);
+    const twImg = document.querySelector('meta[name="twitter:image"]');
+    if (twImg) twImg.setAttribute('content', absImg);
+  }
+
+  document.getElementById('ld-product')?.remove();
+  const productLd = document.createElement('script');
+  productLd.type = 'application/ld+json';
+  productLd.id = 'ld-product';
+  productLd.textContent = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    'name': product.name,
+    'description': desc,
+    'image': product.image ? absUrl(BASE, product.image) : undefined,
+    'brand': { '@type': 'Brand', 'name': product.brand || 'KORAH' },
+    'manufacturer': {
+      '@type': 'Organization',
+      'name': 'CÔNG TY TNHH SX & TM ĐIỆN TỬ AMMY',
+      'legalName': 'AMMY ELECTRONICS CO., LTD',
+      'url': BASE
+    },
+    'url': url
+  });
+  document.head.appendChild(productLd);
+
+  document.getElementById('ld-breadcrumb')?.remove();
+  const breadcrumbLd = document.createElement('script');
+  breadcrumbLd.type = 'application/ld+json';
+  breadcrumbLd.id = 'ld-breadcrumb';
+  breadcrumbLd.textContent = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Trang chủ', 'item': `${BASE}/` },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Sản phẩm', 'item': `${BASE}/products.html` },
+      { '@type': 'ListItem', 'position': 3, 'name': product.name, 'item': url }
+    ]
+  });
+  document.head.appendChild(breadcrumbLd);
+}
+
+function absUrl(base, path) {
+  return path.startsWith('http') ? path : `${base}/${path}`;
 }
 
 function showNotFound(el) {

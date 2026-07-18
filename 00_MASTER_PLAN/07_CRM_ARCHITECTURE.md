@@ -82,6 +82,8 @@ Mỗi sản phẩm khách hàng đã mua là một bản ghi riêng, gồm:
 
 Tên model phải viết đúng theo quy tắc đặt tên tại 04_PRODUCT_KNOWLEDGE.md mục 10, không tự ý dùng biến thể tên chưa được phê duyệt.
 
+Trường "Đại lý bán" phải liên kết trực tiếp tới hồ sơ đại lý mô tả tại mục 7 của tài liệu này. Khi đại lý chưa có trong danh sách, sử dụng lựa chọn "Nhập thủ công"; việc nhập thủ công không tự động tạo hồ sơ đại lý chính thức. Hồ sơ đại lý mới chỉ được tạo hoặc chuẩn hóa sau khi con người kiểm tra và phê duyệt, theo quy tắc tại mục 7 và mục 13 của tài liệu này.
+
 ---
 
 ## 6. Quan hệ một khách hàng có thể sở hữu nhiều sản phẩm
@@ -290,6 +292,8 @@ Theo Future Development tại 03_WEBSITE_ARCHITECTURE.md mục 15, kết nối C
 Theo Current Priority tại 06_AI_ARCHITECTURE.md mục 20, hệ thống hiện đang ưu tiên hoàn thành Master Plan, chuẩn hóa dữ liệu sản phẩm, hoàn thiện website và chuẩn hóa Knowledge Base trước khi mở rộng sang các hệ thống khác.
 
 Tài liệu kiến trúc CRM này là bước chuẩn bị cho giai đoạn triển khai CRM trong tương lai, không phải chỉ định thời điểm hoặc kế hoạch triển khai kỹ thuật cụ thể. Thời điểm triển khai chi tiết: Dữ liệu hiện tại chưa đủ để kết luận.
+
+Các nội dung trong tài liệu này đang ghi "Dữ liệu hiện tại chưa đủ để kết luận" — gồm thời hạn bảo hành theo từng model, phương thức đồng bộ dữ liệu giữa CRM và website, cơ chế phân quyền và mã hóa, tần suất và nơi lưu trữ bản sao lưu, và thời điểm triển khai cụ thể — là các quyết định cần được xác nhận ở giai đoạn thiết kế hoặc triển khai CRM, không phải lỗi của kiến trúc hiện tại. Các nội dung này không được tự suy diễn hoặc tự bổ sung khi chưa có quyết định chính thức.
 
 ---
 

@@ -143,6 +143,8 @@ Gemini được sử dụng chủ yếu cho:
 
 Gemini không được tự thay đổi thông số sản phẩm hoặc nhận diện thương hiệu.
 
+Quy tắc chi tiết về bảo vệ hình ảnh và video sản phẩm áp dụng đầy đủ cho Gemini theo mục "Quy tắc bảo vệ hình ảnh và video sản phẩm KORAH" ở mục 12.
+
 ---
 
 ## 9. NotebookLM Role
@@ -204,6 +206,8 @@ Quy tắc:
 - Không làm sai nhận diện.
 - Không dùng thông số chưa được phê duyệt.
 
+Quy tắc chi tiết về bảo vệ hình ảnh và video sản phẩm áp dụng đầy đủ cho Canva theo mục "Quy tắc bảo vệ hình ảnh và video sản phẩm KORAH" ở mục 12.
+
 ---
 
 ## 12. CapCut Role
@@ -219,6 +223,20 @@ CapCut được sử dụng cho:
 - Tạo Shorts.
 
 Nội dung kỹ thuật và hình ảnh đầu vào phải được kiểm tra trước khi dựng video.
+
+### Quy tắc bảo vệ hình ảnh và video sản phẩm KORAH (áp dụng chung cho Canva, Gemini và CapCut)
+
+Mọi công cụ có khả năng xử lý hình ảnh hoặc video sản phẩm — bao gồm Canva, Gemini và CapCut — đều phải tuân thủ đầy đủ các quy tắc sau:
+
+- Không render hoặc vẽ lại sản phẩm KORAH.
+- Không thay đổi logo hoặc font chữ thương hiệu.
+- Không thay đổi tỷ lệ, hình dáng hoặc cấu trúc sản phẩm.
+- Không thêm, bớt hoặc di chuyển tay cầm, núm điều khiển, nút nguồn, đèn LED, lưới tản nhiệt và chữ trên mặt máy.
+- Không thay đổi màu sắc gốc hoặc làm sai nhận diện model.
+- Chỉ được chỉnh nền, ánh sáng, bố cục, crop và lớp chữ bên ngoài sản phẩm khi đã được phê duyệt.
+- Hình ảnh và video đầu ra phải được con người kiểm tra trước khi sử dụng hoặc xuất bản.
+
+Bộ quy tắc này áp dụng thống nhất cho Canva Role (mục 11), Gemini Role (mục 8) và CapCut Role (mục 12), không thay thế các quy tắc riêng đã nêu ở từng công cụ.
 
 ---
 
@@ -319,6 +337,20 @@ Các vai trò này không nhất thiết phải là các hệ thống AI riêng 
 
 Chúng có thể được thực hiện lần lượt trong cùng một quy trình.
 
+### Đồng bộ tên gọi vai trò với 05_MARKETING_SYSTEM.md
+
+| Vai trò trong 05_MARKETING_SYSTEM.md | Vai trò tương ứng trong 06_AI_ARCHITECTURE.md | Chức năng chính |
+|---|---|---|
+| Marketing Manager | AI Manager | Điều phối quy trình: nhận yêu cầu, chọn công cụ, chia bước, theo dõi tiến độ. |
+| Approval | Human Approver | Quyền phê duyệt cuối cùng: duyệt, từ chối, yêu cầu sửa. |
+
+Ghi chú đồng bộ:
+
+- "Marketing Manager" (file 05) và "AI Manager" (file 06) là cùng một vai trò điều phối quy trình, chỉ khác tên gọi theo phạm vi tài liệu: file 05 dùng trong phạm vi marketing, file 06 dùng trong phạm vi AI nói chung.
+- "Approval" (file 05) và "Human Approver" (file 06) là cùng một vai trò quyết định cuối cùng.
+- Technical Expert, Product Auditor, Content Creator và Brand Auditor là các vai trò hỗ trợ bằng AI dưới sự kiểm tra của con người, giữ nguyên tên gọi thống nhất ở cả hai file.
+- Trong mọi trường hợp, quyền phê duyệt cuối cùng luôn thuộc về con người (Approval / Human Approver), không thuộc về AI Manager / Marketing Manager hay bất kỳ vai trò hỗ trợ nào khác.
+
 ---
 
 ## 16. AI Safety Rules
@@ -373,6 +405,12 @@ Không dùng nhiều công cụ cho cùng một nhiệm vụ nếu một công c
 ---
 
 ## 19. Approval States
+
+Master Plan sử dụng ba nhóm trạng thái phục vụ ba mục đích khác nhau, không thay thế và không được trộn lẫn với nhau:
+
+- Data Status (định nghĩa tại 04_PRODUCT_KNOWLEDGE.md, mục 11): thể hiện mức độ kiểm chứng của dữ liệu nguồn, ví dụ thông số, giá, bảo hành, hình ảnh gốc.
+- Content Status (định nghĩa tại 05_MARKETING_SYSTEM.md, mục 9): thể hiện tiến trình xử lý của một nội dung marketing cụ thể, từ ý tưởng đến xuất bản.
+- Approval States (định nghĩa tại mục này): thể hiện trạng thái quyết định của người phê duyệt đối với một đầu ra do AI tạo ra, trước khi đầu ra đó được sử dụng làm Data Status hoặc đưa vào Content Status.
 
 Đầu ra AI nên có trạng thái:
 

@@ -1,13 +1,16 @@
-# KNOWLEDGE BASE INVENTORY — KORAH Digital Brain
+# KORAH KNOWLEDGE BASE INVENTORY
 
 ## 1. Thông tin kiểm kê
 
+- **Repository:** ammy-korah-website
+- **Giai đoạn:** Phase 1 – Knowledge Base Standardization
 - **Ngày kiểm kê:** 2026-07-19
 - **Nhánh làm việc:** `claude/phase-1-knowledge-base`
-- **Phạm vi kiểm kê:** Toàn bộ tài sản hiện có trong `assets/` và `data/` tại thời điểm kiểm kê. Không bao gồm mã nguồn website (`*.html`, `css/`, `js/`) và không bao gồm `00_MASTER_PLAN/`.
-- **Trạng thái tài liệu:** Draft.
+- **Phạm vi kiểm kê:** assets/ và data/ — toàn bộ tài sản hiện có tại thời điểm kiểm kê. Không bao gồm mã nguồn website (`*.html`, `css/`, `js/`) và không bao gồm `00_MASTER_PLAN/`.
+- **Trạng thái tài liệu:** INITIAL INVENTORY.
+- **Nguyên tắc:** Chỉ kiểm kê, chưa tái cấu trúc.
 
-Tài liệu này là bản kiểm kê tạm thời phục vụ Giai đoạn 1 – Chuẩn hóa Knowledge Base (09_TECHNICAL_ROADMAP.md mục 11). Đây **không phải** một trong 10 nhóm thư viện chính thức và không thay thế cấu trúc Knowledge Base sẽ được thiết lập sau khi con người xác minh và phê duyệt nội dung của bản kiểm kê này.
+Tài liệu này là bản kiểm kê ban đầu phục vụ Giai đoạn 1 – Chuẩn hóa Knowledge Base (09_TECHNICAL_ROADMAP.md mục 11). Đây **không phải** một trong 10 nhóm thư viện chính thức và không thay thế cấu trúc Knowledge Base sẽ được thiết lập sau khi con người xác minh và phê duyệt nội dung của bản kiểm kê này.
 
 ---
 
@@ -144,11 +147,11 @@ Ghi chú cột "Trạng thái xác minh": toàn bộ tài sản trong bản ki�
 | 92 | `assets/products/k16pro-front.png` | k16pro-front.png | PNG | 1.3 MB | Ảnh sản phẩm — K16PRO | Image Master Library | Draft | Cùng tên gốc khác định dạng với: assets/products/k16pro-front.jpg — có thể là 2 phiên bản xuất của cùng ảnh. |
 | 93 | `assets/products/k16s-front.jpg` | k16s-front.jpg | JPG | 144.8 KB | Ảnh sản phẩm — K16S | Image Master Library | Draft | Cùng tên gốc khác định dạng với: assets/products/k16s-front.png — có thể là 2 phiên bản xuất của cùng ảnh. |
 | 94 | `assets/products/k16s-front.png` | k16s-front.png | PNG | 1.5 MB | Ảnh sản phẩm — K16S | Image Master Library | Draft | Cùng tên gốc khác định dạng với: assets/products/k16s-front.jpg — có thể là 2 phiên bản xuất của cùng ảnh. |
-| 95 | `assets/products/k18-series-brochure.jpg` | k18-series-brochure.jpg | JPG | 330.5 KB | Model K18 (ngoài danh mục đã duyệt) | Chưa xác định | Draft | Model K18 KHÔNG có trong danh mục sản phẩm đã duyệt (04_PRODUCT_KNOWLEDGE mục 4 và mục 10 chỉ công nhận K16S/K16PRO/K19S/K19PRO/K20S/K20PLUS). Cần người xác minh đây là sản phẩm ngừng kinh doanh, đặt tên sai, hay dữ liệu ngoài phạm vi. |
-| 96 | `assets/products/k18plus-datasheet.jpg` | k18plus-datasheet.jpg | JPG | 368.9 KB | Model K18 (ngoài danh mục đã duyệt) | Chưa xác định | Draft | Model K18 KHÔNG có trong danh mục sản phẩm đã duyệt (04_PRODUCT_KNOWLEDGE mục 4 và mục 10 chỉ công nhận K16S/K16PRO/K19S/K19PRO/K20S/K20PLUS). Cần người xác minh đây là sản phẩm ngừng kinh doanh, đặt tên sai, hay dữ liệu ngoài phạm vi. |
-| 97 | `assets/products/k18plus-interior-1.jpg` | k18plus-interior-1.jpg | JPG | 108.6 KB | Model K18 (ngoài danh mục đã duyệt) | Chưa xác định | Draft | Model K18 KHÔNG có trong danh mục sản phẩm đã duyệt (04_PRODUCT_KNOWLEDGE mục 4 và mục 10 chỉ công nhận K16S/K16PRO/K19S/K19PRO/K20S/K20PLUS). Cần người xác minh đây là sản phẩm ngừng kinh doanh, đặt tên sai, hay dữ liệu ngoài phạm vi. |
-| 98 | `assets/products/k18plus-interior-2.jpg` | k18plus-interior-2.jpg | JPG | 145.2 KB | Model K18 (ngoài danh mục đã duyệt) | Chưa xác định | Draft | Model K18 KHÔNG có trong danh mục sản phẩm đã duyệt (04_PRODUCT_KNOWLEDGE mục 4 và mục 10 chỉ công nhận K16S/K16PRO/K19S/K19PRO/K20S/K20PLUS). Cần người xác minh đây là sản phẩm ngừng kinh doanh, đặt tên sai, hay dữ liệu ngoài phạm vi. |
-| 99 | `assets/products/k18s-datasheet.jpg` | k18s-datasheet.jpg | JPG | 484.2 KB | Model K18 (ngoài danh mục đã duyệt) | Chưa xác định | Draft | Model K18 KHÔNG có trong danh mục sản phẩm đã duyệt (04_PRODUCT_KNOWLEDGE mục 4 và mục 10 chỉ công nhận K16S/K16PRO/K19S/K19PRO/K20S/K20PLUS). Cần người xác minh đây là sản phẩm ngừng kinh doanh, đặt tên sai, hay dữ liệu ngoài phạm vi. |
+| 95 | `assets/products/k18-series-brochure.jpg` | k18-series-brochure.jpg | JPG | 330.5 KB | K18 Series (ngừng sản xuất) | Image Master Library | Draft | Sản phẩm KORAH ngừng sản xuất — dữ liệu lịch sử hợp lệ; lưu trữ theo quy định của Master Plan; không thuộc danh mục 6 model đang kinh doanh chính. Nhóm thư viện: Image Master Library (08_KNOWLEDGE_BASE.md mục 10). Data Status đề xuất: Deprecated/Archived theo 04_PRODUCT_KNOWLEDGE.md mục 11 (không trộn với Trạng thái xác minh Knowledge Base tại 08 mục 19). |
+| 96 | `assets/products/k18plus-datasheet.jpg` | k18plus-datasheet.jpg | JPG | 368.9 KB | K18PLUS (ngừng sản xuất) | Image Master Library | Draft | Sản phẩm KORAH ngừng sản xuất — dữ liệu lịch sử hợp lệ; lưu trữ theo quy định của Master Plan; không thuộc danh mục 6 model đang kinh doanh chính. Nhóm thư viện: Image Master Library (08_KNOWLEDGE_BASE.md mục 10). Data Status đề xuất: Deprecated/Archived theo 04_PRODUCT_KNOWLEDGE.md mục 11 (không trộn với Trạng thái xác minh Knowledge Base tại 08 mục 19). |
+| 97 | `assets/products/k18plus-interior-1.jpg` | k18plus-interior-1.jpg | JPG | 108.6 KB | K18PLUS (ngừng sản xuất) | Image Master Library | Draft | Sản phẩm KORAH ngừng sản xuất — dữ liệu lịch sử hợp lệ; lưu trữ theo quy định của Master Plan; không thuộc danh mục 6 model đang kinh doanh chính. Nhóm thư viện: Image Master Library (08_KNOWLEDGE_BASE.md mục 10). Data Status đề xuất: Deprecated/Archived theo 04_PRODUCT_KNOWLEDGE.md mục 11 (không trộn với Trạng thái xác minh Knowledge Base tại 08 mục 19). |
+| 98 | `assets/products/k18plus-interior-2.jpg` | k18plus-interior-2.jpg | JPG | 145.2 KB | K18PLUS (ngừng sản xuất) | Image Master Library | Draft | Sản phẩm KORAH ngừng sản xuất — dữ liệu lịch sử hợp lệ; lưu trữ theo quy định của Master Plan; không thuộc danh mục 6 model đang kinh doanh chính. Nhóm thư viện: Image Master Library (08_KNOWLEDGE_BASE.md mục 10). Data Status đề xuất: Deprecated/Archived theo 04_PRODUCT_KNOWLEDGE.md mục 11 (không trộn với Trạng thái xác minh Knowledge Base tại 08 mục 19). |
+| 99 | `assets/products/k18s-datasheet.jpg` | k18s-datasheet.jpg | JPG | 484.2 KB | K18S (ngừng sản xuất) | Image Master Library | Draft | Sản phẩm KORAH ngừng sản xuất — dữ liệu lịch sử hợp lệ; lưu trữ theo quy định của Master Plan; không thuộc danh mục 6 model đang kinh doanh chính. Nhóm thư viện: Image Master Library (08_KNOWLEDGE_BASE.md mục 10). Data Status đề xuất: Deprecated/Archived theo 04_PRODUCT_KNOWLEDGE.md mục 11 (không trộn với Trạng thái xác minh Knowledge Base tại 08 mục 19). |
 | 100 | `assets/products/k19pro-angle.jpg` | k19pro-angle.jpg | JPG | 154.7 KB | Ảnh sản phẩm — K19PRO | Image Master Library | Draft | — |
 | 101 | `assets/products/k19pro-front.jpg` | k19pro-front.jpg | JPG | 151.6 KB | Ảnh sản phẩm — K19PRO | Image Master Library | Draft | Cùng tên gốc khác định dạng với: assets/products/k19pro-front.png — có thể là 2 phiên bản xuất của cùng ảnh. |
 | 102 | `assets/products/k19pro-front.png` | k19pro-front.png | PNG | 1.6 MB | Ảnh sản phẩm — K19PRO | Image Master Library | Draft | Cùng tên gốc khác định dạng với: assets/products/k19pro-front.jpg — có thể là 2 phiên bản xuất của cùng ảnh. |
@@ -178,7 +181,7 @@ Ghi chú cột "Trạng thái xác minh": toàn bộ tài sản trong bản ki�
 | 126 | `assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.jpg` | phieu-gui-hang-bao-hanh-korah.jpg | JPG | 327.7 KB | Phiếu gửi hàng bảo hành | Chưa xác định | Draft | Cùng tên gốc khác định dạng với: assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.pdf — có thể là 2 phiên bản xuất của cùng ảnh.; Phiếu gửi hàng bảo hành — tài liệu hành chính hỗ trợ bán hàng/bảo hành, không khớp rõ 1 trong 10 nhóm (có thể Sales Library hoặc Technical Library). |
 | 127 | `assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.pdf` | phieu-gui-hang-bao-hanh-korah.pdf | PDF | 813.1 KB | Phiếu gửi hàng bảo hành | Chưa xác định | Draft | Cùng tên gốc khác định dạng với: assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.jpg — có thể là 2 phiên bản xuất của cùng ảnh.; Phiếu gửi hàng bảo hành — tài liệu hành chính hỗ trợ bán hàng/bảo hành, không khớp rõ 1 trong 10 nhóm (có thể Sales Library hoặc Technical Library). |
 | 128 | `data/categories.js` | categories.js | JS | 729 B | Danh mục sản phẩm website | Chưa xác định | Draft | Cấu trúc phân loại danh mục hiển thị trên website — mơ hồ giữa Product Database và cấu hình kỹ thuật website thuần túy. |
-| 129 | `data/products.js` | products.js | JS | 24.6 KB | Dữ liệu sản phẩm website (cấu trúc) | Product Database | Draft | Cần đối chiếu với Approved Product Data tại 04_PRODUCT_KNOWLEDGE.md mục 7 trước khi công nhận chính thức là Product Database; có thể chứa model ngoài danh mục đã duyệt (ví dụ K18) — cần người kiểm tra trực tiếp, không tự suy diễn nội dung. |
+| 129 | `data/products.js` | products.js | JS | 24.6 KB | Dữ liệu sản phẩm website (cấu trúc) | Product Database | Draft | Cần đối chiếu với Approved Product Data tại 04_PRODUCT_KNOWLEDGE.md mục 7 trước khi công nhận chính thức là Product Database; cần xác minh Data Status của từng model trong file (đang kinh doanh chính, hoặc Deprecated/Archived đối với model ngừng sản xuất như K18/K18S/K18PLUS) — cần người kiểm tra trực tiếp, không tự suy diễn nội dung. |
 
 ---
 
@@ -204,7 +207,7 @@ Không có tài sản nào trong bản kiểm kê được gán vào nhóm thứ
 - Chỉ phân loại dựa trên tên file, đường dẫn và loại file; không mở hoặc đọc nội dung kỹ thuật bên trong ảnh/PDF, không tự suy diễn thông số kỹ thuật, giá, bảo hành hoặc công nghệ.
 - Khi chưa đủ căn cứ để xác định đúng một trong 10 nhóm, cột "Nhóm thư viện đề xuất" ghi **"Chưa xác định"**.
 - Không có tài sản nào được tự đánh dấu Approved; toàn bộ ở trạng thái Draft.
-- File có tên mơ hồ, khó xác định model, hoặc sai quy ước đặt tên (04_PRODUCT_KNOWLEDGE.md mục 10) được ghi chú rõ trong cột "Ghi chú rủi ro" — bao gồm các file gắn model **K18** (không có trong danh mục đã duyệt).
+- File có tên mơ hồ hoặc khó xác định model được ghi chú rõ trong cột "Ghi chú rủi ro". Các file gắn model **K18/K18S/K18PLUS** đã được người quản trị xác nhận là sản phẩm KORAH ngừng sản xuất — dữ liệu lịch sử hợp lệ, được phân loại vào Image Master Library, không phải lỗi đặt tên hay dữ liệu vi phạm.
 - File có khả năng trùng lặp được ghi chú rõ theo ba loại, không tự xóa hoặc gộp bất kỳ file nào:
   - **Trùng lặp nội dung (byte-identical, xác minh bằng checksum MD5):** không suy diễn nội dung kỹ thuật, chỉ đối chiếu khách quan dữ liệu nhị phân của file.
   - **Trùng tên file giữa hai thư mục khác nhau, nội dung khác nhau.**
@@ -217,20 +220,23 @@ Không có tài sản nào trong bản kiểm kê được gán vào nhóm thứ
 
 ## 6. Tổng hợp
 
-### 6.1 Tài sản có thể phân loại rõ (44 file, không tính `.gitkeep`)
+### 6.1 Tài sản có thể phân loại rõ (49 file, không tính `.gitkeep`)
 
 | Nhóm thư viện | Số file |
 |---|---|
-| Image Master Library | 23 |
+| Image Master Library | 28 |
 | Technical Library | 13 |
 | Brand Guideline | 6 |
 | Video Library | 1 |
 | Product Database | 1 |
 
+Trong 28 file thuộc Image Master Library, có 5 file là sản phẩm KORAH đã ngừng sản xuất (K18 Series, K18PLUS, K18S) — dữ liệu lịch sử hợp lệ, đề xuất Data Status Deprecated/Archived theo 04_PRODUCT_KNOWLEDGE.md mục 11.
+
 ### 6.2 Tài sản chưa thể phân loại
 
-- **81 file** được ghi "Chưa xác định", chiếm phần lớn tổng số tài sản (65% trong 125 tài sản nội dung). Nhóm lớn nhất là 44 ảnh sự kiện NPSE Hà Nam (`assets/events/npse-ha-nam/`), không có vị trí rõ ràng trong 10 nhóm hiện tại.
-- Các nhóm mơ hồ điển hình khác: banner/hero website (6 file), datasheet dạng ảnh 16x9/9x16 (12 file), poster công nghệ (3 file), media bảo hành 5 sao dạng ảnh (3 file), phiếu gửi hàng bảo hành (2 file), ảnh hậu mãi/bảo hiểm (2 file), biểu tượng web favicon/apple-touch-icon (2 file), ảnh Open Graph (1 file), 5 file model K18, `data/categories.js` (1 file).
+- **76 file** được ghi "Chưa xác định", chiếm khoảng 61% (76/125) tổng số tài sản nội dung. Nhóm lớn nhất là 44 ảnh sự kiện NPSE Hà Nam (`assets/events/npse-ha-nam/`), không có vị trí rõ ràng trong 10 nhóm hiện tại.
+- Các nhóm mơ hồ điển hình khác: banner/hero website (6 file), datasheet dạng ảnh 16x9/9x16 (12 file), poster công nghệ (3 file), media bảo hành 5 sao dạng ảnh (3 file), phiếu gửi hàng bảo hành (2 file), ảnh hậu mãi/bảo hiểm (2 file), biểu tượng web favicon/apple-touch-icon (2 file), ảnh Open Graph (1 file), `data/categories.js` (1 file).
+- 5 file model K18/K18S/K18PLUS đã được xác minh và chuyển sang Image Master Library (xem mục 6.1), không còn thuộc nhóm "Chưa xác định".
 
 ### 6.3 Tài sản có khả năng trùng lặp
 
@@ -245,10 +251,9 @@ Không có tài sản nào trong bản kiểm kê được gán vào nhóm thứ
 
 ### 6.4 Tài sản cần con người xác minh (ưu tiên cao)
 
-- **5 file gắn model "K18"** (`k18-series-brochure.jpg`, `k18plus-datasheet.jpg`, `k18plus-interior-1.jpg`, `k18plus-interior-2.jpg`, `k18s-datasheet.jpg`) — model K18 không có trong danh mục sản phẩm đã duyệt tại 04_PRODUCT_KNOWLEDGE.md mục 4 và mục 10 (chỉ công nhận K16S/K16PRO/K19S/K19PRO/K20S/K20PLUS). Cần người quản trị xác nhận đây là sản phẩm ngừng kinh doanh, tài sản lưu trữ ngoài phạm vi, hay dữ liệu cần loại khỏi hệ thống.
-- `data/products.js` — cần đối chiếu trực tiếp với Approved Product Data (04 mục 7) trước khi công nhận là Product Database chính thức; có khả năng chứa dữ liệu model ngoài danh mục đã duyệt.
+- `data/products.js` — cần đối chiếu trực tiếp với Approved Product Data (04 mục 7) trước khi công nhận là Product Database chính thức; cần xác minh Data Status của từng model trong file (đang kinh doanh chính, hoặc Deprecated/Archived đối với model ngừng sản xuất như K18/K18S/K18PLUS).
 - 12 file trong `assets/datasheets/` và 3 poster trong `assets/tech/` — cần xác định đây thuộc Technical/Technology Library hay Marketing Library trước khi lưu trữ chính thức.
-- 12 file cặp `*-front.jpg`/`*-front.png` — cần xác định phiên bản nào là ảnh gốc chính thức thuộc Image Master Library, tránh lưu song song hai bản không rõ nguồn.
+- 6 cặp ảnh sản phẩm, tương đương 12 file `*-front.jpg`/`*-front.png` — cần xác định phiên bản nào là ảnh gốc chính thức thuộc Image Master Library, tránh lưu song song hai bản không rõ nguồn.
 - 8 file trùng lặp nội dung byte-identical — cần người quyết định giữ bản nào làm bản chính thức.
 
 ### 6.5 Các nhóm thư viện hiện chưa có tài liệu
@@ -265,7 +270,7 @@ Trong 10 nhóm đã chốt, các nhóm sau **chưa có tài sản nào** đượ
 
 ### 6.6 Đề xuất đúng một hành động tiếp theo
 
-Người quản trị Knowledge Base tổ chức một vòng **xác minh thủ công (Under Review)** cho danh sách ưu tiên tại mục 6.4 — bắt đầu từ 5 file model K18 và 8 file trùng lặp nội dung byte-identical — để quyết định: giữ/loại bỏ, gán đúng nhóm thư viện, và chuyển trạng thái sang Approved hoặc Archived theo đúng quy trình tại 08_KNOWLEDGE_BASE.md mục 20–22, trước khi tiến hành bất kỳ bước tổ chức thư mục Knowledge Base chính thức nào.
+Người quản trị kiểm tra và phê duyệt danh sách các file trùng nội dung byte-identical (mục 6.3) trước khi quyết định file nào được giữ làm bản gốc, theo quy trình kiểm tra và phê duyệt tại 08_KNOWLEDGE_BASE.md mục 21. Chưa xóa hoặc di chuyển bất kỳ tài sản nào.
 
 ---
 

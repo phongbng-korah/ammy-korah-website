@@ -547,9 +547,39 @@ Các nội dung sau chưa có đủ dữ liệu để lập lịch triển khai 
 
 ## 40. Trạng thái hoàn thành của Master Plan sau file 09
 
-Sau khi file 09 được tạo, Master Plan gồm 9 file kiến trúc (01–09), bao phủ định hướng dự án, kinh doanh, website, sản phẩm, marketing, AI, CRM, Knowledge Base và lộ trình triển khai kỹ thuật. File 09 không thay đổi bất kỳ quyết định kiến trúc nào tại 01–08; tài liệu này chỉ chuyển kiến trúc đã chốt thành trình tự triển khai.
+Master Plan KORAH Digital Brain gồm 9 file, từ 01 đến 09, bao phủ định hướng dự án, kinh doanh, website, sản phẩm, marketing, AI, CRM, Knowledge Base và lộ trình triển khai kỹ thuật.
 
-Việc Master Plan đã đủ điều kiện để bắt đầu Giai đoạn 0 hay chưa cần được xác nhận riêng bởi người quản trị dự án: Dữ liệu hiện tại chưa đủ để kết luận.
+Toàn bộ 9 file đã được tạo, kiểm tra, đối chiếu và phê duyệt.
+
+Master Plan được khóa chính thức ngày 2026-07-19.
+
+Trạng thái: LOCKED – APPROVED FOR PHASE 0.
+
+Người quản trị dự án đã xác nhận khóa.
+
+Không tồn tại file 10 trong Master Plan hiện tại. Không được tự tạo file 10 hoặc mở rộng kiến trúc nếu chưa có quyết định thay đổi chính thức.
+
+Mọi thay đổi sau thời điểm khóa phải:
+
+1. Nêu rõ lý do.
+2. Xác định file bị ảnh hưởng.
+3. Đánh giá tác động tới các file liên quan.
+4. Được con người kiểm tra và phê duyệt.
+5. Có lịch sử phiên bản và commit riêng.
+
+Bảng trạng thái 9 file:
+
+| STT | Tài liệu | Trạng thái |
+|---|---|---|
+| 01 | PROJECT_CHARTER | LOCKED |
+| 02 | BUSINESS_ARCHITECTURE | LOCKED |
+| 03 | WEBSITE_ARCHITECTURE | LOCKED |
+| 04 | PRODUCT_KNOWLEDGE | LOCKED |
+| 05 | MARKETING_SYSTEM | LOCKED |
+| 06 | AI_ARCHITECTURE | LOCKED |
+| 07 | CRM_ARCHITECTURE | LOCKED |
+| 08 | KNOWLEDGE_BASE | LOCKED |
+| 09 | TECHNICAL_ROADMAP | LOCKED |
 
 ---
 

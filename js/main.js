@@ -210,7 +210,8 @@ function initProductDetail() {
     : '<p class="text-muted" style="font-size:0.875rem">Tài liệu kỹ thuật sẽ được cập nhật sau.</p>';
 
   const detailImgPlaceholder = `<div class="card__image-placeholder"><span>Ảnh sản phẩm đang cập nhật</span></div>`;
-  const galleryImgs = [product.image, ...(product.gallery || [])].filter(Boolean);
+  const datasheetImgs = product.datasheetImages ? Object.values(product.datasheetImages) : [];
+  const galleryImgs = [product.image, ...(product.gallery || []), ...datasheetImgs].filter(Boolean);
   const imgContent = product.image
     ? `<img id="pd-main-img" class="pd-zoomable" src="${product.image}" alt="${product.name}" loading="lazy" title="Nhấn để phóng to" onerror="this.style.display='none'">`
     : detailImgPlaceholder;

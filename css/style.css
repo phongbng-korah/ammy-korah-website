@@ -741,9 +741,9 @@ p:last-child { margin-bottom: 0; }
   position: relative;
   z-index: 1;
 }
-.page-hero--about { background-image: url('assets/hero/hero-about.jpg'); }
-.page-hero--tech { background-image: url('assets/hero/hero-technology.jpg'); }
-.page-hero--vision { background-image: url('assets/hero/hero-vision.jpg'); }
+.page-hero--about { background-image: url('../assets/hero/hero-about.jpg'); }
+.page-hero--tech { background-image: url('../assets/hero/hero-technology.jpg'); }
+.page-hero--vision { background-image: url('../assets/hero/hero-vision.jpg'); }
 
 /* ── Technology ── */
 .tech-card {

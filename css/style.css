@@ -760,7 +760,8 @@ p:last-child { margin-bottom: 0; }
 }
 .page-hero--about .page-hero__desc,
 .page-hero--vision .page-hero__desc {
-  color: rgba(15,15,10,0.82);
+  color: rgba(15,15,10,0.9);
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {

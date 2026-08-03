@@ -754,6 +754,14 @@ p:last-child { margin-bottom: 0; }
 .page-hero--about { background-image: url('../assets/hero/hero-newmap.jpg'); }
 .page-hero--tech { background-image: url('../assets/hero/hero-technology.jpg'); }
 .page-hero--vision { background-image: url('../assets/hero/hero-newmap.jpg'); }
+.page-hero--about .page-hero__title,
+.page-hero--vision .page-hero__title {
+  color: #14140f;
+}
+.page-hero--about .page-hero__desc,
+.page-hero--vision .page-hero__desc {
+  color: rgba(15,15,10,0.82);
+}
 
 @media (max-width: 768px) {
   .page-hero--about,

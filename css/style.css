@@ -729,13 +729,19 @@ p:last-child { margin-bottom: 0; }
   display: flex;
   align-items: center;
 }
-.page-hero--about::after,
-.page-hero--tech::after,
-.page-hero--vision::after {
+.page-hero--tech::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(13,13,13,0.72) 0%, rgba(13,13,13,0.8) 35%, rgba(13,13,13,0.93) 75%, rgba(13,13,13,0.98) 100%);
+  z-index: 0;
+}
+.page-hero--about::after,
+.page-hero--vision::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(13,13,13,0.28);
   z-index: 0;
 }
 .page-hero--about .container,
@@ -745,9 +751,9 @@ p:last-child { margin-bottom: 0; }
   z-index: 1;
   width: 100%;
 }
-.page-hero--about { background-image: url('../assets/hero/hero-about.jpg'); }
+.page-hero--about { background-image: url('../assets/hero/hero-newmap.jpg'); }
 .page-hero--tech { background-image: url('../assets/hero/hero-technology.jpg'); }
-.page-hero--vision { background-image: url('../assets/hero/hero-vision.jpg'); }
+.page-hero--vision { background-image: url('../assets/hero/hero-newmap.jpg'); }
 
 @media (max-width: 768px) {
   .page-hero--about,

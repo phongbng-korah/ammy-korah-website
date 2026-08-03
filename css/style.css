@@ -719,6 +719,32 @@ p:last-child { margin-bottom: 0; }
   font-size: 1.0625rem;
 }
 
+.page-hero--about,
+.page-hero--tech,
+.page-hero--vision {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.page-hero--about::after,
+.page-hero--tech::after,
+.page-hero--vision::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(13,13,13,0.88) 0%, rgba(13,13,13,0.72) 45%, rgba(13,13,13,0.94) 100%);
+  z-index: 0;
+}
+.page-hero--about .container,
+.page-hero--tech .container,
+.page-hero--vision .container {
+  position: relative;
+  z-index: 1;
+}
+.page-hero--about { background-image: url('assets/hero/hero-about.jpg'); }
+.page-hero--tech { background-image: url('assets/hero/hero-technology.jpg'); }
+.page-hero--vision { background-image: url('assets/hero/hero-vision.jpg'); }
+
 /* ── Technology ── */
 .tech-card {
   background: var(--black-2);

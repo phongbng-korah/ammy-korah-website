@@ -723,8 +723,11 @@ p:last-child { margin-bottom: 0; }
 .page-hero--tech,
 .page-hero--vision {
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
 }
 .page-hero--about::after,
 .page-hero--tech::after,
@@ -732,7 +735,7 @@ p:last-child { margin-bottom: 0; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(13,13,13,0.88) 0%, rgba(13,13,13,0.72) 45%, rgba(13,13,13,0.94) 100%);
+  background: linear-gradient(180deg, rgba(13,13,13,0.45) 0%, rgba(13,13,13,0.55) 40%, rgba(13,13,13,0.92) 100%);
   z-index: 0;
 }
 .page-hero--about .container,
@@ -740,10 +743,20 @@ p:last-child { margin-bottom: 0; }
 .page-hero--vision .container {
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 .page-hero--about { background-image: url('../assets/hero/hero-about.jpg'); }
 .page-hero--tech { background-image: url('../assets/hero/hero-technology.jpg'); }
 .page-hero--vision { background-image: url('../assets/hero/hero-vision.jpg'); }
+
+@media (max-width: 768px) {
+  .page-hero--about,
+  .page-hero--tech,
+  .page-hero--vision {
+    min-height: 340px;
+    background-position: center 20%;
+  }
+}
 
 /* ── Technology ── */
 .tech-card {

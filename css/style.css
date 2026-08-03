@@ -725,7 +725,7 @@ p:last-child { margin-bottom: 0; }
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  min-height: 520px;
+  min-height: 640px;
   display: flex;
   align-items: center;
 }
@@ -735,7 +735,7 @@ p:last-child { margin-bottom: 0; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(13,13,13,0.45) 0%, rgba(13,13,13,0.55) 40%, rgba(13,13,13,0.92) 100%);
+  background: linear-gradient(180deg, rgba(13,13,13,0.72) 0%, rgba(13,13,13,0.8) 35%, rgba(13,13,13,0.93) 75%, rgba(13,13,13,0.98) 100%);
   z-index: 0;
 }
 .page-hero--about .container,
@@ -753,8 +753,8 @@ p:last-child { margin-bottom: 0; }
   .page-hero--about,
   .page-hero--tech,
   .page-hero--vision {
-    min-height: 340px;
-    background-position: center 20%;
+    min-height: 420px;
+    background-position: center 15%;
   }
 }
 

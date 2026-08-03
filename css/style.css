@@ -1546,10 +1546,12 @@ p:last-child { margin-bottom: 0; }
 }
 .slogan-banner__mark {
   font-family: var(--font-head);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   line-height: 1;
-  letter-spacing: 0.15em;
-  margin-bottom: 20px;
+  letter-spacing: 0.3em;
+  color: #E9C888;
+  text-shadow: 0 0 12px rgba(233,200,136,0.45);
+  margin-bottom: 22px;
 }
 .slogan-banner__text {
   font-family: var(--font-head);

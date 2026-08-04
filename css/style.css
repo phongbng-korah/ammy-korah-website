@@ -775,9 +775,9 @@ p:last-child { margin-bottom: 0; }
   z-index: 1;
   width: 100%;
 }
-.page-hero--about { background-image: url('../assets/hero/hero-newmap.jpg'); }
+.page-hero--about { background-image: url('../assets/banners/korah-about-hero-banner.png'); }
 .page-hero--tech { background-image: url('../assets/hero/hero-technology.jpg'); }
-.page-hero--vision { background-image: url('../assets/hero/hero-newmap.jpg'); }
+.page-hero--vision { background-image: url('../assets/banners/korah-vision-goals-hero-banner.png'); }
 .page-hero--about .page-hero__title,
 .page-hero--vision .page-hero__title {
   color: #14140f;

@@ -699,7 +699,7 @@ p:last-child { margin-bottom: 0; }
   align-items: center;
   background-color: var(--black);
   background-size: cover;
-  background-position: center;
+  background-position: left top;
 }
 
 .page-hero--about {
@@ -747,7 +747,7 @@ p:last-child { margin-bottom: 0; }
 .page-hero--tech,
 .page-hero--vision {
   background-size: cover;
-  background-position: center top;
+  background-position: left top;
   background-repeat: no-repeat;
   min-height: 640px;
   display: flex;
@@ -793,7 +793,7 @@ p:last-child { margin-bottom: 0; }
   .page-hero--tech,
   .page-hero--vision {
     min-height: 420px;
-    background-position: center 15%;
+    background-position: left top;
   }
 }
 
@@ -1316,7 +1316,7 @@ p:last-child { margin-bottom: 0; }
   .page-hero--about,
   .page-hero--vision {
     min-height: 520px;
-    background-position: 62% center;
+    background-position: left top;
   }
   .section { padding: 56px 0; }
   .section--lg { padding: 72px 0; }

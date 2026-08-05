@@ -692,30 +692,6 @@ p:last-child { margin-bottom: 0; }
   overflow: hidden;
 }
 
-.page-hero--about,
-.page-hero--vision {
-  min-height: 420px;
-  display: flex;
-  align-items: center;
-  background-color: var(--black);
-  background-size: cover;
-  background-position: left top;
-}
-
-.page-hero--about {
-  background-image: url("../assets/banners/korah-about-hero-banner.png");
-}
-
-.page-hero--vision {
-  background-image: url("../assets/banners/korah-vision-goals-hero-banner.png");
-}
-
-.page-hero--about .container,
-.page-hero--vision .container {
-  position: relative;
-  z-index: 1;
-}
-
 .page-hero::before {
   content: '';
   position: absolute;
@@ -747,9 +723,9 @@ p:last-child { margin-bottom: 0; }
 .page-hero--tech,
 .page-hero--vision {
   background-size: cover;
-  background-position: left top;
+  background-position: center center;
   background-repeat: no-repeat;
-  min-height: 640px;
+  min-height: 560px;
   display: flex;
   align-items: center;
 }
@@ -792,8 +768,8 @@ p:last-child { margin-bottom: 0; }
   .page-hero--about,
   .page-hero--tech,
   .page-hero--vision {
-    min-height: 420px;
-    background-position: left top;
+    min-height: 380px;
+    background-position: center center;
   }
 }
 
@@ -1315,8 +1291,8 @@ p:last-child { margin-bottom: 0; }
   .hero { min-height: 70vh; }
   .page-hero--about,
   .page-hero--vision {
-    min-height: 520px;
-    background-position: left top;
+    min-height: 480px;
+    background-position: center center;
   }
   .section { padding: 56px 0; }
   .section--lg { padding: 72px 0; }

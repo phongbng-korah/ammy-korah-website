@@ -29,19 +29,46 @@ function brandLabelHTML(brand) {
   const mobileNav = document.querySelector('.nav__mobile');
   if (!hamburger || !mobileNav) return;
 
+  function closeMobileAccordions() {
+    mobileNav.querySelectorAll('.nav__mobile-toggle.open').forEach(btn => {
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.closest('.nav__mobile-group').querySelector('.nav__mobile-sub').classList.remove('open');
+    });
+  }
+
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     mobileNav.classList.toggle('open');
     document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+    if (!mobileNav.classList.contains('open')) closeMobileAccordions();
   });
 
   // Close on outside click
   document.addEventListener('click', (e) => {
-    if (!e.target.closest('.site-header')) {
+    if (!e.target.closest('.site-header') && !e.target.closest('.nav__mobile')) {
       hamburger.classList.remove('open');
       mobileNav.classList.remove('open');
       document.body.style.overflow = '';
+      closeMobileAccordions();
     }
+  });
+
+  // Accordion toggle for mobile submenu groups (Công nghệ / Sản phẩm / Hỗ trợ)
+  mobileNav.querySelectorAll('.nav__mobile-toggle').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const group = btn.closest('.nav__mobile-group');
+      const sub = group.querySelector('.nav__mobile-sub');
+      const isOpen = btn.classList.contains('open');
+      closeMobileAccordions();
+      if (!isOpen) {
+        btn.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        sub.classList.add('open');
+      }
+    });
   });
 
   // Mark active nav link

@@ -182,7 +182,7 @@
           <span class="section-label">Gửi yêu cầu</span>
           <h2 class="section-title">Để lại tin nhắn</h2>
 
-          <form id="contact-form" style="margin-top:40px" onsubmit="handleContactSubmit(event)">
+          <form id="contact-form" style="margin-top:40px" onsubmit="return false;">
             <div class="form-group">
               <label class="form-label" for="name">Họ và tên *</label>
               <input class="form-control" type="text" id="name" name="name" placeholder="Nguyễn Văn A" required>
@@ -216,13 +216,17 @@
                 placeholder="Mô tả chi tiết yêu cầu của bạn…" required></textarea>
             </div>
 
-            <button class="btn btn--gold" type="submit" style="width:100%;justify-content:center">
-              Gửi yêu cầu
-            </button>
-
-            <div id="form-success" class="info-block mt-24" style="display:none">
-              Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <button class="btn btn--gold" type="button" onclick="handleContactZalo(event)" style="flex:1;min-width:200px;justify-content:center">
+                Gửi qua Zalo
+              </button>
+              <button class="btn btn--outline" type="button" onclick="handleContactEmail(event)" style="flex:1;min-width:200px;justify-content:center">
+                Gửi qua Email
+              </button>
             </div>
+            <p style="color:var(--gray-1);font-size:0.8125rem;margin-top:10px">Chủ đề "Bảo hành / Sửa chữa" sẽ gửi tới Zalo bộ phận Bảo hành; các chủ đề khác gửi tới Zalo Kinh doanh. Gửi qua Zalo sẽ tự sao chép nội dung — bạn dán (Ctrl+V) và bấm Gửi trong khung chat Zalo vừa mở.</p>
+
+            <div id="form-success" class="info-block mt-24" style="display:none"></div>
           </form>
         </div>
 
@@ -248,14 +252,83 @@
   <script src="./js/main.js"></script>
   <script src="./js/site-chat.js"></script>
   <script>
-    function handleContactSubmit(e) {
+    var CONTACT_SUBJECT_LABELS = {
+      product: 'Tư vấn sản phẩm',
+      warranty: 'Bảo hành / Sửa chữa',
+      technical: 'Hỗ trợ kỹ thuật',
+      distributor: 'Hợp tác phân phối',
+      other: 'Khác',
+      '': 'Chưa chọn chủ đề'
+    };
+    var ZALO_WARRANTY = '0903851252';
+    var ZALO_SALES = '0932779386';
+    var COMPANY_EMAIL = 'info@ammy.com.vn';
+
+    function readContactForm() {
+      var form = document.getElementById('contact-form');
+      if (!form.reportValidity()) return null;
+      var subjectValue = document.getElementById('subject').value;
+      return {
+        name: document.getElementById('name').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        subjectValue: subjectValue,
+        subjectLabel: CONTACT_SUBJECT_LABELS[subjectValue] || CONTACT_SUBJECT_LABELS[''],
+        message: document.getElementById('message').value.trim()
+      };
+    }
+
+    function buildContactMessage(data) {
+      var lines = [
+        'Yêu cầu liên hệ từ website KORAH',
+        'Họ tên: ' + data.name,
+        'Điện thoại: ' + (data.phone || '(không cung cấp)'),
+        'Email: ' + data.email,
+        'Chủ đề: ' + data.subjectLabel,
+        'Nội dung: ' + data.message
+      ];
+      return lines.join('\n');
+    }
+
+    function showContactNotice(html) {
+      var box = document.getElementById('form-success');
+      box.innerHTML = html;
+      box.style.display = 'block';
+    }
+
+    function handleContactZalo(e) {
       e.preventDefault();
-      // Placeholder: form submission logic
-      document.getElementById('contact-form').style.opacity = '0.5';
-      document.getElementById('form-success').style.display = 'block';
-      setTimeout(() => {
-        document.getElementById('contact-form').style.opacity = '1';
-      }, 300);
+      var data = readContactForm();
+      if (!data) return;
+      var phone = data.subjectValue === 'warranty' ? ZALO_WARRANTY : ZALO_SALES;
+      var deptLabel = data.subjectValue === 'warranty' ? 'Bảo hành' : 'Kinh doanh';
+      var message = buildContactMessage(data);
+
+      var copied = false;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(message).then(function () { copied = true; }).catch(function () {});
+      }
+      window.open('https://zalo.me/' + phone, '_blank', 'noopener');
+
+      showContactNotice(
+        'Đã mở Zalo bộ phận ' + deptLabel + ' (' + phone + '). ' +
+        (copied || (navigator.clipboard && navigator.clipboard.writeText)
+          ? 'Nội dung đã được sao chép — vui lòng dán (Ctrl+V) vào khung chat và bấm Gửi.'
+          : 'Vui lòng nhập nội dung sau vào khung chat:<br><em>' + message.replace(/\n/g, '<br>') + '</em>')
+      );
+    }
+
+    function handleContactEmail(e) {
+      e.preventDefault();
+      var data = readContactForm();
+      if (!data) return;
+      var subjectLine = 'Liên hệ website KORAH — ' + data.subjectLabel;
+      var body = buildContactMessage(data);
+      var mailto = 'mailto:' + COMPANY_EMAIL +
+        '?subject=' + encodeURIComponent(subjectLine) +
+        '&body=' + encodeURIComponent(body);
+      window.location.href = mailto;
+      showContactNotice('Đã mở ứng dụng email tới ' + COMPANY_EMAIL + ' với nội dung điền sẵn — vui lòng bấm Gửi trong ứng dụng email của bạn.');
     }
   </script>
 </body>

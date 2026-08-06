@@ -153,11 +153,11 @@ const PRODUCTS = [
     specs: {
       "Số kênh": "4 kênh",
       "Bộ nguồn": "PFC Autovolt — dải điện áp hiệu quả 140V–270V",
-      "Công suất 8Ω Stereo RMS": "Hi 1650W x4 / Lo 1350W x4",
-      "Công suất 4Ω Stereo RMS": "Hi 2600W x4 / Lo 2200W x4",
-      "Bridge Mono 8Ω": "Hi 5200W x2 / Lo 4400W x2",
-      "Điện áp ra Peak": "175V (VPL 175V / 161V)",
-      "Damping Factor": ">800 @8Ω, 20Hz–200Hz",
+      "Công suất 8Ω Stereo RMS": "Hi 1650W x4 / Lo 1400W x4",
+      "Công suất 4Ω Stereo RMS": "Hi 2450W x4 / Lo 2100W x4",
+      "Bridge Mono 8Ω": "Hi 4900W x2 / Lo 4200W x2",
+      "Điện áp ra Peak": "163V (VPL 163V / 153V)",
+      "Damping Factor": ">500 @8Ω, 20Hz–200Hz",
       "Dải điện áp PFC": "140V – 270V",
       "Công nghệ bán dẫn": "Silicon Carbide (SiC) — Onsemi USA",
       "Dải tần số": "20Hz – 22kHz",
@@ -167,7 +167,7 @@ const PRODUCTS = [
       "Class": "D",
       "Kích thước": "483 x 98 x 350 mm",
       "Tản nhiệt": "Front-to-back, 5 quạt DC",
-      "Trọng lượng": "10.5 kg (net) / 11.5 kg (gross)"
+      "Trọng lượng": "10 kg (net) / 11 kg (gross)"
     },
     description: "Model 4 kênh cao cấp với chip Silicon Carbide từ Onsemi USA và nguồn PFC thiết kế nội bộ — nâng cấp toàn diện về hiệu suất và độ bền cho Full-range/Line Array vận hành nhiều giờ liên tục.",
     features: [

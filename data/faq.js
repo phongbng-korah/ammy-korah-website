@@ -122,7 +122,15 @@ const FAQ_DATA = [
       },
       {
         q: "Cách liên hệ đội ngũ hỗ trợ kỹ thuật?",
-        a: "Bảo hành / Kỹ thuật: <a href=\"tel:0903851252\" style=\"color:var(--gold)\">0903 851 252</a>. Kinh doanh: <a href=\"tel:0932779386\" style=\"color:var(--gold)\">0932 779 386</a>. Giờ làm việc: Thứ 2 – Thứ 7, 08:00 – 17:00. Ngoài giờ hoặc Chủ nhật: để lại lời nhắn qua Website hoặc Zalo, đội ngũ sẽ phản hồi trong giờ làm việc kế tiếp. Xem thêm tại trang <a href=\"contact.html\" style=\"color:var(--gold)\">Liên hệ</a>."
+        a: "Bảo hành / Kỹ thuật: <a href=\"tel:0903851252\" style=\"color:var(--gold)\">0903 851 252</a>. Kinh doanh: <a href=\"tel:0932779386\" style=\"color:var(--gold)\">0932 779 386</a>. Email: <a href=\"mailto:info@ammy.com.vn\" style=\"color:var(--gold)\">info@ammy.com.vn</a>. Giờ làm việc: Thứ 2 – Thứ 7, 08:00 – 17:00. Ngoài giờ hoặc Chủ nhật: để lại lời nhắn qua Website hoặc Zalo, đội ngũ sẽ phản hồi trong giờ làm việc kế tiếp. Xem thêm tại trang <a href=\"contact.html\" style=\"color:var(--gold)\">Liên hệ</a>."
+      },
+      {
+        q: "Số điện thoại kinh doanh và bảo hành, email công ty là gì?",
+        a: "Kinh doanh: <a href=\"tel:0932779386\" style=\"color:var(--gold)\">0932 779 386</a>. Bảo hành / Kỹ thuật: <a href=\"tel:0903851252\" style=\"color:var(--gold)\">0903 851 252</a>. Email: <a href=\"mailto:info@ammy.com.vn\" style=\"color:var(--gold)\">info@ammy.com.vn</a>."
+      },
+      {
+        q: "Gửi máy bảo hành về địa chỉ nào, liên hệ ai để nhận hàng?",
+        a: "Gửi máy về Xưởng AMMY: 300/34/64 Nguyễn Văn Linh, P. Bình Thuận, Q.7, TP.HCM. Người nhận: Nguyễn Phan Vinh — điện thoại nhận hàng <a href=\"tel:0932648669\" style=\"color:var(--gold)\">0932 648 669</a> hoặc hotline bảo hành <a href=\"tel:0903851252\" style=\"color:var(--gold)\">0903 851 252</a>. Nên đóng gói chắc chắn, chống va đập và ẩm ướt, ghi rõ thông tin phiếu gửi hàng bên trong kiện hàng, báo người nhận khi hàng đến bến."
       }
     ]
   }

@@ -104,7 +104,7 @@ const FAQ_DATA = [
         a: "Lưới lọc bụi: 3–6 tháng/lần. Lau vỏ ngoài: hàng tháng hoặc sau mỗi sự kiện. Kiểm tra dây nguồn, dây loa, Speakon trước mỗi lần sử dụng. Khi vệ sinh: ngắt nguồn, dùng khăn mềm, dùng khí nén, không xịt chất lỏng trực tiếp."
       },
       {
-        q: "Khi nào cần gửi bảo hành?",
+        q: "Dấu hiệu nào cho thấy máy cần được bảo hành, sửa chữa?",
         a: "Quạt không quay hoặc quá ồn. Đèn S.C hoặc D.T sáng liên tục. Có mùi khét. Có tiếng nổ lách tách. Mất kênh hoặc méo tiếng sau khi đã kiểm tra tín hiệu."
       }
     ]

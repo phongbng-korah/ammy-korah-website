@@ -220,7 +220,7 @@
 
   // ── 3) Fallback: tìm trong FAQ_DATA (data/faq.js) ──
   var STOPWORDS = ['la','gi','cho','va','hay','o','cua','voi','the','nao','sao','khi',
-    'nhu','de','duoc','co','khong','mot','nhung','bao','nhieu','toi','ban','minh','tai','sao'];
+    'nhu','de','duoc','co','khong','mot','nhung','nhieu','toi','ban','minh','tai'];
 
   function tokenize(str) {
     return norm(str).split(/[^a-z0-9Ω]+/).filter(function (t) {

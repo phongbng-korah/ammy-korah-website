@@ -397,8 +397,31 @@ function showNotFound(el) {
     </div>`;
 }
 
+// ── FAQ Accordion (render từ data/faq.js) ───────────────────
+function renderFaqAccordion() {
+  const container = document.getElementById('faqAccordionContainer');
+  if (!container || typeof FAQ_DATA === 'undefined') return;
+  container.innerHTML = FAQ_DATA.map(group => `
+    <h3 style="font-size:1.1rem;color:var(--gold);margin:32px 0 12px;font-weight:700">${group.category}</h3>
+    <div class="accordion">
+      ${group.items.map(item => `
+        <div class="accordion__item">
+          <button class="accordion__header">
+            ${item.q}
+            <svg class="accordion__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="accordion__body">
+            <div class="accordion__content">${item.a}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+}
+
 // ── Init on DOMContentLoaded ────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+  renderFaqAccordion();
   initAccordions();
   initTabs();
 

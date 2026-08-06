@@ -1,8 +1,8 @@
 // ============================================================
-// Hỏi đáp nhanh — support.html
+// Chatbot nổi — dùng chung toàn bộ site (giống nút Zalo/điện thoại)
 // Trả lời tự động CHỈ dựa trên dữ liệu có sẵn:
 //   1) data/products.js (PRODUCTS) — thông số, giá, bảo hành từng model
-//   2) Nội dung FAQ (accordion) đã có sẵn trong trang
+//   2) data/faq.js (FAQ_DATA) — câu hỏi thường gặp
 // Không gọi API ngoài, không tự suy đoán/bịa số liệu ngoài dữ liệu này.
 // ============================================================
 
@@ -59,17 +59,11 @@
   var ATTRIBUTE_RULES = [
     {
       test: function (q) { return /\b(gia|price)\b/.test(q); },
-      answer: function (p) {
-        if (!p.price) return null;
-        return 'Giá niêm yết: ' + p.price;
-      }
+      answer: function (p) { return p.price ? ('Giá niêm yết: ' + p.price) : null; }
     },
     {
       test: function (q) { return /bao\s?hanh|warranty/.test(q); },
-      answer: function (p) {
-        if (!p.warranty) return null;
-        return p.warranty;
-      }
+      answer: function (p) { return p.warranty || null; }
     },
     {
       test: function (q) { return /bridge|cau\b|mono/.test(q); },
@@ -199,6 +193,23 @@
     return null;
   }
 
+  // Dò mờ toàn bộ specs khi không luật nào khớp — ưu tiên trả dữ liệu
+  // trực tiếp thay vì chỉ đưa link. Yêu cầu >=2 từ trùng để tránh nhận
+  // nhầm do trùng 1 từ chung chung.
+  function fuzzySpecSearch(product, query) {
+    if (!product.specs) return null;
+    var qTokens = tokenize(query);
+    if (!qTokens.length) return null;
+    var best = null, bestScore = 0;
+    Object.keys(product.specs).forEach(function (key) {
+      var keyTokens = tokenize(key);
+      var score = 0;
+      qTokens.forEach(function (t) { if (keyTokens.indexOf(t) !== -1) score++; });
+      if (score > bestScore) { bestScore = score; best = { key: key, value: product.specs[key] }; }
+    });
+    return bestScore >= 2 ? best : null;
+  }
+
   function productSummary(product) {
     var lines = [product.name];
     if (product.tagline) lines.push(product.tagline);
@@ -207,7 +218,7 @@
     return lines.join('\n');
   }
 
-  // ── 3) Fallback: tìm trong FAQ (accordion) đã có sẵn trên trang ──
+  // ── 3) Fallback: tìm trong FAQ_DATA (data/faq.js) ──
   var STOPWORDS = ['la','gi','cho','va','hay','o','cua','voi','the','nao','sao','khi',
     'nhu','de','duoc','co','khong','mot','nhung','bao','nhieu','toi','ban','minh','tai','sao'];
 
@@ -217,121 +228,143 @@
     });
   }
 
-  // Dò mờ trong toàn bộ specs của 1 model khi không luật thuộc tính nào khớp —
-  // vẫn ưu tiên lấy thẳng dữ liệu có sẵn thay vì chỉ đưa link.
-  function fuzzySpecSearch(product, query) {
-    if (!product.specs) return null;
+  function stripHtml(html) {
+    var div = document.createElement('div');
+    div.innerHTML = html;
+    return div.textContent || '';
+  }
+
+  function searchFaq(query) {
+    if (typeof FAQ_DATA === 'undefined') return null;
     var qTokens = tokenize(query);
     if (!qTokens.length) return null;
 
     var best = null, bestScore = 0;
-    Object.keys(product.specs).forEach(function (key) {
-      var keyTokens = tokenize(key);
-      var score = 0;
-      qTokens.forEach(function (t) {
-        if (keyTokens.indexOf(t) !== -1) score++;
+    FAQ_DATA.forEach(function (group) {
+      group.items.forEach(function (item) {
+        var plainAnswer = stripHtml(item.a);
+        var bodyTokens = tokenize(item.q + ' ' + plainAnswer);
+        var score = 0;
+        qTokens.forEach(function (t) { if (bodyTokens.indexOf(t) !== -1) score++; });
+        var headerTokens = tokenize(item.q);
+        qTokens.forEach(function (t) { if (headerTokens.indexOf(t) !== -1) score += 2; });
+        if (score > bestScore) {
+          bestScore = score;
+          best = { question: item.q, answer: item.a };
+        }
       });
-      if (score > bestScore) {
-        bestScore = score;
-        best = { key: key, value: product.specs[key] };
-      }
-    });
-    // Cần khớp ít nhất 2 từ để tránh nhận nhầm do trùng 1 từ chung chung
-    // (VD: "công nghệ" và "công suất" cùng có từ "công").
-    return bestScore >= 2 ? best : null;
-  }
-
-  function searchFaq(query) {
-    var items = document.querySelectorAll('.accordion__item');
-    var qTokens = tokenize(query);
-    if (!qTokens.length || !items.length) return null;
-
-    var best = null, bestScore = 0;
-    items.forEach(function (item) {
-      var headerEl = item.querySelector('.accordion__header');
-      var contentEl = item.querySelector('.accordion__content');
-      if (!headerEl || !contentEl) return;
-      var headerText = headerEl.textContent.trim();
-      var bodyTokens = tokenize(headerText + ' ' + contentEl.textContent);
-      var score = 0;
-      qTokens.forEach(function (t) {
-        if (bodyTokens.indexOf(t) !== -1) score++;
-      });
-      // ưu tiên khớp trong câu hỏi (header) hơn
-      var headerTokens = tokenize(headerText);
-      qTokens.forEach(function (t) {
-        if (headerTokens.indexOf(t) !== -1) score += 2;
-      });
-      if (score > bestScore) {
-        bestScore = score;
-        best = { question: headerText, answer: contentEl.textContent.trim() };
-      }
     });
 
-    if (best && bestScore >= 2) return best;
-    return null;
+    return (best && bestScore >= 2) ? best : null;
   }
 
-  // ── 4) Xử lý 1 câu hỏi, trả về { text, html } ──
-  function getAnswer(query) {
-    var product = findProduct(query);
-
-    if (product) {
-      var specAnswer = answerFromProduct(product, query);
-      if (specAnswer) {
-        return {
-          text: product.name + ' — ' + specAnswer,
-          linkId: product.id
-        };
-      }
-      // Không luật nào khớp -> dò mờ toàn bộ specs của model trước khi đưa link
-      var fuzzy = fuzzySpecSearch(product, query);
-      if (fuzzy) {
-        return {
-          text: product.name + ' — ' + fuzzy.key + ': ' + fuzzy.value,
-          linkId: product.id
-        };
-      }
-      // Có nhắc model nhưng không tìm được thông số liên quan -> đưa tóm tắt
-      return {
-        text: productSummary(product) + '\n\nBạn muốn hỏi cụ thể thông số nào (công suất, giá, bảo hành, trọng lượng...)?',
-        linkId: product.id
-      };
-    }
-
-    var faqHit = searchFaq(query);
-    if (faqHit) {
-      return { text: faqHit.answer };
-    }
-
-    return {
-      text: 'Mình chưa tìm thấy câu trả lời phù hợp trong dữ liệu hiện có. Vui lòng thử hỏi rõ tên model (VD: K19PRO) kèm thông số cần tra (công suất, giá, bảo hành...), hoặc liên hệ hotline kỹ thuật 0903 851 252.'
-    };
-  }
-
-  // ── 5) Giao diện chat ──
+  // ── 4) Xử lý 1 câu hỏi, trả về { html, linkId } ──
   function escapeHtml(str) {
     var div = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;
   }
 
-  function initChat() {
-    var log = document.getElementById('faqChatLog');
-    var form = document.getElementById('faqChatForm');
-    var input = document.getElementById('faqChatInput');
-    if (!log || !form || !input) return;
+  function getAnswer(query) {
+    var product = findProduct(query);
 
-    function appendMessage(role, text, linkId) {
+    if (product) {
+      var specAnswer = answerFromProduct(product, query);
+      if (specAnswer) {
+        return { html: escapeHtml(product.name + ' — ' + specAnswer), linkId: product.id };
+      }
+      var fuzzy = fuzzySpecSearch(product, query);
+      if (fuzzy) {
+        return { html: escapeHtml(product.name + ' — ' + fuzzy.key + ': ' + fuzzy.value), linkId: product.id };
+      }
+      return {
+        html: escapeHtml(productSummary(product) + '\n\nBạn muốn hỏi cụ thể thông số nào (công suất, giá, bảo hành, trọng lượng...)?').replace(/\n/g, '<br>'),
+        linkId: product.id
+      };
+    }
+
+    var faqHit = searchFaq(query);
+    if (faqHit) {
+      return { html: faqHit.answer };
+    }
+
+    return {
+      html: escapeHtml('Mình chưa tìm thấy câu trả lời phù hợp trong dữ liệu hiện có. Vui lòng thử hỏi rõ tên model (VD: K19PRO) kèm thông số cần tra (công suất, giá, bảo hành...), hoặc liên hệ hotline kỹ thuật 0903 851 252.')
+    };
+  }
+
+  // ── 5) Giao diện: icon nổi + panel chat ──
+  function buildPanel() {
+    var panel = document.createElement('div');
+    panel.className = 'site-chat__panel';
+    panel.innerHTML = ''
+      + '<div class="site-chat__header">'
+      + '  <div>'
+      + '    <div class="site-chat__title">Hỏi nhanh KORAH</div>'
+      + '    <div class="site-chat__subtitle">Tra cứu tự động từ dữ liệu sản phẩm &amp; FAQ — không phải AI</div>'
+      + '  </div>'
+      + '  <button type="button" class="site-chat__close" aria-label="Đóng">&times;</button>'
+      + '</div>'
+      + '<div class="site-chat__log" id="siteChatLog">'
+      + '  <div class="site-chat__msg site-chat__msg--bot"><div class="site-chat__bubble">Xin chào! Bạn có thể hỏi ví dụ: "K19PRO công suất 8Ω là bao nhiêu?" hoặc "K16PRO giá bao nhiêu?"</div></div>'
+      + '</div>'
+      + '<div class="site-chat__suggestions">'
+      + '  <button type="button" class="site-chat__suggestion">K19PRO công suất 8Ω là bao nhiêu?</button>'
+      + '  <button type="button" class="site-chat__suggestion">K16PRO giá bao nhiêu?</button>'
+      + '  <button type="button" class="site-chat__suggestion">Trở kháng loa là gì?</button>'
+      + '</div>'
+      + '<form class="site-chat__form" id="siteChatForm">'
+      + '  <input class="form-control" id="siteChatInput" type="text" placeholder="Nhập câu hỏi..." autocomplete="off">'
+      + '  <button type="submit" class="btn btn--gold btn--sm">Gửi</button>'
+      + '</form>';
+    return panel;
+  }
+
+  function initSiteChat() {
+    var floatWrap = document.querySelector('.float-contact');
+    if (!floatWrap) return;
+    if (floatWrap.querySelector('.site-chat__toggle')) return; // đã init
+
+    var toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'float-contact__btn site-chat__toggle';
+    toggle.setAttribute('aria-label', 'Hỏi nhanh KORAH');
+    toggle.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';
+    floatWrap.insertBefore(toggle, floatWrap.firstChild);
+
+    var panel = buildPanel();
+    document.body.appendChild(panel);
+
+    var log = panel.querySelector('#siteChatLog');
+    var form = panel.querySelector('#siteChatForm');
+    var input = panel.querySelector('#siteChatInput');
+    var closeBtn = panel.querySelector('.site-chat__close');
+
+    function openPanel() {
+      panel.classList.add('open');
+      toggle.classList.add('active');
+      setTimeout(function () { input.focus(); }, 150);
+    }
+    function closePanel() {
+      panel.classList.remove('open');
+      toggle.classList.remove('active');
+    }
+
+    toggle.addEventListener('click', function () {
+      panel.classList.contains('open') ? closePanel() : openPanel();
+    });
+    closeBtn.addEventListener('click', closePanel);
+
+    function appendMessage(role, html, linkId) {
       var wrap = document.createElement('div');
-      wrap.className = 'faq-chat__msg faq-chat__msg--' + role;
+      wrap.className = 'site-chat__msg site-chat__msg--' + role;
       var bubble = document.createElement('div');
-      bubble.className = 'faq-chat__bubble';
-      bubble.innerHTML = escapeHtml(text).replace(/\n/g, '<br>');
+      bubble.className = 'site-chat__bubble';
+      bubble.innerHTML = html;
       if (linkId) {
         var a = document.createElement('a');
         a.href = 'product-detail.html?id=' + encodeURIComponent(linkId);
-        a.className = 'faq-chat__link';
+        a.className = 'site-chat__link';
         a.textContent = 'Xem đầy đủ thông số →';
         bubble.appendChild(document.createElement('br'));
         bubble.appendChild(a);
@@ -341,29 +374,29 @@
       log.scrollTop = log.scrollHeight;
     }
 
+    function ask(q) {
+      q = q.trim();
+      if (!q) return;
+      appendMessage('user', escapeHtml(q));
+      var res = getAnswer(q);
+      setTimeout(function () { appendMessage('bot', res.html, res.linkId); }, 250);
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var q = input.value.trim();
-      if (!q) return;
-      appendMessage('user', q);
+      var q = input.value;
       input.value = '';
-      var res = getAnswer(q);
-      setTimeout(function () {
-        appendMessage('bot', res.text, res.linkId);
-      }, 250);
+      ask(q);
     });
 
-    document.querySelectorAll('.faq-chat__suggestion').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        input.value = btn.textContent.trim();
-        form.dispatchEvent(new Event('submit', { cancelable: true }));
-      });
+    panel.querySelectorAll('.site-chat__suggestion').forEach(function (btn) {
+      btn.addEventListener('click', function () { ask(btn.textContent.trim()); });
     });
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initChat);
+    document.addEventListener('DOMContentLoaded', initSiteChat);
   } else {
-    initChat();
+    initSiteChat();
   }
 })();

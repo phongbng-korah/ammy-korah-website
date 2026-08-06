@@ -301,17 +301,17 @@ Mỗi model phải có đầy đủ các nhóm dữ liệu sau:
 - Silicon Carbide: Có
 - 8 ohms stereo:
   - Hi: 1650W x 4
-  - Lo: 1350W x 4
+  - Lo: 1400W x 4
 - 4 ohms stereo:
-  - Hi: 2600W x 4
-  - Lo: 2200W x 4
+  - Hi: 2450W x 4
+  - Lo: 2100W x 4
 - 8 ohms bridged mono:
-  - Hi: 5200W x 2
-  - Lo: 4400W x 2
-- Peak output voltage: 175Vpeak
-- VPL: 175V / 161V
-- Damping factor: Greater than 800
-- Weight: 10.5 kg
+  - Hi: 4900W x 2
+  - Lo: 4200W x 2
+- Peak output voltage: 163Vpeak
+- VPL: 163V / 153V
+- Damping factor: Greater than 500
+- Weight: 10 kg
 - Listed price: 23,000,000 VND
 
 ### 7.5 K20S

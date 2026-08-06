@@ -828,6 +828,15 @@ p:last-child { margin-bottom: 0; }
     min-height: 380px;
     background-position: center center;
   }
+  .page-hero--about,
+  .page-hero--vision,
+  .page-hero--dealers {
+    background-image: url('../assets/hero/hero-global-network-9x16.jpg');
+    background-size: cover;
+    aspect-ratio: 9 / 16;
+    max-height: 640px;
+    min-height: 480px;
+  }
 }
 
 /* ── Technology ── */

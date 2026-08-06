@@ -217,6 +217,30 @@
     });
   }
 
+  // Dò mờ trong toàn bộ specs của 1 model khi không luật thuộc tính nào khớp —
+  // vẫn ưu tiên lấy thẳng dữ liệu có sẵn thay vì chỉ đưa link.
+  function fuzzySpecSearch(product, query) {
+    if (!product.specs) return null;
+    var qTokens = tokenize(query);
+    if (!qTokens.length) return null;
+
+    var best = null, bestScore = 0;
+    Object.keys(product.specs).forEach(function (key) {
+      var keyTokens = tokenize(key);
+      var score = 0;
+      qTokens.forEach(function (t) {
+        if (keyTokens.indexOf(t) !== -1) score++;
+      });
+      if (score > bestScore) {
+        bestScore = score;
+        best = { key: key, value: product.specs[key] };
+      }
+    });
+    // Cần khớp ít nhất 2 từ để tránh nhận nhầm do trùng 1 từ chung chung
+    // (VD: "công nghệ" và "công suất" cùng có từ "công").
+    return bestScore >= 2 ? best : null;
+  }
+
   function searchFaq(query) {
     var items = document.querySelectorAll('.accordion__item');
     var qTokens = tokenize(query);
@@ -260,7 +284,15 @@
           linkId: product.id
         };
       }
-      // Có nhắc model nhưng không rõ hỏi thông số gì -> đưa tóm tắt
+      // Không luật nào khớp -> dò mờ toàn bộ specs của model trước khi đưa link
+      var fuzzy = fuzzySpecSearch(product, query);
+      if (fuzzy) {
+        return {
+          text: product.name + ' — ' + fuzzy.key + ': ' + fuzzy.value,
+          linkId: product.id
+        };
+      }
+      // Có nhắc model nhưng không tìm được thông số liên quan -> đưa tóm tắt
       return {
         text: productSummary(product) + '\n\nBạn muốn hỏi cụ thể thông số nào (công suất, giá, bảo hành, trọng lượng...)?',
         linkId: product.id

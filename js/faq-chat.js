@@ -264,7 +264,7 @@
       });
       if (score > bestScore) {
         bestScore = score;
-        best = { question: headerText, answer: contentEl.textContent.trim(), item: item };
+        best = { question: headerText, answer: contentEl.textContent.trim() };
       }
     });
 
@@ -301,7 +301,7 @@
 
     var faqHit = searchFaq(query);
     if (faqHit) {
-      return { text: faqHit.answer, faqItem: faqHit.item };
+      return { text: faqHit.answer };
     }
 
     return {
@@ -350,11 +350,6 @@
       var res = getAnswer(q);
       setTimeout(function () {
         appendMessage('bot', res.text, res.linkId);
-        if (res.faqItem) {
-          var header = res.faqItem.querySelector('.accordion__header');
-          if (header && !header.classList.contains('open')) header.click();
-          res.faqItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
       }, 250);
     });
 

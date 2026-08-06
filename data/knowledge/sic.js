@@ -1,12 +1,14 @@
 // ============================================================
-// KORAH — Cơ sở tri thức chuyên sâu Silicon Carbide (SiC)
+// KORAH — Kho tri thức chuyên môn: Silicon Carbide (SiC)
 // ============================================================
 // Nguồn: bộ tài liệu SiC_TECHNOLOGY_MASTER_GUIDE +
 // SiC_MANUFACTURERS_DATABASE (onsemi, Infineon, Wolfspeed, ROHM,
 // STMicroelectronics, Microchip, Mitsubishi Electric, Fuji Electric,
 // GeneSiC, Semikron Danfoss).
-// Chỉ dùng cho chatbot "Hỏi nhanh KORAH" (js/site-chat.js) — KHÔNG
-// render thành accordion trên support.html (khác với data/faq.js).
+// Là 1 module trong kho tri thức data/knowledge/ — xem
+// data/knowledge/manifest.js để biết cách đăng ký module mới.
+// Chỉ dùng cho chatbot "Hỏi nhanh KORAH" — KHÔNG render thành
+// accordion trên support.html (khác với data/faq.js).
 // Lưu ý biên tập: đây là kiến thức NGÀNH SiC nói chung (đa hãng).
 // KORAH trên thực tế chỉ dùng SiC MOSFET EliteSiC™ của Onsemi (Hoa Kỳ)
 // cho K19PRO, K20S, K20PLUS — mọi câu trả lời liên quan hãng khác
@@ -14,7 +16,7 @@
 // đang dùng, tránh gây hiểu lầm cho khách.
 // ============================================================
 
-const SIC_KB = [
+(window.KB_TOPICS = window.KB_TOPICS || []).push(
   {
     category: "SiC — Kiến thức nền tảng",
     items: [
@@ -85,4 +87,4 @@ const SIC_KB = [
       }
     ]
   }
-];
+);

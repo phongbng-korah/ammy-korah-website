@@ -240,7 +240,7 @@
 
     var sources = [];
     if (typeof FAQ_DATA !== 'undefined') sources.push(FAQ_DATA);
-    if (typeof SIC_KB !== 'undefined') sources.push(SIC_KB);
+    if (typeof window !== 'undefined' && window.KB_TOPICS) sources.push(window.KB_TOPICS);
     if (!sources.length) return null;
 
     var best = null, bestScore = 0;

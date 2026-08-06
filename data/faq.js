@@ -131,6 +131,10 @@ const FAQ_DATA = [
       {
         q: "Gửi máy bảo hành về địa chỉ nào, liên hệ ai để nhận hàng?",
         a: "Gửi máy về Xưởng AMMY: 300/34/64 Nguyễn Văn Linh, P. Bình Thuận, Q.7, TP.HCM. Người nhận: Nguyễn Phan Vinh — điện thoại nhận hàng <a href=\"tel:0932648669\" style=\"color:var(--gold)\">0932 648 669</a> hoặc hotline bảo hành <a href=\"tel:0903851252\" style=\"color:var(--gold)\">0903 851 252</a>. Nên đóng gói chắc chắn, chống va đập và ẩm ướt, ghi rõ thông tin phiếu gửi hàng bên trong kiện hàng, báo người nhận khi hàng đến bến."
+      },
+      {
+        q: "Mẫu phiếu gửi hàng bảo hành ở đâu, tải như thế nào?",
+        a: "In Phiếu gửi hàng Bảo hành - Bảo trì KORAH, điền đầy đủ thông tin khách hàng/thiết bị rồi để bên trong kiện hàng khi gửi về xưởng. Người nhận: Nguyễn Phan Vinh, điện thoại nhận hàng <a href=\"tel:0932648669\" style=\"color:var(--gold)\">0932 648 669</a>, hotline bảo hành <a href=\"tel:0903851252\" style=\"color:var(--gold)\">0903 851 252</a>, địa chỉ 300/34/64 Nguyễn Văn Linh, P. Bình Thuận, Q.7, TP.HCM.<br><a href=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.jpg\" alt=\"Mẫu Phiếu gửi hàng Bảo hành - Bảo trì KORAH\" loading=\"lazy\"></a><br><a href=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.pdf\" style=\"color:var(--gold)\" target=\"_blank\" rel=\"noopener\">Tải file PDF để in</a>"
       }
     ]
   }

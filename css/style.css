@@ -2146,6 +2146,14 @@ p:last-child { margin-bottom: 0; }
   border-bottom-right-radius: 2px;
 }
 .site-chat__bubble a { color: var(--gold); }
+.site-chat__bubble img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--black-4);
+}
 .site-chat__link {
   display: inline-block;
   margin-top: 6px;

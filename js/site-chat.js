@@ -235,23 +235,29 @@
   }
 
   function searchFaq(query) {
-    if (typeof FAQ_DATA === 'undefined') return null;
     var qTokens = tokenize(query);
     if (!qTokens.length) return null;
 
+    var sources = [];
+    if (typeof FAQ_DATA !== 'undefined') sources.push(FAQ_DATA);
+    if (typeof SIC_KB !== 'undefined') sources.push(SIC_KB);
+    if (!sources.length) return null;
+
     var best = null, bestScore = 0;
-    FAQ_DATA.forEach(function (group) {
-      group.items.forEach(function (item) {
-        var plainAnswer = stripHtml(item.a);
-        var bodyTokens = tokenize(item.q + ' ' + plainAnswer);
-        var score = 0;
-        qTokens.forEach(function (t) { if (bodyTokens.indexOf(t) !== -1) score++; });
-        var headerTokens = tokenize(item.q);
-        qTokens.forEach(function (t) { if (headerTokens.indexOf(t) !== -1) score += 2; });
-        if (score > bestScore) {
-          bestScore = score;
-          best = { question: item.q, answer: item.a };
-        }
+    sources.forEach(function (data) {
+      data.forEach(function (group) {
+        group.items.forEach(function (item) {
+          var plainAnswer = stripHtml(item.a);
+          var bodyTokens = tokenize(item.q + ' ' + plainAnswer);
+          var score = 0;
+          qTokens.forEach(function (t) { if (bodyTokens.indexOf(t) !== -1) score++; });
+          var headerTokens = tokenize(item.q);
+          qTokens.forEach(function (t) { if (headerTokens.indexOf(t) !== -1) score += 2; });
+          if (score > bestScore) {
+            bestScore = score;
+            best = { question: item.q, answer: item.a };
+          }
+        });
       });
     });
 

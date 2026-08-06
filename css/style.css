@@ -823,6 +823,8 @@ p:last-child { margin-bottom: 0; }
   text-shadow: 0 1px 6px rgba(0,0,0,0.6);
 }
 
+.page-hero__mobile-img { display: none; }
+
 @media (max-width: 768px) {
   .page-hero--tech {
     min-height: 380px;
@@ -831,11 +833,40 @@ p:last-child { margin-bottom: 0; }
   .page-hero--about,
   .page-hero--vision,
   .page-hero--dealers {
-    background-image: url('../assets/hero/hero-global-network-9x16.jpg');
-    background-size: cover;
-    aspect-ratio: 9 / 16;
-    max-height: 640px;
-    min-height: 480px;
+    background-image: none;
+    aspect-ratio: auto;
+    min-height: 0;
+    display: block;
+    padding: 0 0 40px;
+  }
+  .page-hero--about::after,
+  .page-hero--vision::after,
+  .page-hero--dealers::after {
+    display: none;
+  }
+  .page-hero--about .page-hero__mobile-img,
+  .page-hero--vision .page-hero__mobile-img,
+  .page-hero--dealers .page-hero__mobile-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+  }
+  .page-hero--about .container,
+  .page-hero--vision .container,
+  .page-hero--dealers .container {
+    padding-bottom: 0;
+  }
+  .page-hero--about .page-hero__title,
+  .page-hero--vision .page-hero__title,
+  .page-hero--dealers .page-hero__title,
+  .page-hero--about .page-hero__desc,
+  .page-hero--vision .page-hero__desc,
+  .page-hero--dealers .page-hero__desc,
+  .page-hero--about .page-hero__label,
+  .page-hero--vision .page-hero__label,
+  .page-hero--dealers .page-hero__label {
+    text-shadow: none;
   }
 }
 

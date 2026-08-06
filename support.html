@@ -210,6 +210,28 @@
       <h2 class="section-title">Hỏi đáp kỹ thuật</h2>
       <p class="section-intro">Tổng hợp câu hỏi về vận hành, phối ghép loa, tính công suất, điện năng, đo trở kháng, bảo trì và bảo hành cho toàn bộ dòng KORAH K-Series.</p>
 
+      <div class="faq-chat mt-32" style="max-width:860px">
+        <div class="faq-chat__head">
+          <div class="faq-chat__head-title">Hỏi nhanh — tra cứu tự động</div>
+          <div class="faq-chat__head-desc">Trả lời dựa trên đúng dữ liệu sản phẩm &amp; câu hỏi thường gặp sẵn có trên trang này — không phải AI, không suy đoán ngoài dữ liệu.</div>
+        </div>
+        <div class="faq-chat__log" id="faqChatLog">
+          <div class="faq-chat__msg faq-chat__msg--bot">
+            <div class="faq-chat__bubble">Xin chào! Bạn có thể hỏi ví dụ: "K19PRO công suất 8Ω là bao nhiêu?" hoặc "K16PRO giá bao nhiêu?"</div>
+          </div>
+        </div>
+        <div class="faq-chat__suggestions">
+          <button type="button" class="faq-chat__suggestion">K19PRO công suất 8Ω là bao nhiêu?</button>
+          <button type="button" class="faq-chat__suggestion">K16PRO giá bao nhiêu?</button>
+          <button type="button" class="faq-chat__suggestion">K20S bảo hành bao lâu?</button>
+          <button type="button" class="faq-chat__suggestion">Trở kháng loa là gì?</button>
+        </div>
+        <form class="faq-chat__form" id="faqChatForm">
+          <input class="form-control" id="faqChatInput" type="text" placeholder="Nhập câu hỏi... VD: K20PLUS trọng lượng bao nhiêu?" autocomplete="off">
+          <button type="submit" class="btn btn--gold btn--sm">Gửi</button>
+        </form>
+      </div>
+
       <div style="max-width:860px">
 
         <h3 style="font-size:1.1rem;color:var(--gold);margin:32px 0 12px;font-weight:700">Vận hành &amp; An toàn</h3>
@@ -453,5 +475,6 @@
   <script src="./data/categories.js"></script>
   <script src="./data/products.js"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/faq-chat.js"></script>
 </body>
 </html>

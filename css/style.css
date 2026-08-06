@@ -1081,6 +1081,91 @@ p:last-child { margin-bottom: 0; }
 
 .form-control::placeholder { color: var(--gray-2); }
 
+/* ── FAQ Chat (support.html) ── */
+.faq-chat {
+  background: var(--black-2);
+  border: 1px solid var(--black-4);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+.faq-chat__head-title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+.faq-chat__head-desc {
+  color: var(--gray-1);
+  font-size: 0.8125rem;
+  margin-bottom: 16px;
+}
+.faq-chat__log {
+  max-height: 340px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4px 4px 8px;
+  margin-bottom: 12px;
+}
+.faq-chat__msg { display: flex; }
+.faq-chat__msg--user { justify-content: flex-end; }
+.faq-chat__msg--bot { justify-content: flex-start; }
+.faq-chat__bubble {
+  max-width: 82%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+.faq-chat__msg--bot .faq-chat__bubble {
+  background: var(--black-3);
+  border: 1px solid var(--black-4);
+  color: var(--ivory-dim);
+  border-bottom-left-radius: 2px;
+}
+.faq-chat__msg--user .faq-chat__bubble {
+  background: rgba(200,169,110,0.14);
+  border: 1px solid rgba(200,169,110,0.35);
+  color: var(--ivory);
+  border-bottom-right-radius: 2px;
+}
+.faq-chat__link {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--gold);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.faq-chat__suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.faq-chat__suggestion {
+  background: var(--black-3);
+  border: 1px solid var(--black-4);
+  color: var(--ivory-dim);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition);
+}
+.faq-chat__suggestion:hover { border-color: var(--gold); color: var(--gold); }
+.faq-chat__form {
+  display: flex;
+  gap: 10px;
+}
+.faq-chat__form .form-control { flex: 1; }
+
+@media (max-width: 640px) {
+  .faq-chat__form { flex-direction: column; }
+  .faq-chat__form .btn { width: 100%; }
+}
+
 /* ── Footer ── */
 .site-footer {
   background: var(--black-2);

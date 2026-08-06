@@ -492,16 +492,28 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 
-// ── Nút liên hệ nổi: Zalo + Gọi điện (V2.6) ────────────────
+// ── Nút liên hệ nổi: Zalo Bảo hành + Zalo Kinh doanh + Gọi điện (V2.7) ──
 (function initFloatingContact() {
   const wrap = document.createElement('div');
   wrap.className = 'float-contact';
   wrap.innerHTML = `
-    <a class="float-contact__btn float-contact__btn--zalo" href="https://zalo.me/0932779386" target="_blank" rel="noopener" aria-label="Chat Zalo">
-      <span class="float-contact__zalo-text">Zalo</span>
+    <a class="float-contact__item" href="https://zalo.me/0903851252" target="_blank" rel="noopener" aria-label="Chat Zalo Bảo hành / Kỹ thuật 0903 851 252">
+      <span class="float-contact__btn float-contact__btn--zalo float-contact__btn--zalo-warranty">
+        <span class="float-contact__zalo-text">Zalo</span>
+      </span>
+      <span class="float-contact__label float-contact__label--warranty">Bảo hành</span>
     </a>
-    <a class="float-contact__btn float-contact__btn--call" href="tel:0932779386" aria-label="Gọi điện 0932 779 386">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <a class="float-contact__item" href="https://zalo.me/0932779386" target="_blank" rel="noopener" aria-label="Chat Zalo Kinh doanh 0932 779 386">
+      <span class="float-contact__btn float-contact__btn--zalo">
+        <span class="float-contact__zalo-text">Zalo</span>
+      </span>
+      <span class="float-contact__label float-contact__label--sales">Kinh doanh</span>
+    </a>
+    <a class="float-contact__item" href="tel:0932779386" aria-label="Gọi điện Kinh doanh 0932 779 386">
+      <span class="float-contact__btn float-contact__btn--call">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </span>
+      <span class="float-contact__label float-contact__label--sales">Gọi kinh doanh</span>
     </a>`;
   document.body.appendChild(wrap);
 })();

@@ -1990,11 +1990,19 @@ p:last-child { margin-bottom: 0; }
   z-index: 900;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 12px;
 }
 @media (max-width: 480px) {
   .float-contact { right: 12px; bottom: 16px; gap: 10px; }
   .float-contact__btn { width: 46px; height: 46px; }
+}
+.float-contact__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
 }
 .float-contact__btn {
   width: 52px;
@@ -2006,7 +2014,7 @@ p:last-child { margin-bottom: 0; }
   box-shadow: 0 6px 18px rgba(0,0,0,0.45);
   transition: transform var(--transition);
 }
-.float-contact__btn:hover { transform: scale(1.08); }
+.float-contact__item:hover .float-contact__btn { transform: scale(1.08); }
 .float-contact__btn--zalo { background: #0068FF; }
 .float-contact__zalo-text {
   color: #fff;
@@ -2014,6 +2022,10 @@ p:last-child { margin-bottom: 0; }
   font-weight: 800;
   font-size: 0.78rem;
   letter-spacing: 0.02em;
+}
+.float-contact__btn--zalo-warranty {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
 }
 .float-contact__btn--call {
   background: var(--gold);
@@ -2023,6 +2035,22 @@ p:last-child { margin-bottom: 0; }
 @keyframes callPulse {
   0%, 100% { box-shadow: 0 6px 18px rgba(0,0,0,0.45), 0 0 0 0 rgba(200,169,110,0.5); }
   50% { box-shadow: 0 6px 18px rgba(0,0,0,0.45), 0 0 0 12px rgba(200,169,110,0); }
+}
+.float-contact__label {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(15,15,15,0.85);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+.float-contact__label--warranty { color: var(--gold); border: 1px solid rgba(200,169,110,0.5); }
+.float-contact__label--sales { color: var(--ivory); border: 1px solid var(--black-4); }
+@media (max-width: 480px) {
+  .float-contact__label { font-size: 0.625rem; padding: 2px 6px; }
 }
 
 .footer-contact-line {

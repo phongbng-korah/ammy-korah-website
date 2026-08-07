@@ -17,7 +17,7 @@
   // để lời chào che mất câu hỏi thật.
   var GREETING_RESPONSES = [
     'Xin chào! Mình là trợ lý tư vấn kỹ thuật của KORAH — thương hiệu power amplifier (cục đẩy công suất) chuyên nghiệp cho sân khấu, sự kiện và hệ thống âm thanh kinh doanh tại Việt Nam. Bạn cần tra cứu thông số, giá, bảo hành model K-Series, hay muốn mình gợi ý amplifier phù hợp với loa đang có? Cứ nhắn cho mình nhé!',
-    'Chào bạn, rất vui được hỗ trợ! KORAH hiện có 6 model power amplifier K-Series (K16S, K16PRO, K19S, K19PRO, K20S, K20PLUS) dùng công nghệ Class D, PFC và Silicon Carbide. Bạn muốn tìm hiểu model nào, hay cho mình biết công suất và trở kháng loa để mình gợi ý amplifier phù hợp?',
+    'Chào bạn, rất vui được hỗ trợ! KORAH hiện có 6 model power amplifier K-Series dùng cho sân khấu, sự kiện lớn nhỏ — K-Series hiện là dòng sản phẩm amplifier cao cấp nhất của KORAH (K16S, K16PRO, K19S, K19PRO, K20S, K20PLUS) dùng công nghệ Class D, PFC và Silicon Carbide. Bạn muốn tìm hiểu model nào, hay cho mình biết công suất và trở kháng loa để mình gợi ý amplifier phù hợp?',
     'Xin chào, cảm ơn bạn đã quan tâm đến KORAH! Mình có thể tra cứu nhanh thông số kỹ thuật, giá, chính sách bảo hành từng model, hoặc tính toán ghép ampli phù hợp với loa của bạn (chỉ cần cho biết công suất RMS và trở kháng, VD: "loa 1000W 8ohm"). Bạn cần hỗ trợ vấn đề gì trước tiên?'
   ];
 
@@ -513,6 +513,17 @@
     if (/\bloa\b/.test(norm(query)) && /(\d{2,5})\s*(?:w|watt|watts)\b/.test(norm(query)) && !findProduct(query)) {
       return {
         html: escapeHtml('Mình cần biết thêm trở kháng (Ω) của loa để tính chính xác. Vui lòng cho biết cả công suất RMS và trở kháng (VD: "loa 500W 8ohm") — mình sẽ tính và gợi ý amplifier KORAH phù hợp.')
+      };
+    }
+
+    // Câu hỏi có nhắc "loa" + loại loa (full/sub) nhưng CHƯA có số W cụ
+    // thể (VD: "loa full thì nên chọn model nào") → hỏi lại xin thông số
+    // ngay, cùng lý do với 2 chặn ở trên — không cho rơi xuống searchFaq
+    // vì rất dễ khớp nhầm vào FAQ chung không liên quan (VD: "Có nên
+    // chọn amplifier đúng bằng RMS loa?").
+    if (/\bloa\b/.test(norm(query)) && detectSpeakerType(query) && !/(\d{2,5})\s*(?:w|watt|watts)\b/.test(norm(query)) && !findProduct(query)) {
+      return {
+        html: escapeHtml('Bạn cho mình biết công suất RMS và trở kháng của loa (VD: "loa full 800W 8ohm") để mình gợi ý đúng model KORAH phù hợp nhé.')
       };
     }
 

@@ -539,15 +539,28 @@
   function matchIntent(rawQuery) {
     if (typeof window === 'undefined' || !window.KB_INTENTS) return null;
     var qTokens = tokenize(rawQuery);
-    if (!qTokens.length || qTokens.length > 6) return null;
+    var normQuery = norm(rawQuery);
+    // "all" (token, dùng cho đa số rule) chỉ áp dụng cho câu hỏi NGẮN
+    // (tối đa 6 token) — xem giải thích ở đầu data/knowledge/intents.js.
+    // "raw" (regex trên chuỗi thô, dùng cho ký hiệu viết tắt như S.C/D.T
+    // mà tokenize() loại bỏ vì chỉ còn 1 ký tự sau khi tách dấu chấm)
+    // không bị giới hạn độ dài này.
+    var tokensUsable = qTokens.length > 0 && qTokens.length <= 6;
 
     for (var i = 0; i < window.KB_INTENTS.length; i++) {
       var rule = window.KB_INTENTS[i];
-      var matched = rule.all.every(function (group) {
-        return group.some(function (tok) { return qTokens.indexOf(tok) !== -1; });
-      });
+      var matched = true;
+
+      if (rule.all) {
+        matched = tokensUsable && rule.all.every(function (group) {
+          return group.some(function (tok) { return qTokens.indexOf(tok) !== -1; });
+        });
+      }
+      if (matched && rule.raw) {
+        matched = rule.raw.every(function (re) { return re.test(normQuery); });
+      }
       if (!matched) continue;
-      if (rule.none && rule.none.some(function (tok) { return qTokens.indexOf(tok) !== -1; })) continue;
+      if (tokensUsable && rule.none && rule.none.some(function (tok) { return qTokens.indexOf(tok) !== -1; })) continue;
 
       if (rule.answer) return rule.answer;
       if (rule.sourceQuestion) {

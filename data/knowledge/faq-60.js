@@ -72,6 +72,10 @@
       {
         q: "Chất lượng KORAH có đảm bảo không?",
         a: "Có — AMMY tự chủ toàn bộ khâu nghiên cứu, thiết kế và sản xuất KORAH tại nhà máy riêng ở TP. Hồ Chí Minh, trên dây chuyền đạt chuẩn ISO 9001:2008, kiểm soát chất lượng từng công đoạn thay vì phụ thuộc bên thứ ba — không phải hàng nhập khẩu nguyên chiếc dán nhãn."
+      },
+      {
+        q: "AMMY có nhận gia công OEM/ODM không?",
+        a: "Có — AMMY nhận gia công OEM/ODM thiết bị âm thanh chuyên nghiệp theo thương hiệu riêng của đối tác, từ nghiên cứu, thiết kế đến sản xuất hoàn thiện trên dây chuyền đạt chuẩn ISO 9001:2008. Liên hệ hotline kinh doanh 0932 779 386 để trao đổi nhu cầu hợp tác."
       }
     ]
   },

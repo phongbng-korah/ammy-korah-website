@@ -30,6 +30,10 @@ const FAQ_DATA = [
       {
         q: "Những lưu ý an toàn",
         a: "Không chạm đầu Speakon khi máy đang bật. Thứ tự bật: 1) Nguồn tín hiệu 2) Mixer 3) Amplifier — thứ tự tắt ngược lại. Luôn nối đất bằng ổ cắm 3 chân. Không để nước vào máy. Không tự mở nắp máy. Không sử dụng nơi ẩm, bụi hoặc nhiệt độ quá cao."
+      },
+      {
+        q: "Loa không lên tiếng, không kêu phải kiểm tra gì?",
+        a: "Kiểm tra theo thứ tự: 1) Dây loa/đầu Speakon cắm chắc, đúng cực (+/-). 2) Kênh amplifier tương ứng có đang ở chế độ Mute/Bridge sai hay không. 3) Đèn Protect/Limit có đang sáng không (xem mục \"Vì sao máy tự Protect hoặc Limit?\"). 4) Nguồn tín hiệu vào (mixer/DSP) có tín hiệu ra hay không, gain có bị vặn về 0. 5) Đo nhanh trở kháng loa bằng đồng hồ Ω — nếu đứt/hở mạch (hiển thị OL) khả năng loa hỏng, không phải lỗi amplifier. Nếu đã kiểm tra hết vẫn không lên tiếng, liên hệ hotline kỹ thuật 0903 851 252."
       }
     ]
   },
@@ -163,6 +167,14 @@ const FAQ_DATA = [
       {
         q: "Mẫu phiếu gửi hàng bảo hành ở đâu, tải như thế nào?",
         a: "In Phiếu gửi hàng Bảo hành - Bảo trì KORAH, điền đầy đủ thông tin khách hàng/thiết bị rồi để bên trong kiện hàng khi gửi về xưởng. Người nhận: Nguyễn Phan Vinh, điện thoại nhận hàng <a href=\"tel:0932648669\" style=\"color:var(--gold)\">0932 648 669</a>, hotline bảo hành <a href=\"tel:0903851252\" style=\"color:var(--gold)\">0903 851 252</a>, địa chỉ 300/34/64 Nguyễn Văn Linh, P. Bình Thuận, Q.7, TP.HCM.<br><a href=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.jpg\" alt=\"Mẫu Phiếu gửi hàng Bảo hành - Bảo trì KORAH\" loading=\"lazy\"></a><br><a href=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.pdf\" style=\"color:var(--gold)\" target=\"_blank\" rel=\"noopener\">Tải file PDF để in</a>"
+      },
+      {
+        q: "Chi phí và thời gian sửa chữa ngoài bảo hành là bao nhiêu?",
+        a: "Website chưa công bố bảng giá/thời gian sửa chữa cố định vì tùy thuộc tình trạng máy và linh kiện cần thay thế. Sau khi liên hệ hotline bảo hành 0903 851 252 mô tả tình trạng máy, kỹ thuật AMMY tiếp nhận, chẩn đoán rồi báo chi phí và thời gian xử lý dự kiến trước khi sửa. Xem quy trình đầy đủ tại trang <a href=\"after-sales.html\" style=\"color:var(--gold)\">Bảo hành &amp; Hậu mãi</a>."
+      },
+      {
+        q: "Nên chọn model KORAH nào?",
+        a: "Tuỳ nhu cầu: loa SUB (bass) → chọn nhóm mã \"S\" (K16S/K19S/K20S, 2 kênh); loa FULL-RANGE/Line Array → chọn nhóm mã \"PRO\"/\"PLUS\" (K16PRO/K19PRO/K20PLUS, 4 kênh). Trong mỗi nhóm, chọn model theo công suất RMS loa cụ thể (headroom tối thiểu +50%) và ngân sách. Cho biết công suất loa và ngân sách dự kiến, hoặc liên hệ hotline kinh doanh <a href=\"tel:0932779386\" style=\"color:var(--gold)\">0932 779 386</a> để được tư vấn chính xác model phù hợp."
       }
     ]
   }

@@ -82,6 +82,27 @@ window.KB_INTENTS = [
     sourceQuestion: "Chính sách bảo hành sản phẩm KORAH như thế nào?"
   },
   {
+    id: "chi_phi_sua",
+    all: [["chi"], ["phi"]],
+    sourceQuestion: "Chi phí và thời gian sửa chữa ngoài bảo hành là bao nhiêu?"
+  },
+  {
+    id: "thoi_gian_sua",
+    all: [["thoi"], ["gian"], ["sua"]],
+    sourceQuestion: "Chi phí và thời gian sửa chữa ngoài bảo hành là bao nhiêu?"
+  },
+  {
+    id: "sua_may_dia_chi",
+    all: [["sua"], ["may"]],
+    none: ["chua"],
+    sourceQuestion: "Gửi máy bảo hành về địa chỉ nào, liên hệ ai để nhận hàng?"
+  },
+  {
+    id: "gui_may_dia_chi",
+    all: [["gui"], ["may"]],
+    sourceQuestion: "Gửi máy bảo hành về địa chỉ nào, liên hệ ai để nhận hàng?"
+  },
+  {
     id: "sua_chua_dau_hieu",
     all: [["sua"], ["chua"]],
     none: ["bao"],
@@ -90,9 +111,19 @@ window.KB_INTENTS = [
 
   // ── Mua hàng, đại lý, giao hàng, liên hệ ──
   {
+    id: "oem_odm",
+    all: [["oem", "odm"]],
+    sourceQuestion: "AMMY có nhận gia công OEM/ODM không?"
+  },
+  {
+    id: "nen_mua_model",
+    all: [["mua"], ["model"]],
+    sourceQuestion: "Nên chọn model KORAH nào?"
+  },
+  {
     id: "mua_hang",
     all: [["mua"]],
-    none: ["sau", "truoc", "khi"],
+    none: ["sau", "truoc", "khi", "model", "oem", "odm"],
     sourceQuestion: "Mua sản phẩm KORAH chính hãng ở đâu?"
   },
   {
@@ -299,6 +330,29 @@ window.KB_INTENTS = [
     sourceQuestion: "Những lưu ý an toàn"
   },
   {
+    id: "noi_dat",
+    all: [["noi"], ["dat"]],
+    sourceQuestion: "Những lưu ý an toàn"
+  },
+  {
+    id: "cam_dien_an_toan",
+    all: [["cam"], ["dien"]],
+    sourceQuestion: "Những lưu ý an toàn"
+  },
+  {
+    id: "den_sc_raw",
+    // tokenize() tách "S.C" thành ["s","c"] rồi loại bỏ vì độ dài <=1,
+    // nên không thể phân biệt "đèn s.c" với "đèn d.t" bằng token — phải
+    // so khớp trên chuỗi thô (regex) thay vì token.
+    raw: [/\bden\b.*\bs\.?c\b|\bs\.?c\b.*\bden\b/],
+    sourceQuestion: "Có bảo vệ ngắn mạch không?"
+  },
+  {
+    id: "den_dt_raw",
+    raw: [/\bden\b.*\bd\.?t\b|\bd\.?t\b.*\bden\b/],
+    sourceQuestion: "KORAH có mạch bảo vệ quá nhiệt không?"
+  },
+  {
     id: "den_clip",
     all: [["clip"]],
     sourceQuestion: "Đèn CLIP sáng phải làm gì?"
@@ -307,6 +361,26 @@ window.KB_INTENTS = [
     id: "ngan_mach",
     all: [["ngan"], ["mach"]],
     sourceQuestion: "Có bảo vệ ngắn mạch không?"
+  },
+  {
+    id: "may_on",
+    all: [["may"], ["on"]],
+    sourceQuestion: "Dấu hiệu nào cho thấy máy cần được kiểm tra, sửa chữa?"
+  },
+  {
+    id: "mat_kenh",
+    all: [["mat"], ["kenh"]],
+    sourceQuestion: "Dấu hiệu nào cho thấy máy cần được kiểm tra, sửa chữa?"
+  },
+  {
+    id: "tu_rack",
+    all: [["tu"], ["rack"]],
+    sourceQuestion: "Khoảng cách lắp đặt"
+  },
+  {
+    id: "nha_may_dia_chi",
+    all: [["nha"], ["may"]],
+    sourceQuestion: "Gửi máy bảo hành về địa chỉ nào, liên hệ ai để nhận hàng?"
   },
   {
     id: "quat_lam_mat",
@@ -332,5 +406,18 @@ window.KB_INTENTS = [
     id: "karaoke",
     all: [["karaoke"]],
     sourceQuestion: "KORAH có phù hợp với karaoke kinh doanh không?"
+  },
+
+  // ── Công ty / thương hiệu ──
+  {
+    id: "korah_cong_ty",
+    all: [["korah"], ["cong"], ["ty"]],
+    sourceQuestion: "KORAH là thương hiệu của nước nào?"
+  },
+  {
+    id: "ammy_cong_ty",
+    all: [["ammy"]],
+    none: ["oem", "odm"],
+    sourceQuestion: "KORAH là thương hiệu của nước nào?"
   }
 ];

@@ -79,7 +79,7 @@ const FAQ_DATA = [
       },
       {
         q: "PFC giúp gì?",
-        a: "PFC giúp giảm dòng khởi động, giảm nguy cơ nhảy CB, nguồn điện ổn định hơn. Tuy nhiên vẫn nên bật amplifier từng chiếc."
+        a: "PFC (Power Factor Correction) giúp: (1) ổn định điện áp và mở rộng dải điện áp hoạt động (Autovolt), giảm nguy cơ nhảy CB khi bật nhiều amplifier cùng lúc; (2) giảm dòng khởi động (Inrush Current) khi cấp điện; (3) giữ công suất ổn định ngay cả khi điện lưới dao động. Dù vậy vẫn nên bật lần lượt từng amplifier theo đúng thứ tự (nguồn tín hiệu → mixer → amplifier) để tránh dòng khởi động cộng dồn."
       },
       {
         q: "Tính tổng dòng điện cả hệ thống",

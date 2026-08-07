@@ -83,7 +83,19 @@
       },
       {
         q: "Ngoài Onsemi và Infineon, còn hãng SiC lớn nào khác?",
-        a: "Wolfspeed (Hoa Kỳ, dòng C2M/C3M — tiên phong wafer SiC), ROHM (Nhật Bản, Gen4 SiC), STMicroelectronics (STPOWER SiC), Microchip, Mitsubishi Electric, Fuji Electric, GeneSiC, Semikron Danfoss... Đây là thông tin kiến thức ngành chung; KORAH chọn Onsemi EliteSiC™ cho các model cao cấp của mình."
+        a: "Wolfspeed (Hoa Kỳ, dòng C2M/C3M — tiên phong wafer SiC, ứng dụng EV/Solar), ROHM (Nhật Bản, Gen4 SiC, ô tô/công nghiệp), STMicroelectronics (Châu Âu, STPOWER SiC, EV), Microchip (Hoa Kỳ, công nghiệp), Mitsubishi Electric (Nhật Bản, Full-SiC, đường sắt/inverter), Fuji Electric (Nhật Bản, All-SiC, biến tần), GeneSiC (Hoa Kỳ, 650V–3300V, hàng không/quốc phòng), Semikron Danfoss (Đức, module công suất). Đây là thông tin kiến thức ngành chung; KORAH chọn Onsemi EliteSiC™ cho các model cao cấp của mình."
+      },
+      {
+        q: "Onsemi EliteSiC và Infineon CoolSiC hỗ trợ dải điện áp bao nhiêu?",
+        a: "EliteSiC™ (Onsemi): 650V/750V/1200V/1700V. CoolSiC™ (Infineon): 650V/750V/1200V/2000V. Cả 2 dòng đều có MOSFET, Schottky Diode và Power Module, ứng dụng chính trong EV, SMPS, UPS và Audio. KORAH sử dụng SiC MOSFET EliteSiC™ của Onsemi."
+      },
+      {
+        q: "SiC nằm ở vị trí nào trong mạch nguồn của amplifier?",
+        a: "Chuỗi mạch nguồn SMPS công suất lớn thường theo thứ tự: nguồn AC vào → lọc EMI → cầu chỉnh lưu (Bridge Rectifier) → tầng Active PFC (SiC MOSFET hoạt động ở đây) → biến đổi LLC Resonant → bus DC điện áp cao → tầng khuếch đại công suất (Class D). SiC MOSFET được dùng chủ yếu ở tầng PFC và có thể ở tầng chuyển đổi công suất, giúp giảm tổn hao và tăng hiệu suất toàn hệ thống."
+      },
+      {
+        q: "SiC được phát triển và thương mại hóa từ khi nào?",
+        a: "SiC nhân tạo được tổng hợp lần đầu năm 1891. Diode SiC được thương mại hóa từ năm 2001. Từ khoảng 2015 đến nay, SiC ngày càng phổ biến trong xe điện (EV) và điện tử công suất nhờ chi phí sản xuất giảm và nhu cầu hiệu suất cao tăng mạnh."
       }
     ]
   }

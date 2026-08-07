@@ -15,5 +15,6 @@
 
 var KB_MANIFEST = [
   'sic.js',
-  'phoi-ghep-loa.js'
+  'phoi-ghep-loa.js',
+  'pfc.js'
 ];

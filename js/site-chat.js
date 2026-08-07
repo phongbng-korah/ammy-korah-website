@@ -377,12 +377,23 @@
     var speakerAnswer = answerSpeakerSpec(query);
     if (speakerAnswer) return speakerAnswer;
 
+    // Câu hỏi có nhắc "loa" + số W cụ thể nhưng thiếu Ω → hỏi lại ngay,
+    // KHÔNG cho rơi xuống searchFaq bên dưới — nếu không, tìm kiếm mờ theo
+    // từ khóa chung ("loa", "công suất", "bao nhiêu"...) rất dễ khớp nhầm
+    // vào 1 câu hỏi mẫu ngẫu nhiên trong data/knowledge/phoi-ghep-loa.js
+    // (ví dụ luôn trả lời theo K16S bất kể khách hỏi loa bao nhiêu W).
+    if (/\bloa\b/.test(norm(query)) && /(\d{2,5})\s*(?:w|watt|watts)\b/.test(norm(query)) && !findProduct(query)) {
+      return {
+        html: escapeHtml('Mình cần biết thêm trở kháng (Ω) của loa để tính chính xác. Vui lòng cho biết cả công suất RMS và trở kháng (VD: "loa 500W 8ohm") — mình sẽ tính và gợi ý amplifier KORAH phù hợp.')
+      };
+    }
+
     var faqHit = searchFaq(query);
     if (faqHit) {
       return { html: faqHit.answer };
     }
 
-    // Câu hỏi có nhắc "loa" nhưng thiếu số W hoặc Ω → hỏi lại đúng định dạng
+    // Câu hỏi có nhắc "loa" nhưng không có số W/Ω cụ thể → hỏi lại đúng định dạng
     if (/\bloa\b/.test(norm(query)) && /(cong suat|watt|\bw\b|phu hop|ghep|ohm|Ω)/.test(norm(query))) {
       return {
         html: escapeHtml('Mình chưa có dữ liệu riêng cho loa này. Vui lòng cho biết công suất RMS và trở kháng của loa (VD: "loa 500W 8ohm") — mình sẽ tính và gợi ý amplifier KORAH phù hợp.')

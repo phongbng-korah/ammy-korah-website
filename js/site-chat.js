@@ -248,28 +248,26 @@
 
   // ── 2.5) Phân tích thông số loa khách nhập (RMS + Ω) và gợi ý model ──
   // Bắt các dạng: "loa 500w 8ohm", "công suất 800W trở kháng 4 ôm",
-  // "loa 1000w 8Ω", "500 watt 4 ohm"... Yêu cầu có CẢ số W lẫn số Ω
-  // trong cùng câu, tách biệt khỏi rule "8Ω...công suất" đã có ở
-  // ATTRIBUTE_RULES (rule đó cần match model trước, đây không cần).
-  function parseSpeakerSpec(rawQuery) {
-    var q = norm(rawQuery);
-    // không kích hoạt nếu câu hỏi có nhắc trực tiếp model KORAH
-    // (để findProduct + ATTRIBUTE_RULES xử lý trước, tránh chồng chéo)
-    if (findProduct(rawQuery)) return null;
+  // "loa 1000w 8Ω", "500 watt 4 ohm"... Chấp nhận câu chỉ có 1 trong 2
+  // giá trị (W hoặc Ω) và nối tiếp với ngữ cảnh lượt hỏi trước — xem
+  // pendingSpeakerContext bên dưới.
+  function extractWattOnly(rawQuery) {
+    var m = norm(rawQuery).match(/(\d{2,5})\s*(?:w|watt|watts)\b/);
+    return m ? parseInt(m[1], 10) : null;
+  }
 
-    var wMatch = q.match(/(\d{2,5})\s*(?:w|watt|watts)\b/);
-    // "ohm" (EN), "om" (VN "ôm"/"ohm" sau khi bỏ dấu), "Ω/ω" (ký hiệu,
-    // giữ nguyên qua bước lowercase), hoặc chữ "o" đứng lẻ ngay sau số.
-    // Lưu ý: Ω/ω không phải word-char nên \b sau nó không khớp — chỉ
-    // đặt \b cho các nhánh chữ (ohm, om, o), không đặt cho [ωΩ].
-    var ohmMatch = q.match(/(\d{1,2})\s*(?:ohm\b|om\b|[ωΩ]|o\b)/);
-    if (!wMatch || !ohmMatch) return null;
+  // "ohm" (EN), "om" (VN "ôm"/"ohm" sau khi bỏ dấu), "Ω/ω" (ký hiệu, giữ
+  // nguyên qua bước lowercase), hoặc chữ "o" đứng lẻ ngay sau số. Lưu ý:
+  // Ω/ω không phải word-char nên \b sau nó không khớp — chỉ đặt \b cho
+  // các nhánh chữ (ohm, om, o), không đặt cho [ωΩ].
+  function extractWattOnly(rawQuery) {
+    var m = norm(rawQuery).match(/(\d{2,5})\s*(?:w|watt|watts)\b/);
+    return m ? parseInt(m[1], 10) : null;
+  }
 
-    var rms = parseInt(wMatch[1], 10);
-    var ohm = parseInt(ohmMatch[1], 10);
-    if (!rms || !ohm) return null;
-
-    return { rms: rms, ohm: ohm };
+  function extractOhmOnly(rawQuery) {
+    var m = norm(rawQuery).match(/(\d{1,2})\s*(?:ohm\b|om\b|[ωΩ]|o\b)/);
+    return m ? parseInt(m[1], 10) : null;
   }
 
   // Trích công suất theo Ω từ chuỗi spec dạng "Hi 1600W x2 / Lo 1300W x2"
@@ -279,10 +277,11 @@
     return m ? parseInt(m[1], 10) : null;
   }
 
-  // Lưu thông số loa (RMS + Ω) đang chờ khách trả lời "loa của bạn là
-  // sub hay full?" — chỉ tồn tại trong phiên chat hiện tại (mất khi tải
-  // lại trang), dùng để nối tiếp câu trả lời tiếp theo của khách.
-  var pendingSpeakerSpec = null;
+  // Lưu ngữ cảnh loa đang hỏi dở (RMS/Ω/loại loa — từng phần có thể null)
+  // để nối tiếp câu trả lời tiếp theo của khách khi trước đó chatbot đã
+  // hỏi lại xin phần thông tin còn thiếu (Ω, RMS, hoặc loại loa). Chỉ
+  // tồn tại trong phiên chat hiện tại (mất khi tải lại trang).
+  var pendingSpeakerContext = null;
 
   function detectSpeakerType(rawQuery) {
     var q = norm(rawQuery);
@@ -407,38 +406,68 @@
     };
   }
 
+  // Gộp tín hiệu từ câu hỏi hiện tại với ngữ cảnh còn thiếu từ lượt hỏi
+  // trước (pendingSpeakerContext), rồi quyết định: đã đủ dữ liệu để trả
+  // lời hay còn thiếu gì thì hỏi tiếp đúng phần đó — không hỏi lại từ
+  // đầu và không làm mất dữ liệu khách đã cung cấp ở lượt trước (lỗi đã
+  // xác nhận: hỏi "loa sub 1000w..." → bot hỏi xin Ω → khách chỉ đáp
+  // "8ohm" → bot quên mất 1000W và loại "sub", hỏi lại từ đầu).
   function answerSpeakerSpec(rawQuery) {
-    var spec = parseSpeakerSpec(rawQuery);
+    if (findProduct(rawQuery)) return null;
 
-    // Khách chỉ trả lời "full" hoặc "sub" cho câu hỏi lại trước đó, không
-    // lặp lại số W/Ω — dùng thông số đã lưu ở lượt hỏi trước.
-    if (!spec && pendingSpeakerSpec) {
-      var replyType = detectSpeakerType(rawQuery);
-      if (replyType) {
-        var saved = pendingSpeakerSpec;
-        pendingSpeakerSpec = null;
-        return buildSpeakerAnswer(saved.rms, saved.ohm, replyType);
-      }
-      return null;
+    var wattNow = extractWattOnly(rawQuery);
+    var ohmNow = extractOhmOnly(rawQuery);
+    var typeNow = detectSpeakerType(rawQuery);
+    var mentionsLoa = /\bloa\b/.test(norm(rawQuery));
+
+    // Chỉ tham gia xử lý khi câu có nhắc "loa", có từ khoá loại loa
+    // (full/sub/bass), hoặc đang có ngữ cảnh dở dang từ lượt hỏi trước —
+    // tránh nhận nhầm số W/Ω xuất hiện ngẫu nhiên trong câu hỏi khác
+    // (VD: câu hỏi tính dòng điện, không liên quan ghép loa).
+    if (!mentionsLoa && !typeNow && !pendingSpeakerContext) return null;
+
+    var ctx = pendingSpeakerContext || {};
+    var rms = wattNow || ctx.rms || null;
+    var ohm = ohmNow || ctx.ohm || null;
+    var type = typeNow || ctx.type || null;
+
+    // Không có W lẫn Ω (mới hoặc đang chờ) → không phải câu hỏi cụ thể
+    // về công suất/trở kháng loa — để guard "loại loa chung chung" khác
+    // trong getAnswer xử lý (trả lời ngay bằng danh sách chung).
+    if (!rms && !ohm) return null;
+
+    if (ohm === 2 && rms) {
+      pendingSpeakerContext = null;
+      return buildSpeakerAnswer(rms, 2, type);
     }
 
-    if (!spec) return null;
-
-    if (spec.ohm === 2) {
-      pendingSpeakerSpec = null;
-      return buildSpeakerAnswer(spec.rms, spec.ohm, null);
+    if (rms && ohm && type) {
+      pendingSpeakerContext = null;
+      return buildSpeakerAnswer(rms, ohm, type);
     }
 
-    var type = detectSpeakerType(rawQuery);
-    if (!type) {
-      pendingSpeakerSpec = spec;
+    if (rms && ohm && !type) {
+      pendingSpeakerContext = { rms: rms, ohm: ohm, type: null };
       return {
         html: escapeHtml('Loa của bạn là loa sub (bass) hay loa full-range? Cho mình biết để gợi ý đúng model KORAH phù hợp.')
       };
     }
 
-    pendingSpeakerSpec = null;
-    return buildSpeakerAnswer(spec.rms, spec.ohm, type);
+    if (rms && !ohm) {
+      pendingSpeakerContext = { rms: rms, ohm: null, type: type };
+      return {
+        html: escapeHtml('Mình cần biết thêm trở kháng (Ω) của loa để tính chính xác. Vui lòng cho biết trở kháng (VD: 8ohm hoặc 4ohm).')
+      };
+    }
+
+    if (ohm && !rms) {
+      pendingSpeakerContext = { rms: null, ohm: ohm, type: type };
+      return {
+        html: escapeHtml('Mình cần biết thêm công suất RMS của loa để tính chính xác. Vui lòng cho biết công suất (VD: 800W).')
+      };
+    }
+
+    return null;
   }
 
   // ── 3) Fallback: tìm trong FAQ_DATA (data/faq.js) ──

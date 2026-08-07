@@ -516,6 +516,48 @@
     return (best && bestScore >= 2) ? best : null;
   }
 
+  // ── 3b) Nhận diện ý định cho câu hỏi ngắn/chung chung ──
+  // Xem data/knowledge/intents.js để biết vì sao lớp này tồn tại và
+  // cấu trúc từng rule. Chỉ áp dụng cho câu hỏi NGẮN (tối đa 6 token
+  // sau khi bỏ từ dừng) — câu hỏi dài/cụ thể vẫn do searchFaq() xử lý
+  // như trước (đã kiểm chứng khớp đúng qua test tự động).
+  function findAnswerByQuestion(qText) {
+    var sources = [];
+    if (typeof FAQ_DATA !== 'undefined') sources.push(FAQ_DATA);
+    if (typeof window !== 'undefined' && window.KB_TOPICS) sources.push(window.KB_TOPICS);
+    for (var s = 0; s < sources.length; s++) {
+      for (var g = 0; g < sources[s].length; g++) {
+        var items = sources[s][g].items;
+        for (var it = 0; it < items.length; it++) {
+          if (items[it].q === qText) return items[it].a;
+        }
+      }
+    }
+    return null;
+  }
+
+  function matchIntent(rawQuery) {
+    if (typeof window === 'undefined' || !window.KB_INTENTS) return null;
+    var qTokens = tokenize(rawQuery);
+    if (!qTokens.length || qTokens.length > 6) return null;
+
+    for (var i = 0; i < window.KB_INTENTS.length; i++) {
+      var rule = window.KB_INTENTS[i];
+      var matched = rule.all.every(function (group) {
+        return group.some(function (tok) { return qTokens.indexOf(tok) !== -1; });
+      });
+      if (!matched) continue;
+      if (rule.none && rule.none.some(function (tok) { return qTokens.indexOf(tok) !== -1; })) continue;
+
+      if (rule.answer) return rule.answer;
+      if (rule.sourceQuestion) {
+        var found = findAnswerByQuestion(rule.sourceQuestion);
+        if (found) return found;
+      }
+    }
+    return null;
+  }
+
   // ── 4) Xử lý 1 câu hỏi, trả về { html, linkId } ──
   function escapeHtml(str) {
     var div = document.createElement('div');
@@ -571,6 +613,11 @@
       return {
         html: escapeHtml('Loa ' + genericTypeLabel + ' thường phù hợp với dòng ' + genericChannelLabel + ' của KORAH: ' + genericNames.join(', ') + ' — tuỳ công suất loa cụ thể và tài chính của bạn. Cho mình biết công suất RMS và trở kháng (VD: "loa ' + genericTypeLabel + ' 800W 8ohm") để mình gợi ý chính xác model phù hợp nhất nhé.')
       };
+    }
+
+    var intentAnswer = matchIntent(query);
+    if (intentAnswer) {
+      return { html: intentAnswer };
     }
 
     var faqHit = searchFaq(query);

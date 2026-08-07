@@ -18,5 +18,6 @@ var KB_MANIFEST = [
   'classd.js',
   'phoi-ghep-loa.js',
   'pfc.js',
-  'faq-60.js'
+  'faq-60.js',
+  'intents.js'
 ];

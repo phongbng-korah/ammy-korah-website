@@ -24,6 +24,10 @@ const FAQ_DATA = [
         a: "Đây là cơ chế bảo vệ, không phải lỗi. Nguyên nhân thường gặp: quá tải trở kháng, quá nhiệt, gain quá lớn, clip liên tục, chập dây loa (S.C). Cách xử lý: giảm gain, kiểm tra tải loa, kiểm tra trở kháng, đảm bảo thông gió, khởi động lại máy."
       },
       {
+        q: "Đèn CLIP sáng phải làm gì?",
+        a: "Đèn CLIP (CLP) sáng báo hiệu tín hiệu vào amplifier đã vượt quá giới hạn tuyến tính, gây méo tiếng dạng sóng vuông — nguy hiểm cho loa (đặc biệt tweeter) hơn cả khi chạy công suất lớn bình thường. Cách xử lý: giảm gain/mức tín hiệu vào (trên mixer hoặc trên amplifier) đến khi đèn CLIP tắt hẳn hoặc chỉ chớp thoáng qua ở đỉnh nhạc — không để sáng liên tục. Nếu đã giảm gain trên amplifier mà đèn vẫn sáng liên tục, kiểm tra lại mức tín hiệu từ mixer/nguồn phát phía trước, vì tín hiệu có thể đã bị méo trước khi tới amplifier."
+      },
+      {
         q: "Những lưu ý an toàn",
         a: "Không chạm đầu Speakon khi máy đang bật. Thứ tự bật: 1) Nguồn tín hiệu 2) Mixer 3) Amplifier — thứ tự tắt ngược lại. Luôn nối đất bằng ổ cắm 3 chân. Không để nước vào máy. Không tự mở nắp máy. Không sử dụng nơi ẩm, bụi hoặc nhiệt độ quá cao."
       }

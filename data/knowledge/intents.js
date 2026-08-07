@@ -196,6 +196,11 @@ window.KB_INTENTS = [
 
   // ── Ghép loa / trở kháng / công suất ──
   {
+    id: "rms_la_gi",
+    all: [["rms"]],
+    sourceQuestion: "RMS là gì?"
+  },
+  {
     id: "headroom",
     all: [["headroom"]],
     sourceQuestion: "Headroom là gì trong ghép loa với amplifier?"
@@ -292,6 +297,11 @@ window.KB_INTENTS = [
     id: "an_toan",
     all: [["an"], ["toan"]],
     sourceQuestion: "Những lưu ý an toàn"
+  },
+  {
+    id: "den_clip",
+    all: [["clip"]],
+    sourceQuestion: "Đèn CLIP sáng phải làm gì?"
   },
   {
     id: "ngan_mach",

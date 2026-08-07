@@ -45,6 +45,10 @@
         a: "KORAH có 2 nhóm model K-Series phân biệt theo hậu tố tên: (1) Nhóm mã 'S' — K16S, K19S, K20S: đều là ampli 2 kênh (Stereo), ưu tiên ghép cho loa SUB (loa bass). (2) Nhóm mã 'PRO' hoặc 'PLUS' — K16PRO, K19PRO, K20PLUS: đều là ampli 4 kênh, ưu tiên ghép cho loa FULL-RANGE. Đây là quy tắc chọn model đúng theo thực tế lắp đặt tại thị trường Việt Nam — khách chọn model cụ thể trong đúng nhóm tuỳ theo tài chính và mức công suất loa."
       },
       {
+        q: "RMS là gì?",
+        a: "RMS (Root Mean Square) là giá trị công suất/điện áp trung bình hiệu dụng theo thời gian — cách đo công suất chuẩn để biết amplifier hoặc loa chịu được bao nhiêu công suất một cách LIÊN TỤC, ổn định, khác với công suất đỉnh tức thời (Peak, cao hơn RMS nhiều lần nhưng chỉ tồn tại trong khoảnh khắc rất ngắn). Khi chọn ghép loa với amplifier, luôn dùng công suất RMS của loa làm cơ sở tính toán headroom (KHÔNG dùng số Peak/Max dễ gây nhầm lẫn) — nguyên tắc KORAH: amplifier nên lớn hơn RMS loa tối thiểu 50%."
+      },
+      {
         q: "Headroom là gì trong ghép loa với amplifier?",
         a: "Headroom là phần công suất dư của amplifier so với công suất RMS của loa — khoảng đệm để amplifier tái tạo đúng các đỉnh nhạc (kick drum, snare...) cao hơn nhiều so với mức trung bình mà không bị clip (chạm giới hạn công suất, gây méo tiếng dạng sóng vuông, nguy hiểm cho loa hơn cả công suất lớn). KORAH áp dụng nguyên tắc headroom tối thiểu +50% so với RMS loa, không giới hạn trần — dư càng nhiều càng an toàn khi chạy liên tục nhiều giờ."
       },

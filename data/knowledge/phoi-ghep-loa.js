@@ -111,6 +111,10 @@
         a: "Power Compression là hiện tượng SPL (độ lớn âm thanh) thực tế giảm dần khi loa chạy công suất lớn liên tục trong thời gian dài, dù công suất điện cấp vào không đổi. Nguyên nhân: điện trở cuộn dây loa (Re) tăng theo nhiệt độ khi loa nóng lên (có thể tăng 20-50% hoặc hơn), khiến dòng điện thực tế và hiệu suất chuyển đổi điện-âm giảm. Đây là hiện tượng vật lý bình thường của mọi loa dynamic, không phải lỗi amplifier — nhưng ampli có headroom dư dả (đúng nguyên tắc +50%) giúp giảm cảm nhận sụt giảm này."
       },
       {
+        q: "SPL là gì? SPL Max là gì?",
+        a: "SPL (Sound Pressure Level) là mức áp suất âm thanh, đơn vị dB, đo độ to của âm thanh tại một điểm. SPL Max là mức SPL tối đa mà loa có thể phát ra trước khi bị méo tiếng hoặc hư hỏng — đây là thông số công bố của LOA, không phải của amplifier (ampli chỉ cấp công suất điện cho loa, bản thân ampli không phát ra âm thanh nên không có thông số SPL). Hiện website KORAH chưa công bố số liệu SPL cụ thể cho từng model loa vì KORAH sản xuất amplifier, không phải loa. Nếu cần ước tính SPL của một cặp loa cụ thể theo công suất cấp và khoảng cách, bạn có thể tham khảo công thức tính SPL thực tế bên dưới."
+      },
+      {
         q: "Công thức tính SPL thực tế của loa theo công suất và khoảng cách?",
         a: "SPL = Độ nhạy loa (dB/W/m) + 10×log10(Công suất, W) − 20×log10(Khoảng cách, m). Ví dụ loa độ nhạy 90dB/W/m, cấp 100W, đo ở 1m → SPL = 90 + 20 − 0 = 110dB. Ở khoảng cách 4m, SPL giảm còn khoảng 98dB (mỗi lần tăng gấp đôi khoảng cách, SPL giảm khoảng 6dB theo định luật nghịch đảo bình phương khoảng cách)."
       },

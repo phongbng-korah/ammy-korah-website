@@ -40,6 +40,14 @@
 // ============================================================
 
 window.KB_INTENTS = [
+  // ── SPL: đặt đầu tiên để chặn searchFaq() khớp nhầm câu "SPL là gì"
+  // vào câu "Muốn tăng SPL thêm 6dB..." (data/faq.js) — lỗi thực tế đã
+  // gặp qua báo cáo người dùng (câu hỏi "SPL max là gì") ──
+  {
+    id: "spl_la_gi",
+    all: [["spl"]],
+    sourceQuestion: "SPL là gì? SPL Max là gì?"
+  },
   // ── Bảo hành: rule cụ thể trước, rule chung "bảo hành" chung chung xếp cuối ──
   {
     id: "bao_hanh_dien_tu",

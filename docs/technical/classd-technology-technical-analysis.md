@@ -40,11 +40,11 @@
 | Model | Kênh | Class | Damping Factor | Bán dẫn tầng công suất |
 |---|:---:|:---:|---|---|
 | K16S | 2 | D | Chưa công bố | Silicon |
-| K16PRO | 4 | D | >450 @8Ω, 20Hz–200Hz | Silicon |
-| K19S | 2 | D | >2000 @8Ω, 20Hz–200Hz | Silicon |
-| K19PRO | 4 | D | >500 @8Ω, 20Hz–200Hz | **SiC EliteSiC™ (Onsemi)** |
-| K20S | 2 | D | >2000 @8Ω, 20Hz–200Hz | **SiC EliteSiC™ (Onsemi)** |
-| K20PLUS | 4 | D | >800 @8Ω, 20Hz–200Hz | **SiC EliteSiC™ (Onsemi)** |
+| K16PRO | 4 | D | Chưa công bố | Silicon |
+| K19S | 2 | D | Chưa công bố | Silicon |
+| K19PRO | 4 | D | Chưa công bố | **SiC EliteSiC™ (Onsemi)** |
+| K20S | 2 | D | Chưa công bố | **SiC EliteSiC™ (Onsemi)** |
+| K20PLUS | 4 | D | Chưa công bố | **SiC EliteSiC™ (Onsemi)** |
 
 > Model discontinued K18S/K18PLUS dùng **Class TD** (khác Class D) — không thuộc phạm vi tài liệu này.
 
@@ -194,7 +194,7 @@ KORAH thuộc **Tầng 3** (thương hiệu pro-audio hoàn chỉnh, tự thiế
 
 ### 9.4 Damping Factor — điểm khác biệt kỹ thuật đáng chú ý giữa các model
 
-Theo Bảng 2, K19S và K20S đạt Damping Factor >2000 @8Ω — cao vượt trội so với K16PRO (>450) và K19PRO (>500). Damping Factor cao đồng nghĩa khả năng kiểm soát màng loa tốt hơn, đặc biệt quan trọng cho ứng dụng sub bass — phù hợp với định vị sản phẩm 2 kênh (K16S/K19S/K20S) ưu tiên ghép loa sub như đã phân tích trong `data/knowledge/phoi-ghep-loa.js`.
+Damping Factor cao đồng nghĩa khả năng kiểm soát màng loa tốt hơn, đặc biệt quan trọng cho ứng dụng sub bass — đây là lý do các model 2 kênh (K16S/K19S/K20S), vốn ưu tiên ghép loa sub như đã phân tích trong `data/knowledge/phoi-ghep-loa.js`, thường được thiết kế nhắm tới Damping Factor cao. Số liệu Damping Factor cụ thể theo từng model: xem `data/products.js` (đang cập nhật lại — Bảng 2 tạm để "Chưa công bố" cho đến khi có số liệu mới).
 
 ### 9.5 Giới hạn cần lưu ý khi truyền thông
 

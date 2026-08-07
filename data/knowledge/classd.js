@@ -73,7 +73,7 @@
       },
       {
         q: "Damping Factor là gì, vì sao quan trọng?",
-        a: "Damping Factor thể hiện khả năng amplifier kiểm soát chuyển động của màng loa (đặc biệt loa bass) — giá trị càng cao, bass càng chặt và ít bị rền. Bị ảnh hưởng bởi trở kháng đầu ra của amplifier, mạch feedback và thiết kế nguồn. Đây là lý do các model công suất lớn của KORAH công bố rõ chỉ số Damping Factor trong thông số kỹ thuật (VD: K19S, K20S đạt Damping Factor >2000 @8Ω)."
+        a: "Damping Factor thể hiện khả năng amplifier kiểm soát chuyển động của màng loa (đặc biệt loa bass) — giá trị càng cao, bass càng chặt và ít bị rền. Bị ảnh hưởng bởi trở kháng đầu ra của amplifier, mạch feedback và thiết kế nguồn. Đây là lý do các model công suất lớn của KORAH công bố rõ chỉ số Damping Factor trong thông số kỹ thuật (xem chi tiết theo từng model tại trang Sản phẩm)."
       },
       {
         q: "EMI trong Class D phát sinh từ đâu, kiểm soát thế nào?",

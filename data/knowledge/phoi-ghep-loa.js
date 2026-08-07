@@ -44,27 +44,27 @@
     items: [
       {
         q: "K16S nên ghép loa công suất bao nhiêu?",
-        a: "Ở 8Ω: nên chọn loa RMS 1067W–1333W/loa (amplifier 1600W/kênh). Ở 4Ω: nên chọn loa RMS 1867W–2333W/loa (amplifier 2800W/kênh). Không dùng tải 2Ω."
+        a: "Ở 8Ω: nên chọn loa RMS tối đa khoảng 1067W/loa (amplifier 1600W/kênh, headroom tối thiểu +50%, không giới hạn trần dưới — loa công suất thấp hơn vẫn an toàn, dư headroom càng nhiều càng tốt). Ở 4Ω: tối đa khoảng 1867W/loa (amplifier 2800W/kênh). Không dùng tải 2Ω."
       },
       {
         q: "K16PRO nên ghép loa công suất bao nhiêu?",
-        a: "Ở 8Ω: nên chọn loa RMS 833W–1042W/loa (amplifier 1250W/kênh). Ở 4Ω: nên chọn loa RMS 1333W–1667W/loa (amplifier 2000W/kênh). Không dùng tải 2Ω."
+        a: "Ở 8Ω: nên chọn loa RMS tối đa khoảng 833W/loa (amplifier 1250W/kênh, headroom tối thiểu +50%). Ở 4Ω: tối đa khoảng 1333W/loa (amplifier 2000W/kênh). Loa công suất thấp hơn vẫn an toàn. Không dùng tải 2Ω."
       },
       {
         q: "K19S nên ghép loa công suất bao nhiêu?",
-        a: "Ở 8Ω: nên chọn loa RMS 1467W–1833W/loa (amplifier 2200W/kênh). Ở 4Ω: nên chọn loa RMS 2267W–2833W/loa (amplifier 3400W/kênh). Không dùng tải 2Ω."
+        a: "Ở 8Ω: nên chọn loa RMS tối đa khoảng 1467W/loa (amplifier 2200W/kênh, headroom tối thiểu +50%). Ở 4Ω: tối đa khoảng 2267W/loa (amplifier 3400W/kênh). Loa công suất thấp hơn vẫn an toàn. Không dùng tải 2Ω."
       },
       {
         q: "K19PRO nên ghép loa công suất bao nhiêu?",
-        a: "Ở 8Ω: nên chọn loa RMS 1100W–1375W/loa (amplifier 1650W/kênh). Ở 4Ω: nên chọn loa RMS 1633W–2042W/loa (amplifier 2450W/kênh). Không dùng tải 2Ω."
+        a: "Ở 8Ω: nên chọn loa RMS tối đa khoảng 1100W/loa (amplifier 1650W/kênh, headroom tối thiểu +50%). Ở 4Ω: tối đa khoảng 1633W/loa (amplifier 2450W/kênh). Loa công suất thấp hơn vẫn an toàn. Không dùng tải 2Ω."
       },
       {
         q: "K20S nên ghép loa công suất bao nhiêu?",
-        a: "Ở 8Ω: nên chọn loa RMS 2000W–2500W/loa (amplifier 3000W/kênh). Ở 4Ω: nên chọn loa RMS 3200W–4000W/loa (amplifier 4800W/kênh). Đây là model công suất cao nhất dòng 2 kênh, phù hợp cụm sub lớn. Không dùng tải 2Ω."
+        a: "Ở 8Ω: nên chọn loa RMS tối đa khoảng 2000W/loa (amplifier 3000W/kênh, headroom tối thiểu +50%). Ở 4Ω: tối đa khoảng 3200W/loa (amplifier 4800W/kênh). Đây là model công suất cao nhất dòng 2 kênh, phù hợp cụm sub lớn. Loa công suất thấp hơn vẫn an toàn. Không dùng tải 2Ω."
       },
       {
         q: "K20PLUS nên ghép loa công suất bao nhiêu?",
-        a: "Ở 8Ω: nên chọn loa RMS 1267W–1583W/loa (amplifier 1900W/kênh). Ở 4Ω: nên chọn loa RMS 2000W–2500W/loa (amplifier 3000W/kênh). Không dùng tải 2Ω."
+        a: "Ở 8Ω: nên chọn loa RMS tối đa khoảng 1267W/loa (amplifier 1900W/kênh, headroom tối thiểu +50%). Ở 4Ω: tối đa khoảng 2000W/loa (amplifier 3000W/kênh). Loa công suất thấp hơn vẫn an toàn. Không dùng tải 2Ω."
       }
     ]
   }

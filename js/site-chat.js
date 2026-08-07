@@ -273,6 +273,11 @@
   // loa sub từ 1000W @8Ω trở lên ghép nhóm 2 kênh (K16S/K19S/K20S tuỳ
   // mức W cụ thể). Nếu đã biết loại loa (full/sub), chỉ xét đúng nhóm số
   // kênh tương ứng cho khớp thực tế lắp đặt.
+  //
+  // Quy ước đặt tên K-Series: model mã "S" (K16S/K19S/K20S) luôn là 2
+  // kênh — ưu tiên cho loa SUB; model mã "PRO" hoặc "PLUS" (K16PRO/
+  // K19PRO/K20PLUS) luôn là 4 kênh — ưu tiên cho loa FULL-RANGE. Việc
+  // lọc theo spec "Số kênh" bên dưới chính là áp dụng đúng quy ước này.
   function suggestModelsForSpeaker(rms, ohm, type) {
     if (typeof PRODUCTS === 'undefined') return [];
     if (ohm !== 8 && ohm !== 4) return 'unsupported-ohm';

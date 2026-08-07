@@ -27,11 +27,15 @@
       },
       {
         q: "Công thức chọn công suất loa phù hợp với amplifier KORAH?",
-        a: "Dùng quy tắc Headroom: công suất amplifier nên LỚN HƠN công suất RMS loa khoảng 20–50%. Công thức ngược: Công suất RMS loa nên chọn = Công suất amplifier ÷ 1.2 đến ÷ 1.5. Ví dụ amplifier 1600W/kênh ở 8Ω → nên chọn loa RMS trong khoảng 1067W–1333W/loa."
+        a: "Dùng quy tắc Headroom theo thực tế thị trường Việt Nam: công suất amplifier nên LỚN HƠN công suất RMS loa TỐI THIỂU 50% (không giới hạn trần — dư càng nhiều càng an toàn khi chạy liên tục nhiều giờ, phù hợp điều kiện lưới điện VN). Ví dụ loa full-range RMS 1000W @8Ω cần amplifier từ 1500W/kênh trở lên → phù hợp K19PRO (1650W/kênh) hoặc K20PLUS (1900W/kênh)."
       },
       {
         q: "Vì sao không chọn loa RMS bằng đúng công suất amplifier?",
-        a: "Nếu chọn bằng nhau, amplifier dễ chạm giới hạn công suất (clipping) khi chơi nhạc có dải động lớn, gây méo tiếng và tăng nguy cơ hỏng loa (tweeter) do sóng vuông từ tín hiệu bị clip — nguy hiểm cho loa hơn là bản thân công suất lớn. Để dư 20–50% headroom giúp âm thanh sạch và an toàn hơn."
+        a: "Nếu chọn bằng nhau, amplifier dễ chạm giới hạn công suất (clipping) khi chơi nhạc có dải động lớn, gây méo tiếng và tăng nguy cơ hỏng loa (tweeter) do sóng vuông từ tín hiệu bị clip — nguy hiểm cho loa hơn là bản thân công suất lớn. Cần dư tối thiểu 50% headroom để âm thanh sạch và an toàn hơn."
+      },
+      {
+        q: "Model có mã S và mã PRO/PLUS khác nhau thế nào, dùng cho loại loa nào?",
+        a: "KORAH có 2 nhóm model K-Series phân biệt theo hậu tố tên: (1) Nhóm mã 'S' — K16S, K19S, K20S: đều là ampli 2 kênh (Stereo), ưu tiên ghép cho loa SUB (loa bass). (2) Nhóm mã 'PRO' hoặc 'PLUS' — K16PRO, K19PRO, K20PLUS: đều là ampli 4 kênh, ưu tiên ghép cho loa FULL-RANGE. Đây là quy tắc chọn model đúng theo thực tế lắp đặt tại thị trường Việt Nam — khách chọn model cụ thể trong đúng nhóm tuỳ theo tài chính và mức công suất loa."
       }
     ]
   },

@@ -64,6 +64,14 @@
       {
         q: "KORAH được sản xuất theo tiêu chuẩn nào?",
         a: "Sản phẩm được thiết kế và sản xuất tại nhà máy AMMY ở TP. Hồ Chí Minh, trên dây chuyền đạt chuẩn ISO 9001:2008 — kiểm soát chất lượng ở từng công đoạn thay vì phụ thuộc bên thứ ba."
+      },
+      {
+        q: "KORAH có xuất xứ từ đâu?",
+        a: "KORAH có xuất xứ Việt Nam — thương hiệu của Công ty TNHH SX & TM Điện Tử AMMY (AMMY Electronics Co., Ltd), thành lập năm 2006. Toàn bộ khâu nghiên cứu, thiết kế mạch và sản xuất thực hiện tại nhà máy AMMY ở TP. Hồ Chí Minh — không phải hàng nhập khẩu nguyên chiếc dán nhãn."
+      },
+      {
+        q: "Chất lượng KORAH có đảm bảo không?",
+        a: "Có — AMMY tự chủ toàn bộ khâu nghiên cứu, thiết kế và sản xuất KORAH tại nhà máy riêng ở TP. Hồ Chí Minh, trên dây chuyền đạt chuẩn ISO 9001:2008, kiểm soát chất lượng từng công đoạn thay vì phụ thuộc bên thứ ba — không phải hàng nhập khẩu nguyên chiếc dán nhãn."
       }
     ]
   },
@@ -210,6 +218,10 @@
   {
     category: "FAQ 60 câu — 6. Câu hỏi mua hàng",
     items: [
+      {
+        q: "Mua sản phẩm KORAH chính hãng ở đâu?",
+        a: "KORAH được phân phối qua hệ thống đại lý ủy quyền trên toàn quốc — chưa có kênh đặt hàng trực tuyến (online) trên website. Vui lòng liên hệ hotline kinh doanh 0932 779 386 để được hướng dẫn điểm mua hàng chính hãng gần nhất, hoặc xem thêm tại trang Hệ thống đại lý."
+      },
       {
         q: "Giá model K16PRO hiện nay là bao nhiêu?",
         a: "Giá niêm yết 18.000.000đ. Giá có thể thay đổi theo thời điểm và chính sách đại lý — liên hệ hotline kinh doanh 0932 779 386 để xác nhận giá chính xác hiện hành."

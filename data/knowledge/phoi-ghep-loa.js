@@ -87,7 +87,7 @@
     category: "Ghép loa — Gain Structure, Crest Factor & Công suất thực tế",
     items: [
       {
-        q: "Gain Structure là gì, vì sao ảnh hưởng đến chất lượng âm thanh?",
+        q: "Gain Structure là gì, vì sao ảnh hưởng đến âm thanh?",
         a: "Gain Structure là cách cân chỉnh mức tín hiệu (gain) qua từng tầng thiết bị trong dàn âm thanh (mixer, xử lý tín hiệu, amplifier) sao cho mỗi tầng hoạt động ở vùng tối ưu — không quá thấp (dễ lẫn nhiễu nền) và không quá cao (dễ clip méo tiếng). Gain Structure sai là nguyên nhân phổ biến gây méo tiếng hoặc ồn dù amplifier hoàn toàn bình thường — cần kiểm tra toàn bộ chuỗi tín hiệu, không chỉ riêng amplifier."
       },
       {

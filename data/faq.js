@@ -116,7 +116,7 @@ const FAQ_DATA = [
         a: "Lưới lọc bụi: 3–6 tháng/lần. Lau vỏ ngoài: hàng tháng hoặc sau mỗi sự kiện. Kiểm tra dây nguồn, dây loa, Speakon trước mỗi lần sử dụng. Khi vệ sinh: ngắt nguồn, dùng khăn mềm, dùng khí nén, không xịt chất lỏng trực tiếp."
       },
       {
-        q: "Dấu hiệu nào cho thấy máy cần được bảo hành, sửa chữa?",
+        q: "Dấu hiệu nào cho thấy máy cần được kiểm tra, sửa chữa?",
         a: "Quạt không quay hoặc quá ồn. Đèn S.C hoặc D.T sáng liên tục. Có mùi khét. Có tiếng nổ lách tách. Mất kênh hoặc méo tiếng sau khi đã kiểm tra tín hiệu."
       }
     ]
@@ -124,6 +124,10 @@ const FAQ_DATA = [
   {
     category: "Bảo hành & liên hệ",
     items: [
+      {
+        q: "Chính sách bảo hành sản phẩm KORAH như thế nào?",
+        a: "Bảo hành chính hãng 2 năm (K16S, K16PRO, K19S, K19PRO) hoặc 3 năm (K20S, K20PLUS), kèm bảo trì thêm 3 năm cho mọi model. Muốn bảo hành/sửa chữa: gọi hotline bảo hành <a href=\"tel:0903851252\" style=\"color:var(--gold)\">0903 851 252</a> mô tả tình trạng máy trước, sau đó gửi máy về Xưởng AMMY nếu cần. Xem đầy đủ điều kiện, quy trình gửi hàng tại trang <a href=\"after-sales.html\" style=\"color:var(--gold)\">Bảo hành &amp; Hậu mãi</a>."
+      },
       {
         q: "Điều kiện bảo hành",
         a: "Sản phẩm KORAH chính hãng được bảo hành theo thời hạn công bố theo từng model: K16S, K16PRO, K19S, K19PRO — 2 năm; K20S, K20PLUS — 3 năm (kèm bảo trì thêm 3 năm cho mọi model). Trong thời hạn bảo hành, mọi sự cố phát sinh do lỗi kỹ thuật/sản xuất trong quá trình sử dụng bình thường được xử lý hoàn toàn miễn phí. Sau khi hết hạn bảo hành, sản phẩm tiếp tục được hỗ trợ kiểm tra, vệ sinh, thay thế linh kiện với chi phí ưu đãi trong thời hạn bảo trì. Xem chi tiết tại trang <a href=\"after-sales.html\" style=\"color:var(--gold)\">Bảo hành &amp; Hậu mãi</a> hoặc liên hệ hotline <a href=\"tel:0903851252\" style=\"color:var(--gold)\">0903 851 252</a>."

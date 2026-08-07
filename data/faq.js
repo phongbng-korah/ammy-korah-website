@@ -37,6 +37,18 @@ const FAQ_DATA = [
         a: "Trở kháng (Ω) là mức cản dòng điện của loa. Trở kháng càng thấp, amplifier phải cấp dòng càng lớn và dễ quá tải nếu dưới mức cho phép."
       },
       {
+        q: "Phân biệt trở kháng vào và trở kháng tải (trở kháng loa)?",
+        a: "Đây là 2 thông số khác nhau, dễ nhầm vì cùng gọi là 'trở kháng'. (1) Trở kháng VÀO (Input Impedance): đo bằng kΩ, ở ngõ vào tín hiệu XLR — cố định 20kΩ balanced / 10kΩ unbalanced trên mọi model KORAH, không liên quan đến loa. (2) Trở kháng TẢI hay trở kháng LOA (Output Load Impedance): đo bằng Ω, là tải mà amplifier đẩy ra loa — đây mới là thông số cần quan tâm khi chọn loa để ghép với amplifier."
+      },
+      {
+        q: "KORAH khuyến cáo dùng loa trở kháng bao nhiêu?",
+        a: "KORAH khuyến cáo dùng loa 8Ω hoặc 4Ω — đây là 2 mức tải mà toàn bộ model K-Series (K16S, K16PRO, K19S, K19PRO, K20S, K20PLUS) đều công bố công suất chính thức và vận hành ổn định lâu dài. KHÔNG khuyến cáo đấu tải xuống 2Ω (kể cả khi đấu song song nhiều loa 8Ω hoặc 4Ω) — tải 2Ω làm dòng điện tăng rất cao, dễ gây quá nhiệt, kích hoạt bảo vệ (Protect/Limit) liên tục và giảm tuổi thọ linh kiện về lâu dài."
+      },
+      {
+        q: "Vì sao không nên đấu loa xuống tải 2Ω?",
+        a: "Tải càng thấp, amplifier càng phải cấp dòng điện càng lớn để giữ công suất. Ở 2Ω, dòng điện gần gấp đôi so với 4Ω, khiến tầng công suất và bộ nguồn hoạt động ở giới hạn cao trong thời gian dài — dễ kích hoạt cơ chế bảo vệ quá nhiệt/quá dòng, rút ngắn tuổi thọ linh kiện dù amplifier có mạch bảo vệ. KORAH thiết kế và công bố thông số ở 8Ω và 4Ω vì đây là vùng vận hành an toàn, bền bỉ — không công bố công suất ở 2Ω."
+      },
+      {
         q: "Đấu nối tiếp và song song",
         a: "Nối tiếp: Z tổng = Z1 + Z2 + ... — ví dụ 2 loa 8Ω → 16Ω. Song song: 1/Z tổng = 1/Z1 + 1/Z2 + ... — ví dụ 2 loa 8Ω → 4Ω; 3 loa 8Ω → ≈2.7Ω (không khuyến nghị); 4 loa 8Ω → 2Ω."
       },

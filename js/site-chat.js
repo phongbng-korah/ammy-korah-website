@@ -218,6 +218,91 @@
     return lines.join('\n');
   }
 
+  // ── 2.5) Phân tích thông số loa khách nhập (RMS + Ω) và gợi ý model ──
+  // Bắt các dạng: "loa 500w 8ohm", "công suất 800W trở kháng 4 ôm",
+  // "loa 1000w 8Ω", "500 watt 4 ohm"... Yêu cầu có CẢ số W lẫn số Ω
+  // trong cùng câu, tách biệt khỏi rule "8Ω...công suất" đã có ở
+  // ATTRIBUTE_RULES (rule đó cần match model trước, đây không cần).
+  function parseSpeakerSpec(rawQuery) {
+    var q = norm(rawQuery);
+    // không kích hoạt nếu câu hỏi có nhắc trực tiếp model KORAH
+    // (để findProduct + ATTRIBUTE_RULES xử lý trước, tránh chồng chéo)
+    if (findProduct(rawQuery)) return null;
+
+    var wMatch = q.match(/(\d{2,5})\s*(?:w|watt|watts)\b/);
+    // "ohm" (EN), "om" (VN "ôm"/"ohm" sau khi bỏ dấu), "Ω/ω" (ký hiệu,
+    // giữ nguyên qua bước lowercase), hoặc chữ "o" đứng lẻ ngay sau số.
+    // Lưu ý: Ω/ω không phải word-char nên \b sau nó không khớp — chỉ
+    // đặt \b cho các nhánh chữ (ohm, om, o), không đặt cho [ωΩ].
+    var ohmMatch = q.match(/(\d{1,2})\s*(?:ohm\b|om\b|[ωΩ]|o\b)/);
+    if (!wMatch || !ohmMatch) return null;
+
+    var rms = parseInt(wMatch[1], 10);
+    var ohm = parseInt(ohmMatch[1], 10);
+    if (!rms || !ohm) return null;
+
+    return { rms: rms, ohm: ohm };
+  }
+
+  // Trích công suất theo Ω từ chuỗi spec dạng "Hi 1600W x2 / Lo 1300W x2"
+  function extractHiWattPerChannel(specValue) {
+    if (!specValue) return null;
+    var m = specValue.match(/Hi\s*(\d+)\s*W/i);
+    return m ? parseInt(m[1], 10) : null;
+  }
+
+  function suggestModelsForSpeaker(rms, ohm) {
+    if (typeof PRODUCTS === 'undefined') return [];
+    if (ohm !== 8 && ohm !== 4) return 'unsupported-ohm';
+
+    var specKey = ohm === 8 ? 'Công suất 8Ω Stereo RMS' : 'Công suất 4Ω Stereo RMS';
+    var matches = [];
+    PRODUCTS.filter(function (p) {
+      return p.visible !== false && p.status === 'active' && p.series === 'K Series' && p.specs;
+    }).forEach(function (p) {
+      var ampW = extractHiWattPerChannel(p.specs[specKey]);
+      if (!ampW) return;
+      var minSpeaker = ampW / 1.5;
+      var maxSpeaker = ampW / 1.2;
+      if (rms >= minSpeaker && rms <= maxSpeaker) {
+        matches.push({ name: p.name, id: p.id, ampW: ampW, ohm: ohm });
+      }
+    });
+    return matches;
+  }
+
+  function answerSpeakerSpec(rawQuery) {
+    var spec = parseSpeakerSpec(rawQuery);
+    if (!spec) return null;
+
+    if (spec.ohm === 2) {
+      return {
+        html: escapeHtml('Loa ' + spec.rms + 'W ở 2Ω: KORAH không khuyến cáo vận hành tải 2Ω trên bất kỳ model nào — dòng điện quá cao dễ gây quá nhiệt và kích hoạt bảo vệ liên tục. Vui lòng cho biết công suất loa ở mức 8Ω hoặc 4Ω (theo nhãn loa) để mình gợi ý amplifier phù hợp.')
+      };
+    }
+
+    var matches = suggestModelsForSpeaker(spec.rms, spec.ohm);
+    if (matches === 'unsupported-ohm') {
+      return {
+        html: escapeHtml('Mình chỉ tra cứu được ở mức 8Ω hoặc 4Ω (2 mức KORAH khuyến cáo). Vui lòng cho biết công suất loa ở 8Ω hoặc 4Ω.')
+      };
+    }
+
+    if (!matches.length) {
+      return {
+        html: escapeHtml('Với loa ' + spec.rms + 'W – ' + spec.ohm + 'Ω: hiện chưa có model KORAH nào rơi đúng vùng headroom khuyến nghị (ampli lớn hơn loa 20–50%). Vui lòng liên hệ hotline kỹ thuật 0903 851 252 để được tư vấn cấu hình cụ thể, hoặc xem toàn bộ model tại trang Sản phẩm.')
+      };
+    }
+
+    var lines = matches.map(function (m) {
+      var headroomPct = Math.round((m.ampW / spec.rms - 1) * 100);
+      return m.name + ' (' + m.ampW + 'W/kênh @' + m.ohm + 'Ω, headroom +' + headroomPct + '%)';
+    });
+    return {
+      html: escapeHtml('Với loa ' + spec.rms + 'W – ' + spec.ohm + 'Ω, phù hợp nhất: ' + lines.join('; ') + '. Không khuyến cáo dùng tải 2Ω.').replace(/\n/g, '<br>')
+    };
+  }
+
   // ── 3) Fallback: tìm trong FAQ_DATA (data/faq.js) ──
   var STOPWORDS = ['la','gi','cho','va','hay','o','cua','voi','the','nao','sao','khi',
     'nhu','de','duoc','co','khong','mot','nhung','nhieu','toi','ban','minh','tai'];
@@ -289,9 +374,19 @@
       };
     }
 
+    var speakerAnswer = answerSpeakerSpec(query);
+    if (speakerAnswer) return speakerAnswer;
+
     var faqHit = searchFaq(query);
     if (faqHit) {
       return { html: faqHit.answer };
+    }
+
+    // Câu hỏi có nhắc "loa" nhưng thiếu số W hoặc Ω → hỏi lại đúng định dạng
+    if (/\bloa\b/.test(norm(query)) && /(cong suat|watt|\bw\b|phu hop|ghep|ohm|Ω)/.test(norm(query))) {
+      return {
+        html: escapeHtml('Mình chưa có dữ liệu riêng cho loa này. Vui lòng cho biết công suất RMS và trở kháng của loa (VD: "loa 500W 8ohm") — mình sẽ tính và gợi ý amplifier KORAH phù hợp.')
+      };
     }
 
     return {

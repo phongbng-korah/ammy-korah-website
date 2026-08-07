@@ -292,6 +292,12 @@
       return lines.join('\n');
     }
 
+    function escapeHtml(str) {
+      var div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
     function showContactNotice(html) {
       var box = document.getElementById('form-success');
       box.innerHTML = html;
@@ -316,7 +322,7 @@
         'Đã mở Zalo bộ phận ' + deptLabel + ' (' + phone + '). ' +
         (copied || (navigator.clipboard && navigator.clipboard.writeText)
           ? 'Nội dung đã được sao chép — vui lòng dán (Ctrl+V) vào khung chat và bấm Gửi.'
-          : 'Vui lòng nhập nội dung sau vào khung chat:<br><em>' + message.replace(/\n/g, '<br>') + '</em>')
+          : 'Vui lòng nhập nội dung sau vào khung chat:<br><em>' + escapeHtml(message).replace(/\n/g, '<br>') + '</em>')
       );
     }
 

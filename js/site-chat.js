@@ -291,6 +291,18 @@
     return null;
   }
 
+  // Danh sách model theo đúng nhóm kênh của loại loa (không cần biết RMS
+  // cụ thể) — dùng khi khách hỏi chung chung kiểu "loa full nên chọn
+  // model nào" để vẫn đưa được câu trả lời hữu ích ngay, thay vì chỉ hỏi
+  // lại. Quy ước: mã "S" = 2 kênh (sub), mã "PRO"/"PLUS" = 4 kênh (full).
+  function genericModelsForType(type) {
+    if (typeof PRODUCTS === 'undefined') return [];
+    var wantChannels = type === 'full' ? '4 kênh' : '2 kênh';
+    return PRODUCTS.filter(function (p) {
+      return p.visible !== false && p.status === 'active' && p.series === 'K Series' && p.specs && p.specs['Số kênh'] === wantChannels;
+    }).map(function (p) { return p.name; });
+  }
+
   // Quy tắc ghép loa theo thực tế thị trường Việt Nam: amplifier cần đạt
   // TỐI THIỂU +50% công suất so với loa (ampW >= 1.5 × RMS loa), không
   // giới hạn trần — loa càng "dư" công suất ampli càng an toàn khi chạy
@@ -517,13 +529,18 @@
     }
 
     // Câu hỏi có nhắc "loa" + loại loa (full/sub) nhưng CHƯA có số W cụ
-    // thể (VD: "loa full thì nên chọn model nào") → hỏi lại xin thông số
-    // ngay, cùng lý do với 2 chặn ở trên — không cho rơi xuống searchFaq
-    // vì rất dễ khớp nhầm vào FAQ chung không liên quan (VD: "Có nên
-    // chọn amplifier đúng bằng RMS loa?").
+    // thể (VD: "loa full thì nên chọn model nào") → trả lời ngay bằng
+    // danh sách model đúng nhóm kênh (full→4 kênh, sub→2 kênh), kèm mời
+    // cho biết công suất cụ thể để chọn chính xác hơn. KHÔNG cho rơi
+    // xuống searchFaq bên dưới — rất dễ khớp nhầm vào FAQ chung không
+    // liên quan (VD: "Có nên chọn amplifier đúng bằng RMS loa?").
     if (/\bloa\b/.test(norm(query)) && detectSpeakerType(query) && !/(\d{2,5})\s*(?:w|watt|watts)\b/.test(norm(query)) && !findProduct(query)) {
+      var genericType = detectSpeakerType(query);
+      var genericNames = genericModelsForType(genericType);
+      var genericTypeLabel = genericType === 'full' ? 'full-range' : 'sub';
+      var genericChannelLabel = genericType === 'full' ? '4 kênh' : '2 kênh';
       return {
-        html: escapeHtml('Bạn cho mình biết công suất RMS và trở kháng của loa (VD: "loa full 800W 8ohm") để mình gợi ý đúng model KORAH phù hợp nhé.')
+        html: escapeHtml('Loa ' + genericTypeLabel + ' thường phù hợp với dòng ' + genericChannelLabel + ' của KORAH: ' + genericNames.join(', ') + ' — tuỳ công suất loa cụ thể và tài chính của bạn. Cho mình biết công suất RMS và trở kháng (VD: "loa ' + genericTypeLabel + ' 800W 8ohm") để mình gợi ý chính xác model phù hợp nhất nhé.')
       };
     }
 

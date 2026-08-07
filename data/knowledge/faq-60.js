@@ -31,7 +31,7 @@
       },
       {
         q: "Amplifier KORAH được bảo hành bao lâu?",
-        a: "Tùy model: K16S, K16PRO, K19S đều Bảo hành 2 năm + Bảo trì 3 năm. K19PRO Bảo hành 2 năm. K20S, K20PLUS Bảo hành 3 năm + Bảo trì 3 năm. Xem chi tiết chính sách tại trang Bảo hành & Hậu mãi hoặc liên hệ hotline bảo hành 0903 851 252."
+        a: "Tùy model: K16S, K16PRO, K19S đều Bảo hành 2 năm + Bảo trì 3 năm. K19PRO Bảo hành 2 năm. K20S, K20PLUS Bảo hành 3 năm + Bảo trì 3 năm. Xem chi tiết chính sách tại trang Bảo hành & Hậu mãi hoặc liên hệ hotline bảo hành 0903 851 252. Khi cần gửi máy bảo hành, kèm theo Phiếu gửi hàng Bảo hành - Bảo trì KORAH bên dưới.<br><a href=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.jpg\" alt=\"Mẫu Phiếu gửi hàng Bảo hành - Bảo trì KORAH\" loading=\"lazy\"></a><br><a href=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.pdf\" style=\"color:var(--gold)\" target=\"_blank\" rel=\"noopener\">Tải file PDF để in</a>"
       },
       {
         q: "KORAH sử dụng công nghệ khuếch đại gì?",
@@ -260,7 +260,7 @@
       },
       {
         q: "Có chính sách bảo hành điện tử không?",
-        a: "Hiện KORAH chưa công bố hệ thống bảo hành điện tử (e-warranty) riêng trên website. Quy trình bảo hành hiện tại: liên hệ hotline 0903 851 252 để được hướng dẫn, sau đó gửi máy kèm Phiếu gửi hàng bảo hành về xưởng AMMY. Xem chi tiết tại trang Bảo hành & Hậu mãi."
+        a: "Hiện KORAH chưa công bố hệ thống bảo hành điện tử (e-warranty) riêng trên website. Quy trình bảo hành hiện tại: liên hệ hotline 0903 851 252 để được hướng dẫn, sau đó gửi máy kèm Phiếu gửi hàng bảo hành về xưởng AMMY (mẫu phiếu bên dưới). Xem chi tiết tại trang Bảo hành & Hậu mãi.<br><a href=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.jpg\" alt=\"Mẫu Phiếu gửi hàng Bảo hành - Bảo trì KORAH\" loading=\"lazy\"></a><br><a href=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.pdf\" style=\"color:var(--gold)\" target=\"_blank\" rel=\"noopener\">Tải file PDF để in</a>"
       }
     ]
   },

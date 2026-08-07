@@ -263,26 +263,16 @@
     return null;
   }
 
-  // Ghép model theo đúng thực tế thị trường Việt Nam (không tính theo
-  // headroom lý thuyết): loa full-range RMS 500–800W @8Ω ghép với dòng
-  // 4 kênh (K16PRO/K19PRO/K20PLUS); loa sub RMS từ 1000W @8Ω trở lên
-  // ghép với dòng 2 kênh (K16S/K19S/K20S) — khách chọn model cụ thể
-  // trong nhóm tuỳ theo tài chính.
-  var FULL_RANGE_MODEL_IDS_8OHM = ['korah-k16pro', 'korah-k19pro', 'korah-k20plus'];
-  var SUB_MODEL_IDS_8OHM = ['korah-k16s', 'korah-k19s', 'korah-k20s'];
-
-  function modelNamesByIds(ids) {
-    if (typeof PRODUCTS === 'undefined') return [];
-    return ids.map(function (id) {
-      var p = PRODUCTS.filter(function (pp) { return pp.id === id; })[0];
-      return p ? p.name : null;
-    }).filter(Boolean);
-  }
-
-  // Dò theo công thức headroom (ampli lớn hơn loa 20–50%) — dùng làm
-  // phương án dự phòng khi RMS nằm ngoài 2 vùng cố định ở trên, hoặc khi
-  // Ω = 4Ω (chưa có vùng cố định riêng cho 4Ω). Nếu đã biết loại loa,
-  // chỉ xét đúng nhóm số kênh tương ứng cho khớp thực tế lắp đặt.
+  // Quy tắc ghép loa theo thực tế thị trường Việt Nam: amplifier cần đạt
+  // TỐI THIỂU +50% công suất so với loa (ampW >= 1.5 × RMS loa), không
+  // giới hạn trần — loa càng "dư" công suất ampli càng an toàn khi chạy
+  // liên tục nhiều giờ, phù hợp điều kiện lưới điện VN. Liệt kê TẤT CẢ
+  // model đạt chuẩn (không chỉ 1 model khớp gần nhất) để khách chọn theo
+  // tài chính — đúng theo yêu cầu thực tế: loa full-range 500–1000W @8Ω
+  // thường ghép nhóm 4 kênh (K16PRO/K19PRO/K20PLUS tuỳ mức W cụ thể);
+  // loa sub từ 1000W @8Ω trở lên ghép nhóm 2 kênh (K16S/K19S/K20S tuỳ
+  // mức W cụ thể). Nếu đã biết loại loa (full/sub), chỉ xét đúng nhóm số
+  // kênh tương ứng cho khớp thực tế lắp đặt.
   function suggestModelsForSpeaker(rms, ohm, type) {
     if (typeof PRODUCTS === 'undefined') return [];
     if (ohm !== 8 && ohm !== 4) return 'unsupported-ohm';
@@ -297,13 +287,38 @@
     }).forEach(function (p) {
       var ampW = extractHiWattPerChannel(p.specs[specKey]);
       if (!ampW) return;
-      var minSpeaker = ampW / 1.5;
-      var maxSpeaker = ampW / 1.2;
-      if (rms >= minSpeaker && rms <= maxSpeaker) {
+      if (ampW >= rms * 1.5) {
         matches.push({ name: p.name, id: p.id, ampW: ampW, ohm: ohm });
       }
     });
+    matches.sort(function (a, b) { return a.ampW - b.ampW; });
     return matches;
+  }
+
+  // Khi không có model nào đạt chuẩn +50% headroom (RMS loa vượt quá khả
+  // năng cả dòng KORAH trong nhóm kênh phù hợp) — KHÔNG bao giờ trả lời
+  // "chưa có dữ liệu, liên hệ hotline" mà luôn đưa ra model công suất
+  // lớn nhất sẵn có trong nhóm làm gợi ý gần nhất, kèm cảnh báo headroom
+  // thấp hơn khuyến nghị.
+  function closestFallbackModel(rms, ohm, type) {
+    if (typeof PRODUCTS === 'undefined') return null;
+    var specKey = ohm === 8 ? 'Công suất 8Ω Stereo RMS' : 'Công suất 4Ω Stereo RMS';
+    var wantChannels = type === 'full' ? '4 kênh' : (type === 'sub' ? '2 kênh' : null);
+    var best = null;
+    PRODUCTS.filter(function (p) {
+      if (p.visible === false || p.status !== 'active' || p.series !== 'K Series' || !p.specs) return false;
+      if (wantChannels && p.specs['Số kênh'] !== wantChannels) return false;
+      return true;
+    }).forEach(function (p) {
+      var ampW = extractHiWattPerChannel(p.specs[specKey]);
+      if (!ampW) return;
+      if (!best || ampW > best.ampW) best = { name: p.name, id: p.id, ampW: ampW, ohm: ohm };
+    });
+    return best;
+  }
+
+  function formatHeadroomPct(pct) {
+    return (pct >= 0 ? '+' : '') + pct + '%';
   }
 
   function buildSpeakerAnswer(rms, ohm, type) {
@@ -313,22 +328,6 @@
       };
     }
 
-    // Vùng cố định theo thực tế thị trường VN — chỉ áp dụng ở 8Ω.
-    if (ohm === 8 && type === 'full' && rms >= 500 && rms <= 800) {
-      var fullNames = modelNamesByIds(FULL_RANGE_MODEL_IDS_8OHM);
-      return {
-        html: escapeHtml('Loa full-range ' + rms + 'W – 8Ω phù hợp với các model 4 kênh: ' + fullNames.join(', ') + ' — chọn model cụ thể tuỳ theo tài chính của bạn. Không khuyến cáo dùng tải 2Ω.')
-      };
-    }
-    if (ohm === 8 && type === 'sub' && rms >= 1000) {
-      var subNames = modelNamesByIds(SUB_MODEL_IDS_8OHM);
-      return {
-        html: escapeHtml('Loa sub ' + rms + 'W – 8Ω trở lên phù hợp với các model 2 kênh: ' + subNames.join(', ') + ' — chọn model cụ thể tuỳ theo tài chính của bạn. Không khuyến cáo dùng tải 2Ω.')
-      };
-    }
-
-    // Ngoài 2 vùng cố định ở trên (hoặc Ω=4Ω) → tính theo headroom,
-    // ưu tiên đúng nhóm số kênh nếu đã biết loại loa.
     var matches = suggestModelsForSpeaker(rms, ohm, type);
     if (matches === 'unsupported-ohm') {
       return {
@@ -336,18 +335,30 @@
       };
     }
 
-    if (!matches.length) {
+    var typeLabel = type === 'full' ? 'full-range ' : (type === 'sub' ? 'sub ' : '');
+
+    if (matches.length) {
+      var lines = matches.map(function (m) {
+        var headroomPct = Math.round((m.ampW / rms - 1) * 100);
+        return m.name + ' (' + m.ampW + 'W/kênh @' + m.ohm + 'Ω, headroom ' + formatHeadroomPct(headroomPct) + ')';
+      });
       return {
-        html: escapeHtml('Với loa ' + rms + 'W – ' + ohm + 'Ω: hiện chưa có model KORAH nào rơi đúng vùng khuyến nghị. Vui lòng liên hệ hotline kỹ thuật 0903 851 252 để được tư vấn cấu hình cụ thể, hoặc xem toàn bộ model tại trang Sản phẩm.')
+        html: escapeHtml('Loa ' + typeLabel + rms + 'W – ' + ohm + 'Ω phù hợp với: ' + lines.join('; ') + ' — chọn model cụ thể tuỳ theo tài chính của bạn. Không khuyến cáo dùng tải 2Ω.').replace(/\n/g, '<br>')
       };
     }
 
-    var lines = matches.map(function (m) {
-      var headroomPct = Math.round((m.ampW / rms - 1) * 100);
-      return m.name + ' (' + m.ampW + 'W/kênh @' + m.ohm + 'Ω, headroom +' + headroomPct + '%)';
-    });
+    // Không model nào đạt đủ +50% headroom — vẫn đưa gợi ý gần nhất thay
+    // vì từ chối trả lời.
+    var fallback = closestFallbackModel(rms, ohm, type);
+    if (fallback) {
+      var fallbackPct = Math.round((fallback.ampW / rms - 1) * 100);
+      return {
+        html: escapeHtml('Loa ' + typeLabel + rms + 'W – ' + ohm + 'Ω vượt mức khuyến nghị headroom chuẩn (+50%) của các model KORAH hiện có. Gợi ý gần nhất: ' + fallback.name + ' (' + fallback.ampW + 'W/kênh @' + fallback.ohm + 'Ω, headroom ' + formatHeadroomPct(fallbackPct) + '). Vui lòng liên hệ hotline kỹ thuật 0903 851 252 để được tư vấn cấu hình ghép nhiều amplifier nếu cần công suất lớn hơn.')
+      };
+    }
+
     return {
-      html: escapeHtml('Với loa ' + rms + 'W – ' + ohm + 'Ω, phù hợp nhất: ' + lines.join('; ') + '. Không khuyến cáo dùng tải 2Ω.').replace(/\n/g, '<br>')
+      html: escapeHtml('Với loa ' + typeLabel + rms + 'W – ' + ohm + 'Ω: hiện chưa có model KORAH nào phù hợp. Vui lòng liên hệ hotline kỹ thuật 0903 851 252 để được tư vấn cấu hình cụ thể.')
     };
   }
 

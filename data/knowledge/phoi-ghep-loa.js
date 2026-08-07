@@ -43,6 +43,14 @@
       {
         q: "Model có mã S và mã PRO/PLUS khác nhau thế nào, dùng cho loại loa nào?",
         a: "KORAH có 2 nhóm model K-Series phân biệt theo hậu tố tên: (1) Nhóm mã 'S' — K16S, K19S, K20S: đều là ampli 2 kênh (Stereo), ưu tiên ghép cho loa SUB (loa bass). (2) Nhóm mã 'PRO' hoặc 'PLUS' — K16PRO, K19PRO, K20PLUS: đều là ampli 4 kênh, ưu tiên ghép cho loa FULL-RANGE. Đây là quy tắc chọn model đúng theo thực tế lắp đặt tại thị trường Việt Nam — khách chọn model cụ thể trong đúng nhóm tuỳ theo tài chính và mức công suất loa."
+      },
+      {
+        q: "Headroom là gì trong ghép loa với amplifier?",
+        a: "Headroom là phần công suất dư của amplifier so với công suất RMS của loa — khoảng đệm để amplifier tái tạo đúng các đỉnh nhạc (kick drum, snare...) cao hơn nhiều so với mức trung bình mà không bị clip (chạm giới hạn công suất, gây méo tiếng dạng sóng vuông, nguy hiểm cho loa hơn cả công suất lớn). KORAH áp dụng nguyên tắc headroom tối thiểu +50% so với RMS loa, không giới hạn trần — dư càng nhiều càng an toàn khi chạy liên tục nhiều giờ."
+      },
+      {
+        q: "Khi nào nên dùng chế độ Bridge, khi nào dùng chế độ Parallel (song song)?",
+        a: "Chế độ Bridge (có trên mọi model K-Series): dùng khi cần dồn công suất cả 2 kênh (hoặc 2 cặp kênh) thành 1 kênh Mono công suất rất lớn cho 1 loa/cụm loa duy nhất — phổ biến nhất khi kéo sub đơn lớn hoặc cụm sub đôi (VD: K16S Bridge Mono 8Ω đạt 5600W, K20S đạt 9600W). Lưu ý ở chế độ Bridge, tải tối thiểu khuyến nghị thường cao hơn bình thường (dòng điện tăng gấp đôi so với chạy Stereo) — không đấu tải quá thấp trở kháng khi dùng Bridge. \"Parallel\" (song song đầu vào) KHÔNG phải chế độ vận hành amplifier mà KORAH công bố — panel chỉ có lựa chọn Stereo/Bridge. Nếu ý bạn là đấu SONG SONG NHIỀU LOA vào 1 kênh (không phải chế độ của ampli): dùng khi muốn ghép nhiều loa cùng 1 kênh, nhưng làm giảm trở kháng tổng (VD 2 loa 8Ω song song → 4Ω) — cần tính đúng công thức song song, không để tổng trở xuống dưới mức khuyến nghị (không dùng 2Ω)."
       }
     ]
   },

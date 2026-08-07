@@ -125,6 +125,14 @@ const FAQ_DATA = [
     category: "Bảo hành & liên hệ",
     items: [
       {
+        q: "Điều kiện bảo hành",
+        a: "Sản phẩm KORAH chính hãng được bảo hành theo thời hạn công bố theo từng model: K16S, K16PRO, K19S, K19PRO — 2 năm; K20S, K20PLUS — 3 năm (kèm bảo trì thêm 3 năm cho mọi model). Trong thời hạn bảo hành, mọi sự cố phát sinh do lỗi kỹ thuật/sản xuất trong quá trình sử dụng bình thường được xử lý hoàn toàn miễn phí. Sau khi hết hạn bảo hành, sản phẩm tiếp tục được hỗ trợ kiểm tra, vệ sinh, thay thế linh kiện với chi phí ưu đãi trong thời hạn bảo trì. Xem chi tiết tại trang <a href=\"after-sales.html\" style=\"color:var(--gold)\">Bảo hành &amp; Hậu mãi</a> hoặc liên hệ hotline <a href=\"tel:0903851252\" style=\"color:var(--gold)\">0903 851 252</a>."
+      },
+      {
+        q: "Những trường hợp nào không được bảo hành?",
+        a: "Website chính thức của KORAH hiện chưa công bố danh sách chi tiết từng trường hợp bị từ chối bảo hành. Theo chính sách đã công bố, bảo hành chỉ áp dụng cho lỗi kỹ thuật/sản xuất phát sinh trong quá trình sử dụng bình thường — không áp dụng cho mọi loại hư hỏng. Để biết chính xác một trường hợp cụ thể có thuộc diện bảo hành hay không (VD: hư hỏng do rơi vỡ, vào nước, tự ý can thiệp sửa chữa, hoặc vận hành sai khuyến cáo kỹ thuật), vui lòng liên hệ hotline bảo hành <a href=\"tel:0903851252\" style=\"color:var(--gold)\">0903 851 252</a> để được xác nhận trực tiếp."
+      },
+      {
         q: "Quy trình bảo hành",
         a: "Bước 1: Liên hệ hotline bảo hành <a href=\"tel:0903851252\" style=\"color:var(--gold)\">0903 851 252</a> hoặc đại lý nơi mua, mô tả tình trạng máy để được hướng dẫn trước. Bước 2: Đóng gói máy nằm ngang, chèn xốp chống sốc, gửi về Xưởng AMMY: 300/34/64 Nguyễn Văn Linh, P. Bình Thuận, Q.7, TP.HCM — liên hệ nhận hàng: Nguyễn Phan Vinh, <a href=\"tel:0932648669\" style=\"color:var(--gold)\">0932 648 669</a> / <a href=\"tel:0903851252\" style=\"color:var(--gold)\">0903 851 252</a>. Bước 3: Kỹ thuật AMMY tiếp nhận, chẩn đoán, chạy thử tải, hoàn trả. Trong thời hạn bảo hành, lỗi kỹ thuật được sửa chữa miễn phí. Xem chi tiết tại trang <a href=\"after-sales.html\" style=\"color:var(--gold)\">Bảo hành &amp; Hậu mãi</a>."
       },

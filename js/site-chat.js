@@ -7,6 +7,34 @@
 // ============================================================
 
 (function () {
+  // ── 0) Giao tiếp mở đầu (chào hỏi) — vai trò chuyên viên tư vấn kỹ
+  // thuật kiêm quan hệ công chúng (PR): giọng văn thân thiện, chuyên
+  // nghiệp, tự nhiên nhắc tên thương hiệu/ngành hàng (KORAH, power
+  // amplifier, K-Series...) để nội dung thân thiện SEO khi được crawl
+  // lại từ trang. Chỉ kích hoạt khi câu nhắn LÀ lời chào thuần (không
+  // kèm câu hỏi khác) — nếu khách chào kèm hỏi luôn (VD: "chào shop,
+  // K19PRO giá bao nhiêu") thì để luồng tra cứu bên dưới xử lý, không
+  // để lời chào che mất câu hỏi thật.
+  var GREETING_RESPONSES = [
+    'Xin chào! Mình là trợ lý tư vấn kỹ thuật của KORAH — thương hiệu power amplifier (cục đẩy công suất) chuyên nghiệp cho sân khấu, sự kiện và hệ thống âm thanh kinh doanh tại Việt Nam. Bạn cần tra cứu thông số, giá, bảo hành model K-Series, hay muốn mình gợi ý amplifier phù hợp với loa đang có? Cứ nhắn cho mình nhé!',
+    'Chào bạn, rất vui được hỗ trợ! KORAH hiện có 6 model power amplifier K-Series (K16S, K16PRO, K19S, K19PRO, K20S, K20PLUS) dùng công nghệ Class D, PFC và Silicon Carbide. Bạn muốn tìm hiểu model nào, hay cho mình biết công suất và trở kháng loa để mình gợi ý amplifier phù hợp?',
+    'Xin chào, cảm ơn bạn đã quan tâm đến KORAH! Mình có thể tra cứu nhanh thông số kỹ thuật, giá, chính sách bảo hành từng model, hoặc tính toán ghép ampli phù hợp với loa của bạn (chỉ cần cho biết công suất RMS và trở kháng, VD: "loa 1000W 8ohm"). Bạn cần hỗ trợ vấn đề gì trước tiên?'
+  ];
+
+  function isGreeting(rawQuery) {
+    var q = String(rawQuery || '').trim();
+    if (!q) return false;
+    var n = norm(q);
+    if (!/^(xin\s+)?chao\b|^hi\b|^hii+\b|^hello\b|^hey\b|^alo\b/.test(n)) return false;
+    // Chỉ coi là lời chào thuần khi câu ngắn (không kèm câu hỏi khác)
+    return n.split(/\s+/).length <= 4;
+  }
+
+  function answerGreeting() {
+    var idx = Math.floor(Math.random() * GREETING_RESPONSES.length);
+    return { html: escapeHtml(GREETING_RESPONSES[idx]) };
+  }
+
   function stripDiacritics(str) {
     return str
       .normalize('NFD')
@@ -455,6 +483,8 @@
   }
 
   function getAnswer(query) {
+    if (isGreeting(query)) return answerGreeting();
+
     var product = findProduct(query);
 
     if (product) {

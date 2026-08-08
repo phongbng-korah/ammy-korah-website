@@ -75,7 +75,7 @@ const FAQ_DATA = [
     items: [
       {
         q: "Có nên chọn amplifier đúng bằng RMS loa?",
-        a: "Không nên. Với loa RMS 1.000W/8Ω, amplifier khoảng 1.500W/8Ω là phối ghép hợp lý; 2.000W/8Ω vẫn dùng được nhưng cần limiter chuẩn; từ 2.500–3.000W/8Ω trở lên chỉ phù hợp khi hệ thống được thiết kế và bảo vệ đúng — còn amplifier đúng bằng RMS loa (1.000W/8Ω) dễ thiếu headroom. Lý do: âm thanh biểu diễn có crest factor — đỉnh tín hiệu tức thời cao hơn nhiều so với mức công suất trung bình. Nếu amplifier chỉ vừa bằng RMS loa, khi nhạc lên cao dễ bị clip, tín hiệu méo dạng sóng vuông và có thể tạo thêm năng lượng ở dải cao — nguy hiểm cho driver tweeter. Ngược lại, amplifier lớn hơn RMS không có nghĩa sẽ làm cháy loa, miễn hệ thống có đủ headroom, DSP, limiter và gain structure đúng — điểm quan trọng nhất là không để amplifier vượt quá giới hạn nhiệt/cơ học của loa."
+        a: "Không nên.<br>Với loa RMS 1.000W/8Ω, nên chọn amplifier từ khoảng 1.500W/8Ω là phối ghép hợp lý;<br>2.000W/8Ω cần limiter chuẩn."
       },
       {
         q: "Cách tính dòng điện",

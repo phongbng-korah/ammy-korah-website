@@ -13,11 +13,11 @@ const FAQ_DATA = [
     items: [
       {
         q: "KORAH sử dụng công nghệ gì?",
-        a: "KORAH sử dụng công nghệ khuếch đại Class D với hiệu suất cao, sinh nhiệt thấp hơn Class AB và Class H, giúp amplifier nhẹ hơn nhưng vẫn đạt công suất lớn. Các model có PFC (Power Factor Correction) giúp khai thác nguồn điện ổn định hơn và giảm dòng khởi động (Inrush Current). Ba model cao cấp K19PRO, K20S, K20PLUS được trang bị Silicon Carbide (SiC) của Onsemi (Hoa Kỳ) cho khả năng chịu nhiệt và độ bền cao hơn silicon truyền thống."
+        a: "KORAH Kseri sử dụng công nghệ khuếch đại Class D với hiệu suất cao, sinh nhiệt thấp hơn Class AB và Class H, giúp amplifier nhẹ hơn nhưng vẫn đạt công suất lớn. Các model có PFC (Power Factor Correction) giúp khai thác nguồn điện ổn định hơn và giảm dòng khởi động (Inrush Current). Ba model cao cấp K19PRO, K20S, K20PLUS được trang bị Silicon Carbide (SiC) của Onsemi (Hoa Kỳ) cho khả năng chịu nhiệt và độ bền cao hơn silicon truyền thống."
       },
       {
         q: "Máy không lên nguồn phải kiểm tra gì?",
-        a: "Kiểm tra theo thứ tự: 1) Dây nguồn AC cắm chắc. 2) Ổ điện có nguồn. 3) Cầu chì/Fuse phía sau máy. 4) Điện áp nguồn khoảng 220V ổn định. 5) Khe tản nhiệt không bị che. 6) Không đặt máy nơi ẩm, nóng hoặc nhiều bụi. Nếu vẫn không hoạt động, liên hệ kỹ thuật KORAH."
+        a: "Kiểm tra theo thứ tự: 1) Dây nguồn AC cắm chắc. 2) Ổ điện có nguồn. 3) Cầu chì/Fuse phía sau máy. 4) Điện áp nguồn khoảng 220V ổn định. 5) Khe tản nhiệt không bị che. 6) Không đặt máy nơi ẩm, nóng hoặc nhiều bụi. Nếu vẫn không hoạt động, liên hệ bộ phận bảo hành KORAH 0903851252."
       },
       {
         q: "Vì sao máy tự Protect hoặc Limit?",
@@ -29,7 +29,7 @@ const FAQ_DATA = [
       },
       {
         q: "Những lưu ý an toàn",
-        a: "Không chạm đầu Speakon khi máy đang bật. Thứ tự bật: 1) Nguồn tín hiệu 2) Mixer 3) Amplifier — thứ tự tắt ngược lại. Luôn nối đất bằng ổ cắm 3 chân. Không để nước vào máy. Không tự mở nắp máy. Không sử dụng nơi ẩm, bụi hoặc nhiệt độ quá cao."
+        a: "Không chạm đầu Speakon khi máy đang bật. Thứ tự bật: 1) Nguồn tín hiệu 2) Mixer 3) Amplifier — thứ tự tắt ngược lại. Không để nước vào máy. Không tự mở nắp máy khi máy đang hoạt động."
       },
       {
         q: "Loa không lên tiếng, không kêu phải kiểm tra gì?",
@@ -75,11 +75,7 @@ const FAQ_DATA = [
     items: [
       {
         q: "Có nên chọn amplifier đúng bằng RMS loa?",
-        a: "Không nên. Nên chọn amplifier lớn hơn khoảng 20–50% RMS để có Headroom. Điều này giúp ít méo tiếng, giảm clipping, an toàn cho loa."
-      },
-      {
-        q: "Muốn tăng SPL thêm 6dB cần bao nhiêu công suất?",
-        a: "Cần tăng khoảng 4 lần công suất. Đây là quy luật nghịch đảo bình phương khoảng cách trong âm học."
+        a: "Không nên. Với loa RMS 1.000W/8Ω, amplifier khoảng 1.500W/8Ω là phối ghép hợp lý; 2.000W/8Ω vẫn dùng được nhưng cần limiter chuẩn; từ 2.500–3.000W/8Ω trở lên chỉ phù hợp khi hệ thống được thiết kế và bảo vệ đúng — còn amplifier đúng bằng RMS loa (1.000W/8Ω) dễ thiếu headroom. Lý do: âm thanh biểu diễn có crest factor — đỉnh tín hiệu tức thời cao hơn nhiều so với mức công suất trung bình. Nếu amplifier chỉ vừa bằng RMS loa, khi nhạc lên cao dễ bị clip, tín hiệu méo dạng sóng vuông và có thể tạo thêm năng lượng ở dải cao — nguy hiểm cho driver tweeter. Ngược lại, amplifier lớn hơn RMS không có nghĩa sẽ làm cháy loa, miễn hệ thống có đủ headroom, DSP, limiter và gain structure đúng — điểm quan trọng nhất là không để amplifier vượt quá giới hạn nhiệt/cơ học của loa."
       },
       {
         q: "Cách tính dòng điện",
@@ -96,23 +92,6 @@ const FAQ_DATA = [
     ]
   },
   {
-    category: "Đo trở kháng loa",
-    items: [
-      {
-        q: "Cách đo",
-        a: "1) Ngắt loa khỏi amplifier. 2) Chọn chế độ Ω. 3) Chọn thang đo thấp. 4) Đặt hai que đo vào hai cực loa. 5) Đọc giá trị DCR."
-      },
-      {
-        q: "Giá trị bình thường",
-        a: "Loa 8Ω: khoảng 5–7.7Ω. Loa 4Ω: khoảng 2.4–3.7Ω. Đây là điện trở DC nên luôn thấp hơn trở kháng danh định."
-      },
-      {
-        q: "Khi nào loa bị lỗi?",
-        a: "Gần 0Ω: khả năng chập cuộn loa. Hiển thị OL hoặc 1: khả năng đứt cuộn loa hoặc đứt dây. Cần kiểm tra trước khi đấu vào amplifier."
-      }
-    ]
-  },
-  {
     category: "Lắp tủ rack & bảo trì",
     items: [
       {
@@ -121,7 +100,7 @@ const FAQ_DATA = [
       },
       {
         q: "Bảo trì định kỳ",
-        a: "Lưới lọc bụi: 3–6 tháng/lần. Lau vỏ ngoài: hàng tháng hoặc sau mỗi sự kiện. Kiểm tra dây nguồn, dây loa, Speakon trước mỗi lần sử dụng. Khi vệ sinh: ngắt nguồn, dùng khăn mềm, dùng khí nén, không xịt chất lỏng trực tiếp. Nếu cần gửi máy bảo trì tại xưởng, in sẵn Phiếu gửi hàng Bảo hành - Bảo trì KORAH bên dưới để đi kèm máy.<br><a href=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.jpg\" alt=\"Mẫu Phiếu gửi hàng Bảo hành - Bảo trì KORAH\" loading=\"lazy\"></a><br><a href=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.pdf\" style=\"color:var(--gold)\" target=\"_blank\" rel=\"noopener\">Tải file PDF để in</a>"
+        a: "Lưới lọc bụi: 3–6 tháng/lần. Lau vỏ ngoài: hàng tháng hoặc sau mỗi sự kiện. Kiểm tra dây nguồn, dây loa, Speakon trước mỗi lần sử dụng. Khi vệ sinh: rút jack nguồn khỏi nguồn điện, dùng khăn mềm, dùng khí nén, không xịt chất lỏng trực tiếp. Nếu cần gửi máy bảo trì tại xưởng, in sẵn Phiếu gửi hàng Bảo hành - Bảo trì KORAH bên dưới để đi kèm máy.<br><a href=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.jpg\" alt=\"Mẫu Phiếu gửi hàng Bảo hành - Bảo trì KORAH\" loading=\"lazy\"></a><br><a href=\"assets/warranty/phieu-bao-hanh/phieu-gui-hang-bao-hanh-korah.pdf\" style=\"color:var(--gold)\" target=\"_blank\" rel=\"noopener\">Tải file PDF để in</a>"
       },
       {
         q: "Dấu hiệu nào cho thấy máy cần được kiểm tra, sửa chữa?",

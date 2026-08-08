@@ -49,6 +49,22 @@
         a: "Headroom là phần công suất dư của amplifier so với công suất RMS của loa — khoảng đệm để amplifier tái tạo đúng các đỉnh nhạc (kick drum, snare...) cao hơn nhiều so với mức trung bình mà không bị clip (chạm giới hạn công suất, gây méo tiếng dạng sóng vuông, nguy hiểm cho loa hơn cả công suất lớn). KORAH áp dụng nguyên tắc headroom tối thiểu +50% so với RMS loa, không giới hạn trần — dư càng nhiều càng an toàn khi chạy liên tục nhiều giờ."
       },
       {
+        q: "Amplifier công suất càng lớn thì headroom càng lớn, đúng không?",
+        a: "Không hoàn toàn đúng. Công suất tối đa (Watt công bố) là GIỚI HẠN của amplifier — còn headroom là KHOẢNG CÁCH từ mức đang vận hành thực tế đến giới hạn đó, nên phụ thuộc vào mức tín hiệu đang phát, không phải con số cố định. VD: amplifier công suất tối đa 2000W đang phát ở mức trung bình 1000W thì còn khoảng 1000W headroom để xử lý đỉnh nhạc (transient) ngắn mà không bị clip; nếu đã phát gần sát 2000W liên tục thì headroom gần như không còn dù công suất tối đa vẫn là 2000W. Không nên hiểu đơn giản 'amplifier 2000W = có 2000W headroom'."
+      },
+      {
+        q: "Vì sao hai amplifier cùng công suất Watt vẫn có thể đánh loa khác nhau?",
+        a: "Vì công suất công bố (Watt) chỉ phản ánh 1 phần khả năng thực tế. Khi tải giảm (VD từ 8Ω xuống 4Ω), dòng điện amplifier cần cấp tăng đáng kể để giữ công suất theo lý thuyết (P=V²/R) — nếu nguồn điện và tầng công suất không đủ khỏe để duy trì điện áp ổn định khi dòng tăng, công suất thực tế sẽ không đạt như lý thuyết và cơ chế bảo vệ (Protect/Limit) có thể kích hoạt sớm hơn, kèm nhiệt tăng nhanh hơn. Vì vậy 2 amplifier cùng ghi công suất Watt như nhau trên catalogue vẫn có thể cho khả năng đánh loa thực tế khác nhau — cần xét thêm khả năng duy trì điện áp/dòng điện khi tải giảm và khi vận hành liên tục, không chỉ nhìn con số Watt."
+      },
+      {
+        q: "Limiter có tạo ra headroom cho amplifier không?",
+        a: "Không. Limiter chỉ QUẢN LÝ headroom đang có sẵn — tự động giảm mức tín hiệu khi đỉnh (peak) vượt ngưỡng để tránh clip hoặc quá tải, chứ không tự tạo thêm headroom. Nếu amplifier vốn đã thiếu headroom (chạy sát công suất tối đa), limiter phải hoạt động liên tục để bảo vệ máy và loa — hệ quả là dải động (dynamic) bị nén, âm thanh mất độ thoáng, hệ thống có cảm giác 'bí' khi chạy lớn. Hệ thống có đủ headroom hợp lý thì limiter chỉ can thiệp ở những đỉnh nhạc bất thường, không hoạt động thường xuyên trong vận hành bình thường."
+      },
+      {
+        q: "Nên đánh giá khả năng đánh loa của amplifier qua những yếu tố nào, ngoài công suất Watt?",
+        a: "6 yếu tố: (1) Điện áp đầu ra tối đa — quyết định khả năng tạo SPL ở tải cao (8Ω/16Ω). (2) Khả năng cung cấp dòng điện — quan trọng hơn khi tải xuống 4Ω hoặc khi trở kháng thực tế của loa thấp hơn trở kháng danh định ở một số dải tần. (3) Headroom — khoảng dự trữ xử lý đỉnh nhạc (transient) trước khi chạm giới hạn/kích hoạt bảo vệ. (4) Nguồn điện — khả năng duy trì năng lượng ổn định khi tín hiệu lớn và nhiều kênh cùng hoạt động. (5) Khả năng tản nhiệt — quyết định amplifier chạy được công suất cao trong bao lâu trước khi nhiệt trở thành yếu tố giới hạn. (6) Limiter/mạch bảo vệ — cần bảo vệ amplifier và loa nhưng không nén tín hiệu quá mức trong vận hành bình thường. Chỉ nhìn con số Watt trên catalogue không đủ để đánh giá khả năng đánh loa thực tế của 1 amplifier."
+      },
+      {
         q: "Khi nào nên dùng chế độ Bridge, khi nào dùng chế độ Parallel (song song)?",
         a: "Chế độ Bridge (có trên mọi model K-Series): dùng khi cần dồn công suất cả 2 kênh (hoặc 2 cặp kênh) thành 1 kênh Mono công suất rất lớn cho 1 loa/cụm loa duy nhất — phổ biến nhất khi kéo sub đơn lớn hoặc cụm sub đôi (VD: K16S Bridge Mono 8Ω đạt 5600W, K20S đạt 9600W). Lưu ý ở chế độ Bridge, tải tối thiểu khuyến nghị thường cao hơn bình thường (dòng điện tăng gấp đôi so với chạy Stereo) — không đấu tải quá thấp trở kháng khi dùng Bridge. \"Parallel\" (song song đầu vào) KHÔNG phải chế độ vận hành amplifier mà KORAH công bố — panel chỉ có lựa chọn Stereo/Bridge. Nếu ý bạn là đấu SONG SONG NHIỀU LOA vào 1 kênh (không phải chế độ của ampli): dùng khi muốn ghép nhiều loa cùng 1 kênh, nhưng làm giảm trở kháng tổng (VD 2 loa 8Ω song song → 4Ω) — cần tính đúng công thức song song, không để tổng trở xuống dưới mức khuyến nghị (không dùng 2Ω)."
       }

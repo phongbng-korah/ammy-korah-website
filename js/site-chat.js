@@ -560,6 +560,31 @@
     return null;
   }
 
+  // So khớp CHÍNH XÁC (chuẩn hoá dấu/hoa-thường, không fuzzy token) câu
+  // hỏi thô với đúng 1 câu q có sẵn trong FAQ_DATA/KB_TOPICS. Dùng làm
+  // "lối tắt" ưu tiên cao nhất trong getAnswer(): nếu khách gõ gần như
+  // nguyên văn 1 câu hỏi đã có sẵn câu trả lời được biên soạn riêng
+  // (curated), câu trả lời đó LUÔN đúng hơn mọi suy luận mờ (tra sản
+  // phẩm theo model, tính ghép loa, chấm điểm FAQ...) — nên phải thắng
+  // tất cả các bước xử lý khác, kể cả product/speaker-calculator vốn
+  // chạy trước searchFaq()/matchIntent() trong luồng getAnswer().
+  function findExactKnownAnswer(rawQuery) {
+    var nq = norm(String(rawQuery || '').trim());
+    if (!nq) return null;
+    var sources = [];
+    if (typeof FAQ_DATA !== 'undefined') sources.push(FAQ_DATA);
+    if (typeof window !== 'undefined' && window.KB_TOPICS) sources.push(window.KB_TOPICS);
+    for (var s = 0; s < sources.length; s++) {
+      for (var g = 0; g < sources[s].length; g++) {
+        var items = sources[s][g].items;
+        for (var it = 0; it < items.length; it++) {
+          if (norm(items[it].q) === nq) return items[it].a;
+        }
+      }
+    }
+    return null;
+  }
+
   function matchIntent(rawQuery) {
     if (typeof window === 'undefined' || !window.KB_INTENTS) return null;
     var qTokens = tokenize(rawQuery);
@@ -604,6 +629,19 @@
 
   function getAnswer(query) {
     if (isGreeting(query)) return answerGreeting();
+
+    // LỖI ĐÃ XÁC NHẬN (golden set 183 câu, nhóm "sản phẩm che FAQ cụ
+    // thể hơn"): khi câu hỏi vừa nhắc tên model vừa nhắc loa/công suất
+    // (VD "K16S nên ghép loa công suất bao nhiêu?", "VPL trên K16PRO
+    // hoạt động như thế nào?"), findProduct()/answerFromProduct() luôn
+    // thắng trước và trả lời bằng thông số thô hoặc kết quả dò mờ
+    // fuzzySpecSearch() (dễ khớp nhầm spec đầu tiên chỉ vì trùng vài từ
+    // chung chung như "công","suất"), che mất câu trả lời đã biên soạn
+    // sẵn kỹ hơn (VD giải thích headroom cụ thể, khái niệm VPL...).
+    // Ưu tiên câu trả lời curated CHÍNH XÁC (khớp gần đúng nguyên văn)
+    // trước mọi suy luận sản phẩm/tính toán khác.
+    var exactKnown = findExactKnownAnswer(query);
+    if (exactKnown) return { html: exactKnown };
 
     var product = findProduct(query);
 

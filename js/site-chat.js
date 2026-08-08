@@ -424,7 +424,21 @@
     // (full/sub/bass), hoặc đang có ngữ cảnh dở dang từ lượt hỏi trước —
     // tránh nhận nhầm số W/Ω xuất hiện ngẫu nhiên trong câu hỏi khác
     // (VD: câu hỏi tính dòng điện, không liên quan ghép loa).
-    if (!mentionsLoa && !typeNow && !pendingSpeakerContext) return null;
+    var hasSignalNow = mentionsLoa || typeNow || wattNow || ohmNow;
+    if (!hasSignalNow && !pendingSpeakerContext) return null;
+
+    // LỖI ĐÃ XÁC NHẬN (rò rỉ trạng thái): nếu đang có pendingSpeakerContext
+    // dở dang từ lượt hỏi trước (VD khách hỏi "loa ... 2Ω" thiếu RMS, bot
+    // hỏi lại RMS), nhưng câu hỏi MỚI không mang bất kỳ tín hiệu nào liên
+    // quan loa/công suất/trở kháng (VD khách đổi chủ đề hỏi "bảo hành bao
+    // lâu?") — đây KHÔNG phải câu nối tiếp, mà là câu hỏi độc lập mới.
+    // Phải xoá ngữ cảnh cũ và để câu hỏi mới rơi xuống các bước xử lý
+    // khác (intent/FAQ) — nếu không, MỌI câu hỏi tiếp theo trong cùng
+    // phiên chat sẽ bị chặn lại đòi RMS mãi mãi cho đến khi tải lại trang.
+    if (!hasSignalNow && pendingSpeakerContext) {
+      pendingSpeakerContext = null;
+      return null;
+    }
 
     var ctx = pendingSpeakerContext || {};
     var rms = wattNow || ctx.rms || null;

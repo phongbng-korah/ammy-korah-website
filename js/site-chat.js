@@ -510,6 +510,45 @@
     return div.textContent || '';
   }
 
+  // LỖI ĐÃ XÁC NHẬN (báo cáo thực tế: "infineon sản xuất tại đâu" khớp
+  // nhầm "KORAH có xuất xứ từ đâu?", "tại sao korah được tin dùng tại
+  // việt nam" khớp nhầm câu so sánh CoolSiC/EliteSiC): chấm điểm cũ đếm
+  // SỐ LƯỢNG token trùng, không phân biệt token đặc trưng/hiếm (VD
+  // "infineon" chỉ xuất hiện ở 2-3 câu) với token rất chung chung (VD
+  // "đâu", "xuất" xuất hiện ở hàng chục câu) — nên 2 token chung chung
+  // trùng nhau đã đủ thắng, dù token đặc trưng nhất trong câu hỏi không
+  // khớp gì cả. Sửa bằng trọng số kiểu IDF: token càng hiếm (xuất hiện ở
+  // càng ít câu hỏi trong KB) càng có trọng số cao — token phổ biến gần
+  // như không còn tự đủ để thắng một mình.
+  var FAQ_DOC_FREQ_CACHE = null;
+  function getFaqDocFrequency() {
+    if (FAQ_DOC_FREQ_CACHE) return FAQ_DOC_FREQ_CACHE;
+    var df = {}, totalDocs = 0;
+    var sources = [];
+    if (typeof FAQ_DATA !== 'undefined') sources.push(FAQ_DATA);
+    if (typeof window !== 'undefined' && window.KB_TOPICS) sources.push(window.KB_TOPICS);
+    sources.forEach(function (data) {
+      data.forEach(function (group) {
+        group.items.forEach(function (item) {
+          totalDocs++;
+          var seen = {};
+          tokenize(item.q).forEach(function (t) {
+            if (!seen[t]) { seen[t] = true; df[t] = (df[t] || 0) + 1; }
+          });
+        });
+      });
+    });
+    FAQ_DOC_FREQ_CACHE = { df: df, totalDocs: totalDocs || 1 };
+    return FAQ_DOC_FREQ_CACHE;
+  }
+
+  // idf+1: token xuất hiện ở càng ít câu hỏi (df thấp) càng có trọng số
+  // cao; token phổ biến (df cao, gần totalDocs) trọng số tiệm cận 1.
+  function faqTokenWeight(token, docFreq) {
+    var df = docFreq.df[token] || 1;
+    return Math.log((docFreq.totalDocs + 1) / df) + 1;
+  }
+
   function searchFaq(query) {
     var qTokens = tokenize(query);
     if (!qTokens.length) return null;
@@ -519,16 +558,33 @@
     if (typeof window !== 'undefined' && window.KB_TOPICS) sources.push(window.KB_TOPICS);
     if (!sources.length) return null;
 
+    var docFreq = getFaqDocFrequency();
+    // maxPossible: điểm TỐI ĐA có thể đạt được cho query này (nếu mọi
+    // token đều khớp ở header) — dùng làm mẫu số để tính TỶ LỆ khớp,
+    // thay vì so điểm tuyệt đối với 1 ngưỡng cố định. Lý do: cộng dồn
+    // điểm tuyệt đối (không chuẩn hoá theo độ dài/trọng số câu hỏi) vẫn
+    // có thể đạt điểm rất cao dù thiếu đúng token đặc trưng nhất trong
+    // câu hỏi (lỗi thực tế: "infineon sản xuất tại đâu" khớp nhầm "KORAH
+    // có xuất xứ từ đâu?" — token "infineon" đặc trưng nhất không khớp
+    // gì cả, nhưng 3 token còn lại (san/xuat/dau) trùng cả header lẫn
+    // body nên vẫn đủ điểm thắng). Tính theo TỶ LỆ buộc phải khớp phần
+    // lớn "trọng lượng thông tin" của câu hỏi, không chỉ khớp nhiều số
+    // lượng token thường/token phụ.
+    var maxPossible = qTokens.reduce(function (s, t) { return s + 2 * faqTokenWeight(t, docFreq); }, 0);
+
     var best = null, bestScore = 0;
     sources.forEach(function (data) {
       data.forEach(function (group) {
         group.items.forEach(function (item) {
           var plainAnswer = stripHtml(item.a);
           var bodyTokens = tokenize(item.q + ' ' + plainAnswer);
-          var score = 0;
-          qTokens.forEach(function (t) { if (bodyTokens.indexOf(t) !== -1) score++; });
           var headerTokens = tokenize(item.q);
-          qTokens.forEach(function (t) { if (headerTokens.indexOf(t) !== -1) score += 2; });
+          var score = 0;
+          qTokens.forEach(function (t) {
+            var w = faqTokenWeight(t, docFreq);
+            if (headerTokens.indexOf(t) !== -1) score += 2 * w;
+            else if (bodyTokens.indexOf(t) !== -1) score += w;
+          });
           if (score > bestScore) {
             bestScore = score;
             best = { question: item.q, answer: item.a };
@@ -537,7 +593,8 @@
       });
     });
 
-    return (best && bestScore >= 2) ? best : null;
+    var ratio = maxPossible > 0 ? bestScore / maxPossible : 0;
+    return (best && ratio >= 0.62) ? best : null;
   }
 
   // ── 3b) Nhận diện ý định cho câu hỏi ngắn/chung chung ──

@@ -140,7 +140,7 @@
               </div>
               <div>
                 <div style="font-family:var(--font-head);font-weight:700;color:var(--white);margin-bottom:4px">Địa chỉ</div>
-                <div style="color:var(--gray-1);font-size:0.9375rem;line-height:1.7"><strong style="color:var(--ivory-dim)">Văn phòng:</strong> 131C Lâm Văn Bền, P. Tân Thuận Tây, Q.7, TP. Hồ Chí Minh<br><strong style="color:var(--ivory-dim)">Xưởng sản xuất:</strong> 300/34/64 Nguyễn Văn Linh, P. Bình Thuận, Q.7, TP. Hồ Chí Minh</div>
+                <div style="color:var(--gray-1);font-size:0.9375rem;line-height:1.7"><strong style="color:var(--ivory-dim)">Văn phòng:</strong> 131C Lâm Văn Bền, P. Tân Thuận Tây, Q.7, TP. Hồ Chí Minh<br><strong style="color:var(--ivory-dim)">Xưởng sản xuất:</strong> 300/34/64 Nguyễn Văn Linh, P. Bình Thuận, Q.7, TP. Hồ Chí Minh<br><span style="font-size:0.8125rem">MST: 0304493237</span></div>
               </div>
             </div>
 
@@ -151,16 +151,6 @@
               <div>
                 <div style="font-family:var(--font-head);font-weight:700;color:var(--white);margin-bottom:4px">Điện thoại</div>
                 <div style="color:var(--gray-1);font-size:0.9375rem;line-height:1.7">Văn phòng: <a href="tel:0903851252" style="color:var(--gold)">0903 851 252</a><br>Kinh doanh: <a href="tel:0932779386" style="color:var(--gold)">0932 779 386</a></div>
-              </div>
-            </div>
-
-            <div style="display:flex;gap:16px;align-items:flex-start">
-              <div style="width:44px;height:44px;background:rgba(200,169,110,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold)">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </div>
-              <div>
-                <div style="font-family:var(--font-head);font-weight:700;color:var(--white);margin-bottom:4px">Email</div>
-                <div style="color:var(--gray-1);font-size:0.9375rem"><a href="mailto:info@ammy.com.vn" style="color:var(--gold)">info@ammy.com.vn</a><br><span style="font-size:0.8125rem">MST: 0304493237</span></div>
               </div>
             </div>
 
@@ -220,9 +210,6 @@
               <button class="btn btn--gold" type="button" onclick="handleContactZalo(event)" style="flex:1;min-width:200px;justify-content:center">
                 Gửi qua Zalo
               </button>
-              <button class="btn btn--outline" type="button" onclick="handleContactEmail(event)" style="flex:1;min-width:200px;justify-content:center">
-                Gửi qua Email
-              </button>
             </div>
             <p style="color:var(--gray-1);font-size:0.8125rem;margin-top:10px">Chủ đề "Bảo hành / Sửa chữa" sẽ gửi tới Zalo bộ phận Bảo hành; các chủ đề khác gửi tới Zalo Kinh doanh. Gửi qua Zalo sẽ tự sao chép nội dung — bạn dán (Ctrl+V) và bấm Gửi trong khung chat Zalo vừa mở.</p>
 
@@ -264,7 +251,6 @@
     };
     var ZALO_WARRANTY = '0903851252';
     var ZALO_SALES = '0932779386';
-    var COMPANY_EMAIL = 'info@ammy.com.vn';
 
     function readContactForm() {
       var form = document.getElementById('contact-form');
@@ -326,18 +312,6 @@
       );
     }
 
-    function handleContactEmail(e) {
-      e.preventDefault();
-      var data = readContactForm();
-      if (!data) return;
-      var subjectLine = 'Liên hệ website KORAH — ' + data.subjectLabel;
-      var body = buildContactMessage(data);
-      var mailto = 'mailto:' + COMPANY_EMAIL +
-        '?subject=' + encodeURIComponent(subjectLine) +
-        '&body=' + encodeURIComponent(body);
-      window.location.href = mailto;
-      showContactNotice('Đã mở ứng dụng email tới ' + COMPANY_EMAIL + ' với nội dung điền sẵn — vui lòng bấm Gửi trong ứng dụng email của bạn.');
-    }
   </script>
 </body>
 </html>

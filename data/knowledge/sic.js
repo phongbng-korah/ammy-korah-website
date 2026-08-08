@@ -22,7 +22,7 @@
     items: [
       {
         q: "Silicon Carbide (SiC) là gì?",
-        a: "SiC là hợp chất bán dẫn giữa Silicon (Si) và Carbon (C), thuộc nhóm Wide Bandgap Semiconductor (bán dẫn dải cấm rộng). So với Silicon truyền thống, SiC chịu được điện áp, nhiệt độ và tần số chuyển mạch cao hơn. Cấu trúc tinh thể phổ biến nhất là 4H-SiC. KORAH sử dụng SiC MOSFET EliteSiC™ của Onsemi (Hoa Kỳ) trên K19PRO, K20S, K20PLUS."
+        a: "SiC viết tắt của Silicon Carbide là hợp chất bán dẫn giữa Silicon (Si) và Carbon (C), thuộc nhóm Wide Bandgap Semiconductor (bán dẫn dải cấm rộng). So với Silicon truyền thống, SiC chịu được điện áp, nhiệt độ và tần số chuyển mạch cao hơn. KORAH sử dụng SiC MOSFET EliteSiC™ của Onsemi (Hoa Kỳ) trên K19PRO, K20S, K20PLUS."
       },
       {
         q: "SiC khác Silicon (Si) truyền thống thế nào?",

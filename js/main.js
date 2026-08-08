@@ -524,7 +524,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!footer || footer.querySelector('.footer-contact-line')) return;
   const div = document.createElement('div');
   div.className = 'footer-contact-line';
-  div.innerHTML = `VP: 131C Lâm Văn Bền, P. Tân Thuận Tây, Q.7, TP.HCM · Xưởng: 300/34/64 Nguyễn Văn Linh, Q.7 · ĐT: <a href="tel:0903851252">0903 851 252</a> / <a href="tel:0932779386">0932 779 386</a> · <a href="mailto:info@ammy.com.vn">info@ammy.com.vn</a> · MST: 0304493237`;
+  div.innerHTML = `VP: 131C Lâm Văn Bền, P. Tân Thuận Tây, Q.7, TP.HCM · Xưởng: 300/34/64 Nguyễn Văn Linh, Q.7 · ĐT: <a href="tel:0903851252">0903 851 252</a> / <a href="tel:0932779386">0932 779 386</a> · MST: 0304493237`;
   footer.appendChild(div);
 })();
 

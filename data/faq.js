@@ -50,7 +50,7 @@ const FAQ_DATA = [
       },
       {
         q: "KORAH khuyến cáo dùng loa trở kháng bao nhiêu?",
-        a: "KORAH khuyến cáo dùng loa 8Ω hoặc 4Ω — đây là 2 mức tải mà toàn bộ model K-Series (K16S, K16PRO, K19S, K19PRO, K20S, K20PLUS) đều công bố công suất chính thức và vận hành ổn định lâu dài. KHÔNG khuyến cáo đấu tải xuống 2Ω (kể cả khi đấu song song nhiều loa 8Ω hoặc 4Ω) — tải 2Ω làm dòng điện tăng rất cao, dễ gây quá nhiệt, kích hoạt bảo vệ (Protect/Limit) liên tục và giảm tuổi thọ linh kiện về lâu dài."
+        a: "KORAH công bố nên dùng loa trở kháng 8Ω hoặc 4Ω để đạt hiệu suất tối đa của thiết bị. Không khuyến cáo dùng 2Ω."
       },
       {
         q: "Vì sao không nên đấu loa xuống tải 2Ω?",

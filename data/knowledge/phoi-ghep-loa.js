@@ -29,10 +29,6 @@
     category: "Ghép loa — Nguyên tắc & công thức",
     items: [
       {
-        q: "KORAH khuyến cáo dùng loa trở kháng bao nhiêu?",
-        a: "8Ω hoặc 4Ω. KHÔNG khuyến cáo đấu tải xuống 2Ω, kể cả khi đấu song song nhiều loa 8Ω/4Ω — tải 2Ω làm dòng điện tăng rất cao, dễ kích hoạt bảo vệ Protect/Limit liên tục và ảnh hưởng tuổi thọ linh kiện về lâu dài."
-      },
-      {
         q: "Công thức chọn công suất loa phù hợp với amplifier KORAH?",
         a: "Dùng quy tắc Headroom theo thực tế thị trường Việt Nam: công suất amplifier nên LỚN HƠN công suất RMS loa TỐI THIỂU 50% (không giới hạn trần — dư càng nhiều càng an toàn khi chạy liên tục nhiều giờ, phù hợp điều kiện lưới điện VN). Ví dụ loa full-range RMS 1000W @8Ω cần amplifier từ 1500W/kênh trở lên → phù hợp K19PRO (1650W/kênh) hoặc K20PLUS (1900W/kênh)."
       },

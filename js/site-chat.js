@@ -475,6 +475,16 @@
     }
 
     if (ohm && !rms) {
+      // LỖI ĐÃ XÁC NHẬN (golden set 183 câu): câu hỏi mang tính giải thích/
+      // hỏi ý kiến — "Vì sao không nên đấu loa xuống tải 2Ω?", "Có nên đấu
+      // 3 loa 8Ω song song?", "KORAH có đánh được loa 16Ω không?"... — vô
+      // tình có nhắc 1 số kèm Ω nhưng KHÔNG phải khách đang cung cấp thông
+      // số để tính toán. Những câu này đã có sẵn câu trả lời đúng trong
+      // FAQ/kiến thức — không được chặn lại đòi RMS, phải để rơi xuống
+      // matchIntent()/searchFaq() bên dưới xử lý đúng.
+      if (/\b(vi sao|tai sao|co nen|khong\?|khong\s*$)/.test(norm(rawQuery))) {
+        return null;
+      }
       pendingSpeakerContext = { rms: null, ohm: ohm, type: type };
       return {
         html: escapeHtml('Mình cần biết thêm công suất RMS của loa để tính chính xác. Vui lòng cho biết công suất (VD: 800W).')
